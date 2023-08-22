@@ -52,12 +52,16 @@ img {
 .navbar-custom .nav-item:focus .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
   transition: all ease-in 0.1s;
-  color: rgb(255, 164, 53);
-  letter-spacing: 3px;
+  color: rgb(129, 255, 249);
+  letter-spacing: 2px;
 }
 
 .navbar-nav.navbar-center {
   margin: auto;
+}
+
+.navbar li{
+  margin: 0 10px;
 }
 
 .loginbutton button {
@@ -93,11 +97,12 @@ img {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.488);
+  background: rgba(90, 90, 90, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: glow 1.5s ease-in-out infinite alternate;
 }
 .floating {
   animation-name: floating;
@@ -116,4 +121,55 @@ img {
   to {
     transform: translate(0, -0px);
   }
+}
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgb(218, 218, 251), 0 0 25px #0a47a277,
+      0 0 50px rgb(210, 210, 247), 0 0 200px rgb(217, 217, 248);
+  }
+  to {
+    box-shadow: 0 0 10px #ff000000, 0 0 20px #ff000000, 0 0 40px #ff000000,
+      0 0 80px #ff000000;
+  }
+}
+
+.homeinfo h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, #0a47a2d0, #d43f8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 3px 3px rgba(61, 61, 61, 0.396);
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.288) 0px 4px 12px;
+  position: relative;
+}
+
+.homeinfo h2::before {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  color: rgba(255,255,255,.05);
+  text-shadow: none;
+  left: 2px;
+  top: 2px;
+}
+.homeinfo p{
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, #0a47a2d0, #d43f8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 3px 3px rgba(61, 61, 61, 0.396);
+  padding: 4px;
+  letter-spacing: 1px;
+}
+img {
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.24));
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 30px 40px rgba(55, 0, 113, 0.453));
 }

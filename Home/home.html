@@ -77,10 +77,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav navbar-center mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-building-columns fa-fade"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-address-card fa-fade"></i> About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-satellite-dish fa-flip"></i> Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-code-branch fa-fade"></i> Branches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-handshake fa-bounce"></i> Loans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-percent fa-beat"></i> Interests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-earth-americas fa-beat-fade"></i> Online Banking</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -92,13 +107,15 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Dropdown
+            <i class="fa-solid fa-coins fa-bounce"></i> VAJRA
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Contact us</a>
+              <a class="dropdown-item" href="#">Rates</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Career</a>
+              <a class="dropdown-item" href="#">News Room</a>
+              <a class="dropdown-item" href="#">Investor relations</a>
             </div>
           </li>
         </ul>
@@ -118,9 +135,9 @@
           class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
           style="background-color: lavender"
         >
-          <div class="text-center">
+          <div class="homeinfo text-center">
             <!-- Add this class to center the content -->
-            <h2>Welcome Vajra Bank & Finance</h2>
+            <h2>Welcome Vajra <span id="element"></span></h2>
             <img
               src="./bank.png"
               alt="Bank Image"
@@ -355,5 +372,12 @@
     <script>
       AOS.init();
     </script>
+    <script>
+      var typed = new Typed('#element', {
+        strings: ['Bank', 'Finance', 'Loans', 'Insurances', 'Lower Interests', 'Faster Processing'],
+        typeSpeed: 50,
+        loop: true,
+      });
+  </script>
   </body>
 </html>
