@@ -192,37 +192,51 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-content">
-            <form class="login">
-              <h2>Welcome to Vajra!</h2>
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-phone"></i></span>
-                <input
-                  type="number"
-                  name="phone"
-                  placeholder="Registred Phone"
-                  required
-                />
+            <div class="container ">
+                  <div class="glass-card p-4 m-2 flex-fill loginmodal" data-aos="flip-down">
+                    <h2>Welcome to Vajra <i class="fa-solid fa-sack-dollar"></i
+                      ></h2>
+                    <form>
+                      <div class="form-group">
+                        <br>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="fa fa-phone"></i
+                            ></span>
+                          </div>
+                          <input
+                            type="tel"
+                            class="form-control"
+                            id="phone"
+                            placeholder="Enter phone number"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <br>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="fa fa-lock"></i
+                            ></span>
+                          </div>
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            placeholder="Password"
+                          />
+                        </div>
+                      </div>
+                      <p>Newbie? <a data-toggle="modal" data-target=".signupmodal">SignUp here</a></p>
+                      <div class="text-center loginbutton logbutton">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;Login</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div class="newuser">
-                new user?
-                <a data-toggle="modal" data-target=".signupmodal"
-                  >Signup here</a
-                >
-              </div>
-              <div class="loginbutton insidelogin">
-                <button>Login</button>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>

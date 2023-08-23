@@ -4,8 +4,8 @@
   backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  max-width: 800px;
-  margin-top: 70px;
+  max-width: 1200px;
+  margin-top: 200px;
 }
 body {
   font-family: "Poppins", sans-serif;
