@@ -1,17 +1,61 @@
 .glass-card-payment {
   background: rgba(90, 90, 90, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.685);
+  backdrop-filter: blur(20px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  max-width: 1200px;
+  max-width: 800px;
   margin-top: 200px;
+  color: aliceblue;
+  letter-spacing: 1px;
+  text-align: left;
 }
-body {
-  font-family: "Poppins", sans-serif;
-}
+
 .paymentbtn button {
   padding: 8px 18px !important;
   background-size: 400% 400%;
   transition: all 0.4s ease-in-out;
+}
+.right-panel {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.paymentmodule{
+  background-image: url(./paymentbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  border-radius: 11px;
+}
+.paymentcards{
+  background-image: url(./paycard.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
+  border-radius: 11px;
+  max-height: fit-content;
+}
+.pay-glass-card{
+  background: rgba(255, 250, 250, 0.218);
+  box-shadow: 0 8px 32px 0 rgba(0, 6, 84, 0.633);
+  backdrop-filter: blur(22px);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+.pay-glass-card:hover{
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  transform: scale(1.06);
+  background: rgba(255, 250, 250, 0.718);
+  border: 2px solid rgba(15, 0, 31, 0.575);
+  border-radius: 14px;
+}
+
+.paycard{
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.paycard span{
+  color: rgb(224, 0, 0);
 }

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      
-   
-    </style>
     <!-- Add the Bootstrap CSS file -->
-    <link rel="stylesheet" href="payment.css" >
-    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="payment.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -23,129 +19,351 @@
       rel="stylesheet"
     />
     <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-  crossorigin="anonymous"
-/>
-
-
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/1deaab12ff.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-      <div
-        class="glass-card-payment mt-5 p-4 m-2 flex-fill mx-auto"
-        data-aos="flip-down"
-      >
-        <h3>Bank Transfer Form</h3>
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-5">
-              <label for="senderAccountNumber">Sender's Account Number:</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
+    <div class="container-fluid full-height">
+      <div class="row h-100">
+        <div
+          class="col-lg-9 col-sm-12 d-flex align-items-center justify-content-center paymentmodule"
+        >
+          <div class="container">
+            <div
+              class="glass-card-payment mt-5 p-4 m-2 flex-fill mx-auto"
+              data-aos="flip-down"
+            >
+              <h3>Bank Transfer Form</h3>
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="senderAccountNumber"
+                      >Sender's Account Number</label
+                    >
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-user"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="senderAccountNumber"
+                        name="senderAccountNumber"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-2 text-center my-auto">
+                    <i class="fas fa-exchange-alt fa-2x"></i>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="receiverAccountNumber"
+                      >Receiver's Account Number</label
+                    >
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-user"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="receiverAccountNumber"
+                        name="receiverAccountNumber"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="senderAccountNumber"
-                  name="senderAccountNumber"
-                />
-              </div>
-            </div>
-            <div class="col-md-2 text-center my-auto">
-              <i class="fas fa-exchange-alt fa-2x"></i>
-            </div>
-            <div class="form-group col-md-5">
-              <label for="receiverAccountNumber"
-                >Receiver's Account Number:</label
-              >
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
+                <div class="form-group">
+                  <label for="receiverIFSC">Receiver's IFSC Code</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="fas fa-university"></i
+                      ></span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="receiverIFSC"
+                      name="receiverIFSC"
+                    />
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="receiverAccountNumber"
-                  name="receiverAccountNumber"
-                />
-              </div>
+                <div class="form-group">
+                  <label for="receiverName">Receiver's Name</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="fas fa-user"></i
+                      ></span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="receiverName"
+                      name="receiverName"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="transferAmount">Transfer Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="fas fa-dollar-sign"></i
+                      ></span>
+                    </div>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="transferAmount"
+                      name="transferAmount"
+                    />
+                  </div>
+                </div>
+                <div class="text-center loginbutton paymentbtn">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-paper-plane"></i>&nbsp;Transfer
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="form-group">
-            <label for="receiverIFSC">Receiver's IFSC Code:</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fas fa-university"></i
-                ></span>
+        </div>
+        <div
+          class="col-lg-3 col-sm-12 d-flex align-items-center justify-content-center flex-wrap p-4 right-panel paymentcards"
+        >
+          <div class="pay-glass-card p-4 m-2 flex-fill" data-aos="flip-down">
+            <h5 class="card-title">
+              <i class="fas fa-balance-scale"></i> Check Balance
+            </h5>
+            <p class="card-text">Your current balance is: &#8377; XXXX.XX</p>
+          </div>
+
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: -700</span>
               </div>
-              <input
-                type="text"
-                class="form-control"
-                id="receiverIFSC"
-                name="receiverIFSC"
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
               />
             </div>
           </div>
-          <div class="form-group">
-            <label for="receiverName">Receiver's Name:</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fas fa-user"></i
-                ></span>
+          <!-- one card -->
+
+          <!-- populated cards -->
+
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +500</span>
               </div>
-              <input
-                type="text"
-                class="form-control"
-                id="receiverName"
-                name="receiverName"
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
               />
             </div>
           </div>
-          <div class="form-group">
-            <label for="transferAmount">Transfer Amount:</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fas fa-dollar-sign"></i
-                ></span>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +500</span>
               </div>
-              <input
-                type="number"
-                class="form-control"
-                id="transferAmount"
-                name="transferAmount"
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
               />
             </div>
           </div>
-          <div class="text-center loginbutton paymentbtn">
-            <button type="submit" class="btn btn-primary">
-              <i class="fa fa-paper-plane"></i>&nbsp;Transfer
-            </button>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: -5000</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
           </div>
-        </form>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: -50</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +5000</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +2489</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +500</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +500</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: -5000</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: -50</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +5000</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+          <div class="pay-glass-card p-3 m-2 flex-fill" data-aos="flip-down">
+            <div
+              class="d-flex justify-content-between align-items-center paycard"
+            >
+              <div>
+                <i class="fa-solid fa-arrow-right-arrow-left fa-fade"></i>&nbsp;
+                <span>Transaction: +2489</span>
+              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                alt="Visa logo"
+                style="width: 50px"
+              />
+            </div>
+          </div>
+
+          <!-- populated cards ends -->
+
+          <!-- Add more cards as needed -->
+        </div>
       </div>
-    </div>
-    </div>
     </div>
 
     <!-- Add the Bootstrap JavaScript file -->
     <script src="<EUGPSCoordinates>maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-      <!-- Add the Bootstrap JavaScript file -->
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-crossorigin="anonymous"
-></script>
+    <!-- Add the Bootstrap JavaScript file -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
