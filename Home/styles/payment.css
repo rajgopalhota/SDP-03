@@ -22,14 +22,14 @@
 }
 
 .paymentmodule{
-  background-image: url(./paymentbg.jpg);
+  background-image: url(./../images/paymentbg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px;
   border-radius: 11px;
 }
 .paymentcards{
-  background-image: url(./paycard.jpg);
+  background-image: url(./../images/paycard.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
