@@ -8,6 +8,9 @@
   margin: 0;
   padding: 0;
 }
+.mainhead{
+  display: inline-block;
+}
 html,
 body {
   justify-content: center;
