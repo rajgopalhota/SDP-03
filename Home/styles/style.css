@@ -10,6 +10,12 @@
 }
 .mainhead{
   display: inline-block;
+  background-image: linear-gradient(
+    45deg,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
 }
 html,
 body {
@@ -18,17 +24,7 @@ body {
   height: 100%;
   font-family: "Poppins", sans-serif;
 }
-body {
-  background-image: linear-gradient(
-    to top,
-    #dad4ec 0%,
-    #dad4ec 1%,
-    #f3e7e9 100%
-  );
-  background-size: cover;
-  background-position: center center fixed;
-  background-repeat: no-repeat;
-}
+
 .full-height {
   height: 100vh; /* vh stands for viewport height */
 }
