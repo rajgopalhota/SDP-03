@@ -164,11 +164,8 @@ img {
   letter-spacing: 1px;
 }
 img {
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.24));
   transition: all 0.3s ease;
+  filter: drop-shadow(0 30px 40px rgba(10, 0, 21, 0.432));
+  border-radius: 12px;
 }
 
-img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 30px 40px rgba(55, 0, 113, 0.453));
-}
