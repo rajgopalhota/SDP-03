@@ -11,7 +11,7 @@ export default function Home() {
           className="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
           style={{ backgroundColor: "lavender" }}
         >
-          <div className="homeinfo text-center">
+          <div className="homeinfo text-center" data-aos="zoom-in" data-aos-duration="300">
             <h2>Welcome Vajra <TextAni /></h2>
             <img
               src={BankImg}
@@ -21,12 +21,12 @@ export default function Home() {
             <p>
               Our bank is committed to providing you with the best banking
               services. We have branches in over 100 cities across India and
-              have been awarded "Best Bank for Customer Service" in 2023.
+              have been awarded "Best Bank htmlFor Customer Service" in 2023.
             </p>
           </div>
         </div>
         <div
-          className="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center flex-wrap p-4"
+          className="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center flex-wrap p-4 homeright"
           style={{ backgroundColor: "lavenderblush" }}
         >
           <div className="glass-card p-4 m-2 flex-fill" data-aos="flip-down">

@@ -4,7 +4,7 @@ export default function Loans() {
   return (
     <>
        <section className="loansection">
-      <div className="loan-container">
+      <div className="loan-container" data-aos="zoom-in" data-aos-duration="500">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-8">
@@ -13,7 +13,7 @@ export default function Loans() {
                 <form>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="accountNumber">Bank Account Number</label>
+                      <label htmlFor="accountNumber">Bank Account Number</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -29,7 +29,7 @@ export default function Loans() {
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="holderName">Bank Holder's Name</label>
+                      <label htmlFor="holderName">Bank Holder's Name</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -47,7 +47,7 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="mobileNumber">Mobile Number</label>
+                      <label htmlFor="mobileNumber">Mobile Number</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -63,7 +63,7 @@ export default function Loans() {
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="dob">Date of Birth</label>
+                      <label htmlFor="dob">Date of Birth</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -75,7 +75,7 @@ export default function Loans() {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label for="typepfloans">Loan Type</label>
+                    <label htmlFor="typepfloans">Loan Type</label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text"
@@ -92,7 +92,7 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="fileInput1" className="filein"
+                      <label htmlFor="fileInput1" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Aadhar Card</label
                       >
                       <input
@@ -102,7 +102,7 @@ export default function Loans() {
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="fileInput2" className="filein"
+                      <label htmlFor="fileInput2" className="filein"
                         ><i className="fas fa-file-alt"></i>&nbsp; Valid Proof to
                         Loan</label
                       >
@@ -114,7 +114,7 @@ export default function Loans() {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label for="installments">Installments</label>
+                    <label htmlFor="installments">Installments</label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text"
@@ -131,7 +131,7 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="nominee1Name">Nominee 1 Name</label>
+                      <label htmlFor="nominee1Name">Nominee 1 Name</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -147,7 +147,7 @@ export default function Loans() {
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="nominee1MobileNumber">Nominee 1 Phone</label>
+                      <label htmlFor="nominee1MobileNumber">Nominee 1 Phone</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -165,7 +165,7 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="fileInput1" className="filein"
+                      <label htmlFor="fileInput1" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Aadhar card</label
                       >
                       <input
@@ -175,7 +175,7 @@ export default function Loans() {
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="fileInput2" className="filein"
+                      <label htmlFor="fileInput2" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Pan Card</label
                       >
                       <input
@@ -188,7 +188,7 @@ export default function Loans() {
 
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="nominee1Name">Nominee 2 Name</label>
+                      <label htmlFor="nominee1Name">Nominee 2 Name</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -204,7 +204,7 @@ export default function Loans() {
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="nominee1MobileNumber">Nominee 2 Phone</label>
+                      <label htmlFor="nominee1MobileNumber">Nominee 2 Phone</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -222,7 +222,7 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="fileInput1" className="filein"
+                      <label htmlFor="fileInput1" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Aadhar card</label
                       >
                       <input
@@ -232,7 +232,7 @@ export default function Loans() {
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label for="fileInput2" className="filein"
+                      <label htmlFor="fileInput2" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Pan Card</label
                       >
                       <input

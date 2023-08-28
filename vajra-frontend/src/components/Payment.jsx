@@ -8,7 +8,8 @@ export default function Payment() {
         <div
           className="col-lg-9 col-sm-12 d-flex align-items-center justify-content-center paymentmodule"
         >
-          <div className="container">
+          <div className="container" data-aos="zoom-in-down"
+     data-aos-duration="500">
             <div
               className="glass-card-payment mt-5 p-4 m-2 flex-fill mx-auto"
               
@@ -17,7 +18,7 @@ export default function Payment() {
               <form>
                 <div className="form-row">
                   <div className="form-group col-md-5">
-                    <label for="senderAccountNumber"
+                    <label htmlFor="senderAccountNumber"
                       >Sender's Account Number</label
                     >
                     <div className="input-group">
@@ -38,7 +39,7 @@ export default function Payment() {
                     <i className="fas fa-exchange-alt fa-2x"></i>
                   </div>
                   <div className="form-group col-md-5">
-                    <label for="receiverAccountNumber"
+                    <label htmlFor="receiverAccountNumber"
                       >Receiver's Account Number</label
                     >
                     <div className="input-group">
@@ -57,7 +58,7 @@ export default function Payment() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="receiverIFSC">Receiver's IFSC Code</label>
+                  <label htmlFor="receiverIFSC">Receiver's IFSC Code</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text"
@@ -73,7 +74,7 @@ export default function Payment() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="receiverName">Receiver's Name</label>
+                  <label htmlFor="receiverName">Receiver's Name</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text"
@@ -89,7 +90,7 @@ export default function Payment() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="transferAmount">Transfer Amount</label>
+                  <label htmlFor="transferAmount">Transfer Amount</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text"
@@ -114,12 +115,12 @@ export default function Payment() {
           </div>
         </div>
         <div className="col-lg-3 col-sm-12 flex-wrap p-4 right-panel paymentcards">
-          <div className="pay-glass-card p-4 m-2 flex-fill" >
+          <div className="pay-glass-card p-4 m-2 flex-fill" data-aos="zoom-in-up">
             <h5 className="card-title">
               <i className="fa-solid fa-user-lock"></i> RAJGOPAL
             </h5>
             <div className="loginbutton">
-              <button data-toggle="modal" data-target=".loginmodal">
+              <button data-toggle="modal">
                 <i className="fa-solid fa-wallet fa-flip"></i> Get Balance
               </button>
             </div>

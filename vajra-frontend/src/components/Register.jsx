@@ -5,7 +5,7 @@ export default function Register() {
     <>
       <div
         className="modal fade signupmodal"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
@@ -94,9 +94,9 @@ export default function Register() {
                         </div>
                         <div className="input_field radio_option">
                           <input type="radio" name="radiogroup1" id="rd1" />
-                          <label for="rd1">Male</label>
+                          <label htmlFor="rd1">Male</label>
                           <input type="radio" name="radiogroup1" id="rd2" />
-                          <label for="rd2">Female</label>
+                          <label htmlFor="rd2">Female</label>
                         </div>
                         <div className="input_field select_option">
                           <select>
@@ -108,13 +108,13 @@ export default function Register() {
                         </div>
                         <div className="input_field checkbox_option">
                           <input type="checkbox" id="cb1" />
-                          <label for="cb1">
+                          <label htmlFor="cb1">
                             I agree with terms and conditions
                           </label>
                         </div>
                         <div className="input_field checkbox_option">
                           <input type="checkbox" id="cb2" />
-                          <label for="cb2">
+                          <label htmlFor="cb2">
                             I want to receive the newsletter
                           </label>
                         </div>

@@ -24,7 +24,7 @@ export default function Navbar() {
             alt=""
             src="https://centralbank.net.in/assets/images/New-icon.gif"
           />
-          Awarded "Best Bank for Customer Service" in 2022
+          Awarded "Best Bank htmlFor Customer Service" in 2022
           &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; ⛈️Over 10 million satisfied
           customers&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; ⛈️"The only way to do
           great work is to love what you do." - Steve Jobs

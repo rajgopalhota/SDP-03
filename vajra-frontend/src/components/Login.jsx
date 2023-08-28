@@ -5,7 +5,7 @@ export default function Login() {
     <>
       <div
         className="modal fade loginmodal"
-        tabindex="-5"
+        tabIndex="-5"
         role="dialog"
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
