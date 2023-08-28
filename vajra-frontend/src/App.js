@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import AOS from "aos";
 import { useEffect } from 'react';
 import "aos/dist/aos.css";
+import Footer from './components/Footer';
 
 
 function App() {
@@ -18,11 +19,14 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/payments' element={<Payment />} />
-        <Route path='/loans' element={<Loans />} />
-      </Routes>
+      <section className="mainbodysection">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/payments' element={<Payment />} />
+          <Route path='/loans' element={<Loans />} />
+        </Routes>
+      </section>
+      <Footer />
     </div>
   );
 }

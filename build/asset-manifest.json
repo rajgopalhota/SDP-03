@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.70a527c8.css",
-    "main.js": "/static/js/main.b8d047be.js",
+    "main.css": "/static/css/main.4ce26997.css",
+    "main.js": "/static/js/main.7c7c46d9.js",
     "static/media/paymentbg.jpg": "/static/media/paymentbg.30c1ada59f6f2a5b5fbf.jpg",
     "static/media/bankhome.gif": "/static/media/bankhome.8313b5f99c8c3d682b92.gif",
     "static/media/paycard.jpg": "/static/media/paycard.a26bb807d14eb2ed8aa9.jpg",
     "static/media/loanbg.jpg": "/static/media/loanbg.0256970a4a57bcc73bdd.jpg",
     "index.html": "/index.html",
-    "main.70a527c8.css.map": "/static/css/main.70a527c8.css.map",
-    "main.b8d047be.js.map": "/static/js/main.b8d047be.js.map"
+    "main.4ce26997.css.map": "/static/css/main.4ce26997.css.map",
+    "main.7c7c46d9.js.map": "/static/js/main.7c7c46d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.70a527c8.css",
-    "static/js/main.b8d047be.js"
+    "static/css/main.4ce26997.css",
+    "static/js/main.7c7c46d9.js"
   ]
 }

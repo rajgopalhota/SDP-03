@@ -201,3 +201,6 @@ img {
 .right-panel::-webkit-scrollbar{
   display: none;
 }
+.mainbodysection{
+  min-height: 100dvh;
+}
