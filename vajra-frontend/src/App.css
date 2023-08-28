@@ -1,0 +1,483 @@
+.loginmodal{
+  color: white;
+  border: 2px solid whitesmoke;
+}
+.loginmodal h2{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.loginmodal a{
+  color: white;
+  text-decoration: none;
+}
+.loginmodal a:hover{
+  transition: all ease-in 0.08s;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+/* Signup */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+
+.form_wrapper {
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  /* margin: 8% auto 0; */
+  position: relative;
+  z-index: 1;
+  border-top: 5px solid rgb(242, 187, 58);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: none;
+  transition: none;
+  -webkit-animation: expand 0.8s 0.6s ease-out forwards;
+  animation: expand 0.8s 0.6s ease-out forwards;
+  opacity: 0;
+}
+.form_wrapper h2 {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+}
+.form_wrapper .title_container {
+  text-align: center;
+  padding-bottom: 15px;
+}
+.form_wrapper h3 {
+  font-size: 1.1em;
+  font-weight: normal;
+  line-height: 1.5em;
+  margin: 0;
+}
+.form_wrapper label {
+  font-size: 12px;
+}
+.form_wrapper .row {
+  margin: 10px -15px;
+}
+.form_wrapper .row > div {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.form_wrapper .col_half {
+  width: 50%;
+  float: left;
+}
+.form_wrapper .input_field {
+  position: relative;
+  margin-bottom: 20px;
+  -webkit-animation: bounce 0.6s ease-out;
+  animation: bounce 0s ease-out;
+}
+.form_wrapper input {
+  border-radius: 8px;
+}
+.form_wrapper .input_field > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+  height: 100%;
+  border-right: 1px solid #cccccc;
+  text-align: center;
+  width: 30px;
+}
+.form_wrapper .input_field > span > i {
+  padding-top: 10px;
+}
+.form_wrapper .textarea_field > span > i {
+  padding-top: 10px;
+}
+.form_wrapper input[type="text"],
+.form_wrapper input[type="email"],
+.form_wrapper input[type="number"],
+.form_wrapper input[type="password"] {
+  width: 100%;
+  padding: 8px 10px 9px 35px;
+  height: 35px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.form_wrapper input[type="text"]:hover,
+.form_wrapper input[type="email"]:hover,
+.form_wrapper input[type="password"]:hover {
+  background: #fafafa;
+}
+.form_wrapper input[type="text"]:focus,
+.form_wrapper input[type="email"]:focus,
+.form_wrapper input[type="password"]:focus {
+  -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
+  -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
+  box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
+  border: 1px solid #f5ba1a;
+  background: #dff6ff;
+}
+.form_wrapper input[type="submit"] {
+  background: #f5ba1a;
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.form_wrapper input[type="submit"]:hover {
+  background: #e1a70a;
+}
+.form_wrapper input[type="submit"]:focus {
+  background: #e1a70a;
+}
+.form_container .row .col_half.last {
+  border-left: 1px solid #cccccc;
+}
+
+.checkbox_option label {
+  margin-right: 1em;
+  position: relative;
+}
+.select_option {
+  position: relative;
+  width: 100%;
+}
+.select_option select {
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  padding: 0px 15px;
+  cursor: pointer;
+  color: #7b7b7b;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.2s ease;
+}
+.select_option select::-ms-expand {
+  display: none;
+}
+.select_option select:hover,
+.select_option select:focus {
+  color: #000000;
+  background: #fafafa;
+  border-color: #000000;
+  outline: none;
+}
+
+.select_arrow {
+  position: absolute;
+  top: calc(50% - 4px);
+  right: 15px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-width: 8px 5px 0 5px;
+  border-style: solid;
+  border-color: #7b7b7b transparent transparent transparent;
+}
+
+.select_option select:hover + .select_arrow,
+.select_option select:focus + .select_arrow {
+  border-top-color: #000000;
+}
+
+.credit {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 15px;
+  color: #f5ba1a;
+}
+.credit a {
+  color: #e1a70a;
+}
+
+@-webkit-keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  25% {
+    height: 0;
+    width: 7px;
+  }
+  50% {
+    height: 20px;
+    width: 7px;
+  }
+}
+@keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  25% {
+    height: 0;
+    width: 7px;
+  }
+  50% {
+    height: 20px;
+    width: 7px;
+  }
+}
+@-webkit-keyframes expand {
+  0% {
+    -webkit-transform: scale3d(1, 0, 1);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: scale3d(1, 1.2, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 0.85, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+@keyframes expand {
+  0% {
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: scale3d(1, 1.2, 1);
+    transform: scale3d(1, 1.2, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 0.85, 1);
+    transform: scale3d(1, 0.85, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1, 1.05, 1);
+    transform: scale3d(1, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translate3d(0, -25px, 0);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: translate3d(0, 10px, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, -6px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, 2px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translate3d(0, -25px, 0);
+    transform: translate3d(0, -25px, 0);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, -6px, 0);
+    transform: translate3d(0, -6px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, 2px, 0);
+    transform: translate3d(0, 2px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) {
+  .form_wrapper .col_half {
+    width: 100%;
+    float: none;
+  }
+
+  .bottom_row .col_half {
+    width: 50%;
+    float: left;
+  }
+
+  .form_container .row .col_half.last {
+    border-left: none;
+  }
+
+  .remember_me {
+    padding-bottom: 20px;
+  }
+}
+/* payment */
+.glass-card-payment {
+  background: rgba(90, 90, 90, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.685);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 800px;
+  color: aliceblue;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.paymentbtn button {
+  padding: 8px 18px !important;
+  background-size: 400% 400%;
+  transition: all 0.4s ease-in-out;
+}
+.right-panel {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.paymentmodule{
+  background-image: url(./assets/images/paymentbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+  border-radius: 11px;
+}
+.paymentcards{
+  background-image: url(./assets/images/paycard.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
+  border-radius: 11px;
+  max-height: fit-content;
+}
+.pay-glass-card{
+  background: rgba(255, 250, 250, 0.218);
+  box-shadow: 0 8px 32px 0 rgba(0, 6, 84, 0.633);
+  backdrop-filter: blur(22px);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+.pay-glass-card:hover{
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  transform: scale(1.06);
+  background: rgba(255, 250, 250, 0.718);
+  border: 2px solid rgba(15, 0, 31, 0.575);
+  border-radius: 14px;
+}
+
+.paycard{
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.paycard span{
+  color: rgb(224, 0, 0);
+}
+
+@media screen and (max-width: 600px) {
+  .glass-card-payment{
+    min-width: 98%;
+  }
+}
+/* Loan */
+.loansection {
+  background-image: url(./assets/images/loanbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5%;
+}
+
+
+.loan-container .form-container {
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 2px solid white;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: white;
+  box-shadow: rgb(50, 50, 93) 0px 50px 100px -20px, rgb(0, 0, 0) 0px 30px 60px -30px;
+}
+
+.loansection h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.loansection form {
+  margin-top: 3%;
+}
+.loan-container .form-group label {
+  font-weight: bold;
+}
+.loan-container .form-control-file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.loan-container .filein {
+  transition: all ease-in 0.2s;
+  margin: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  border: 2px solid transparent;
+  background-image: linear-gradient(45deg, rgb(69, 48, 139), rgb(148, 9, 85));
+  /* margin-right: 150px; */
+}
+.loan-container .filein:hover {
+  transition: all ease-in 0.2s;
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 8px 17px;
+  background-image: linear-gradient(45deg, rgb(148, 9, 85), rgb(69, 48, 139));
+}
+
+.loan-container .loanbtn button {
+  padding: 10px 30px !important;
+  background-size: 400% 400%;
+  transition: all 0.4s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}

@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+:root {
+  --glow-color: hsl(240, 100%, 92%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.mainhead {
+  display: inline-block;
+  background-image: linear-gradient(
+    45deg,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+}
+html,
+body {
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.full-height {
+  height: 100vh; /* vh stands for viewport height */
+}
+
+img {
+  mix-blend-mode: multiply;
+}
+.navbar-custom {
+  background-image: linear-gradient(45deg, #0a47a2d0, #d43f8d);
+}
+.navbar {
+  box-shadow: rgba(29, 29, 53, 0.621) 0px 13px 27px -5px,
+    rgba(131, 3, 3, 0.566) 0px 8px 16px -8px;
+  border-radius: 6px;
+  /* margin-bottom: 1.5%; */
+}
+.navbar-custom .navbar-nav .nav-link {
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  transition: all ease-in 0.1s;
+  color: rgb(129, 255, 249);
+  letter-spacing: 2px;
+}
+
+.navbar-nav.navbar-center {
+  margin: auto;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.loginbutton button {
+  border-radius: 50px;
+  padding: 3px 12px;
+  background-image: linear-gradient(45deg, #00afe0, #e80013);
+  background-size: 400% 400%;
+  transition: all 0.4s ease-in-out;
+  color: white;
+  border: 2px solid white;
+}
+
+.loginbutton button:hover {
+  background-position: right center;
+  animation: gradientShift 1s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.glass-card {
+  background: rgba(90, 90, 90, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: multiply;
+}
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
+}
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgb(218, 218, 251), 0 0 25px #0a47a277,
+      0 0 50px rgb(210, 210, 247), 0 0 200px rgb(217, 217, 248);
+  }
+  to {
+    box-shadow: 0 0 10px #ff000000, 0 0 20px #ff000000, 0 0 40px #ff000000,
+      0 0 80px #ff000000;
+  }
+}
+
+.homeinfo h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, #0a47a2d0, #d43f8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 3px 3px rgba(61, 61, 61, 0.396);
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.288) 0px 4px 12px;
+  position: relative;
+}
+
+.homeinfo h2::before {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  color: rgba(255, 255, 255, 0.05);
+  text-shadow: none;
+  left: 2px;
+  top: 2px;
+}
+.homeinfo p {
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, #0a47a2d0, #d43f8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 3px 3px rgba(61, 61, 61, 0.396);
+  padding: 4px;
+  letter-spacing: 1px;
+}
+img {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 30px 40px rgba(10, 0, 21, 0.432));
+  border-radius: 12px;
+}
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 38s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
