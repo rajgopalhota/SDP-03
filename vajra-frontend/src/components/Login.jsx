@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import Captcha from "react-captcha-generator";
 
 export default function Login() {
+  const [captchaValue, setCaptchaValue] = useState("");
+  const [userCaptchaValue, setUserCaptchaValue] = useState("");
+  const [captchaRefresh, setCaptchaRefresh] = useState(false);
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+
+  const handleUserCaptchaChange = (event) => {
+    setUserCaptchaValue(event.target.value);
+  };
+
+  const handleCaptchaClick = () => {
+    // Toggle the captchaRefresh state to generate a new captcha
+    setCaptchaRefresh(!captchaRefresh);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (userCaptchaValue === captchaValue) {
+      // If the captcha is entered correctly, redirect to the home page
+      window.location.href = "/";
+    } else {
+      // If the captcha is not entered correctly, display an error message
+      alert("Incorrect captcha");
+    }
+  };
+
   return (
     <>
       <div
@@ -21,7 +50,7 @@ export default function Login() {
                   <h2>
                     Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
                   </h2>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="form-group">
                       <br />
                       <div className="input-group">
@@ -51,6 +80,28 @@ export default function Login() {
                           className="form-control"
                           id="password"
                           placeholder="Password"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-row">
+                      <div className="form-group col-md-5" onClick={handleCaptchaClick}>
+                        <Captcha
+                          key={captchaRefresh ? "refresh" : "normal"} // Force re-render on refresh
+                          result={handleCaptchaChange}
+                          textColor="white"
+                          
+                        />
+                      </div>
+                      <div
+                        className="form-group col-md-5"
+                        style={{ marginTop: "30px" }}
+                      >
+                        <input
+                          type="text"
+                          onChange={handleUserCaptchaChange}
+                          placeholder="Enter captcha"
+                          className="form-control captchatext"
                         />
                       </div>
                     </div>

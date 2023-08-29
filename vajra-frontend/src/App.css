@@ -16,6 +16,9 @@
   cursor: pointer;
   letter-spacing: 1px;
 }
+.captchatext{
+  border-radius: 50px;
+}
 /* Signup */
 .clearfix:after {
   content: "";

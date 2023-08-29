@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Login from "./Login";
 
 export default function Register() {
   return (
@@ -25,7 +27,10 @@ export default function Register() {
                           <div className="col_half">
                             <div className="input_field">
                               <span>
-                                <i aria-hidden="true" className="fa fa-user"></i>
+                                <i
+                                  aria-hidden="true"
+                                  className="fa fa-user"
+                                ></i>
                               </span>
                               <input
                                 type="text"
@@ -37,7 +42,10 @@ export default function Register() {
                           <div className="col_half">
                             <div className="input_field">
                               <span>
-                                <i aria-hidden="true" className="fa fa-user"></i>
+                                <i
+                                  aria-hidden="true"
+                                  className="fa fa-user"
+                                ></i>
                               </span>
                               <input
                                 type="text"
@@ -50,7 +58,10 @@ export default function Register() {
                         </div>
                         <div className="input_field">
                           <span>
-                            <i aria-hidden="true" className="fa fa-envelope"></i>
+                            <i
+                              aria-hidden="true"
+                              className="fa fa-envelope"
+                            ></i>
                           </span>
                           <input
                             type="email"
@@ -61,7 +72,10 @@ export default function Register() {
                         </div>
                         <div className="input_field">
                           <span>
-                            <i aria-hidden="true" className="fa-solid fa-phone"></i>
+                            <i
+                              aria-hidden="true"
+                              className="fa-solid fa-phone"
+                            ></i>
                           </span>
                           <input
                             type="number"
@@ -118,7 +132,18 @@ export default function Register() {
                             I want to receive the newsletter
                           </label>
                         </div>
-                        <input className="button" type="submit" value="Register" />
+                        <input
+                          className="button"
+                          type="submit"
+                          data-bs-dismiss="modal"
+                          value="Register"
+                        />
+                        <p>
+                      Already a User?
+                      <a type="button" data-dismiss="modal" data-bs-dismiss="modal">
+                        Login Here....
+                      </a>
+                    </p>
                       </form>
                     </div>
                   </div>
