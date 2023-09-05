@@ -165,30 +165,30 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label htmlFor="fileInput1" className="filein"
+                      <label htmlFor="Nominee1fileInput1" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Aadhar card</label
                       >
                       <input
                         type="file"
                         className="form-control-file"
-                        id="fileInput1"
+                        id="Nominee1fileInput1"
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label htmlFor="fileInput2" className="filein"
+                      <label htmlFor="Nominee1fileInput2" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Pan Card</label
                       >
                       <input
                         type="file"
                         className="form-control-file"
-                        id="fileInput2"
+                        id="Nominee1fileInput2"
                       />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label htmlFor="nominee1Name">Nominee 2 Name</label>
+                      <label htmlFor="nominee2Name">Nominee 2 Name</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -198,13 +198,13 @@ export default function Loans() {
                         <input
                           type="text"
                           className="form-control"
-                          id="nominee1Name"
+                          id="nominee2Name"
                           placeholder="Nominee 1 Name"
                         />
                       </div>
                     </div>
                     <div className="form-group col-md-6">
-                      <label htmlFor="nominee1MobileNumber">Nominee 2 Phone</label>
+                      <label htmlFor="nominee2MobileNumber">Nominee 2 Phone</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text"
@@ -214,7 +214,7 @@ export default function Loans() {
                         <input
                           type="text"
                           className="form-control"
-                          id="nominee1MobileNumber"
+                          id="nominee2MobileNumber"
                           placeholder="Nominee 1 Mobile Number"
                         />
                       </div>
@@ -222,23 +222,23 @@ export default function Loans() {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label htmlFor="fileInput1" className="filein"
+                      <label htmlFor="Nominee2fileInput2" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Aadhar card</label
                       >
                       <input
                         type="file"
                         className="form-control-file"
-                        id="fileInput1"
+                        id="Nominee2fileInput2"
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label htmlFor="fileInput2" className="filein"
+                      <label htmlFor="Nominee2fileInput3" className="filein"
                         ><i className="fas fa-id-card"></i>&nbsp; Pan Card</label
                       >
                       <input
                         type="file"
                         className="form-control-file"
-                        id="fileInput2"
+                        id="Nominee2fileInput3"
                       />
                     </div>
                   </div>
