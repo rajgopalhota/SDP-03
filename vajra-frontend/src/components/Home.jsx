@@ -1,5 +1,5 @@
 import React from 'react'
-import BankImg from './../assets/images/bankhome.gif'
+import BankImg from './../assets/images/home.png'
 import TextAni from './TextAni'
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
             <img
               src={BankImg}
               alt=""
-              className="img-fluid mb-3"
+              className="img-fluid mb-3 floating"
             />
             <p>
               Our bank is committed to providing you with the best banking

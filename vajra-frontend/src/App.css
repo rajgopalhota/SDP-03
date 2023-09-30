@@ -417,6 +417,7 @@
   color: rgb(224, 0, 0);
 }
 
+
 @media screen and (max-width: 600px) {
   .glass-card-payment{
     min-width: 98%;
@@ -492,13 +493,9 @@ footer{
   min-height: 20px;
   backdrop-filter: blur(22px);
   border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-transform: uppercase;
   padding: 5px 40px;
   user-select: none;
-  flex-direction: column;
 }
 
 footer p{

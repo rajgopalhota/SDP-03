@@ -47,6 +47,7 @@ img {
 .navbar-custom .navbar-nav .nav-link {
   letter-spacing: 1px;
   color: #ffffff;
+  text-shadow: 0 0 4px black;
 }
 
 /* change the color of active or hovered links */
@@ -54,10 +55,11 @@ img {
 .navbar-custom .nav-item:focus .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
   transition: all ease-in 0.1s;
-  color: rgb(129, 255, 249);
-  letter-spacing: 2px;
+  color: rgb(179, 255, 251);
 }
-
+.navbar-custom .nav-item .active{
+  color: rgb(255, 217, 179) !important;
+}
 .navbar-nav.navbar-center {
   margin: auto;
 }
@@ -135,6 +137,7 @@ img {
   }
 }
 
+
 .homeinfo h2 {
   font-weight: bold;
   text-transform: uppercase;
@@ -168,7 +171,7 @@ img {
 }
 img {
   transition: all 0.3s ease;
-  filter: drop-shadow(0 30px 40px rgba(10, 0, 21, 0.432));
+  filter: drop-shadow(0 40px 50px rgba(111, 65, 160, 0.555));
   border-radius: 12px;
   mix-blend-mode: multiply;
 }

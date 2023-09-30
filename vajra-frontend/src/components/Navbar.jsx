@@ -57,37 +57,37 @@ export default function Navbar() {
           <ul className="navbar-nav navbar-center mr-auto">
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa-solid fa-building-columns fa-fade"></i> Home
+                <i className="fa-solid fa-building-columns"></i> Home
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa-solid fa-address-card fa-fade"></i> About us
+                <i className="fa-solid fa-address-card"></i> About us
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa-solid fa-satellite-dish fa-flip"></i> Services
+                <i className="fa-solid fa-satellite-dish"></i> Services
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa-solid fa-code-branch fa-fade"></i> Branches
+                <i className="fa-solid fa-code-branch"></i> Branches
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/loans">
-                <i className="fa-solid fa-handshake fa-bounce"></i> Loans
+                <i className="fa-solid fa-handshake"></i> Loans
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa-solid fa-percent fa-beat"></i> Interests
+                <i className="fa-solid fa-percent"></i> Interests
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/payments">
-                <i className="fa-solid fa-earth-americas fa-beat-fade"></i>{" "}
+                <i className="fa-solid fa-earth-americas"></i>{" "}
                 Online Banking
               </NavLink>
             </li>
@@ -101,7 +101,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i className="fa-solid fa-coins fa-bounce"></i> VAJRA
+                <i className="fa-solid fa-coins"></i> VAJRA
               </NavLink>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink className="dropdown-item" to="/">
