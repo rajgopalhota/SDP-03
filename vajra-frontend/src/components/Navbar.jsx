@@ -61,17 +61,17 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/aboutus">
                 <i className="fa-solid fa-address-card"></i> About us
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/services">
                 <i className="fa-solid fa-satellite-dish"></i> Services
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/branches">
                 <i className="fa-solid fa-code-branch"></i> Branches
               </NavLink>
             </li>
@@ -81,7 +81,7 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/interests">
                 <i className="fa-solid fa-percent"></i> Interests
               </NavLink>
             </li>
@@ -92,9 +92,8 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <NavLink
+              <div
                 className="nav-link dropdown-toggle"
-                to="/"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -102,22 +101,22 @@ export default function Navbar() {
                 aria-expanded="false"
               >
                 <i className="fa-solid fa-coins"></i> VAJRA
-              </NavLink>
+              </div>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/contact">
                   Contact us
                 </NavLink>
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/rates">
                   Rates
                 </NavLink>
                 <div className="dropdown-divider"></div>
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/career">
                   Career
                 </NavLink>
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/news">
                   News Room
                 </NavLink>
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/inverstors">
                   Investor relations
                 </NavLink>
               </div>

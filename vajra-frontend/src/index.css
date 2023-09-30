@@ -68,6 +68,9 @@ img {
   margin: 0 10px;
 }
 
+.dropdown-toggle{
+  cursor: pointer;
+}
 .loginbutton button {
   border-radius: 50px;
   padding: 3px 12px;
