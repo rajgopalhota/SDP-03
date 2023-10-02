@@ -39,7 +39,7 @@
 }
 
 .form_wrapper {
-  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  background-image: linear-gradient(-225deg, var(--main-color-1), var(--main-color-2) 100%);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -47,9 +47,10 @@
   /* margin: 8% auto 0; */
   position: relative;
   z-index: 1;
-  border-top: 5px solid rgb(242, 187, 58);
+  border-top: 5px solid var(--a-color-1);
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   -webkit-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
@@ -409,6 +410,7 @@
 .paymentmodule {
   padding-bottom: 50px;
   border-radius: 11px;
+  margin-top: 30px;
   text-shadow: 0 0 1px var(--a-color-1);
 }
 form label {
@@ -426,7 +428,8 @@ h3 {
   background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
   border-radius: 11px;
-  max-height: fit-content;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 .pay-glass-card {
   background: rgba(255, 250, 250, 0.218);
@@ -438,7 +441,7 @@ h3 {
 .pay-glass-card:hover {
   cursor: pointer;
   transition: all ease-in-out 0.2s;
-  transform: scale(1.06);
+  transform: scale(1.04);
   background: rgba(255, 250, 250, 0.718);
   border: 2px solid rgba(15, 0, 31, 0.575);
   border-radius: 14px;

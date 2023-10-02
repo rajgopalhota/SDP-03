@@ -1,14 +1,14 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Loans from "./components/Loans";
+import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Payment from "./components/Payment";
-import { Routes, Route } from "react-router-dom";
-import AOS from "aos";
-import { useEffect } from "react";
-import "aos/dist/aos.css";
-import Footer from "./components/Footer";
-import Login from "./components/Login";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
 
@@ -32,6 +32,7 @@ function App() {
             
           </Routes>
         </section>
+        <Footer />
       </div>
     </>
   );

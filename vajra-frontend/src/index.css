@@ -154,6 +154,7 @@ img {
 .homeinfo h2 {
   font-weight: bold;
   text-transform: uppercase;
+  margin-top: 30px;
   background: -webkit-linear-gradient(45deg, #0a47a2d0, #d43f8d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -220,3 +221,4 @@ img {
 .mainbodysection{
   min-height: 100dvh;
 }
+
