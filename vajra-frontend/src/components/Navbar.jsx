@@ -81,8 +81,8 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/interests">
-                <i className="fa-solid fa-percent"></i> Interests
+              <NavLink className="nav-link" to="/transaction">
+                <i className="fa-solid fa-percent"></i> Transactions
               </NavLink>
             </li>
             <li className="nav-item">

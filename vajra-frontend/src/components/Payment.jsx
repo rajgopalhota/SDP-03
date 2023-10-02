@@ -105,8 +105,8 @@ export default function Payment() {
                     />
                   </div>
                 </div>
-                <div className="text-center loginbutton paymentbtn">
-                  <button type="submit" className="btn btn-primary">
+                <div className="text-center loginbutton bodybtn">
+                  <button type="submit">
                     <i className="fa fa-paper-plane"></i>&nbsp;Transfer
                   </button>
                 </div>

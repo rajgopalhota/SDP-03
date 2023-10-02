@@ -9,7 +9,7 @@ export default function Loans() {
           <div className="row justify-content-center">
             <div className="col-md-12">
               <div className="form-container p-4">
-                <h2 className="text-center mb-3"><i className="fa-solid fa-rectangle-list fa-bounce"></i> Loan Application Form</h2>
+                <h3><i className="fa-solid fa-rectangle-list fa-bounce"></i> Loan Application Form</h3>
                 <hr />
                 <form>
                   <div className="form-row">
@@ -243,8 +243,8 @@ export default function Loans() {
                       />
                     </div>
                   </div>
-                  <div className="text-center loginbutton loanbtn">
-                    <button type="submit" className="btn btn-primary">
+                  <div className="text-center loginbutton bodybtn">
+                    <button type="submit">
                         <i className="fa-solid fa-clipboard-check fa-lg"></i>&nbsp; Apply
                     </button>
                   </div>

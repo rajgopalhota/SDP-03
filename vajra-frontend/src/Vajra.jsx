@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Transactions from "./components/Transactions";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,8 @@ function App() {
             <Route path="/loans" element={<Loans />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/transaction" element={<Transactions />} />
+            
           </Routes>
         </section>
       </div>
