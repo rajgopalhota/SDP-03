@@ -82,7 +82,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/transaction">
-                <i className="fa-solid fa-percent"></i> Transactions
+              <i class="fa-solid fa-hand-holding-dollar"></i> Transactions
               </NavLink>
             </li>
             <li className="nav-item">
