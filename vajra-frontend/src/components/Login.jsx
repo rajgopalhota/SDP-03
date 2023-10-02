@@ -91,7 +91,8 @@ export default function Login() {
                       <Captcha
                         key={captchaRefresh ? "refresh" : "normal"} // Force re-render on refresh
                         result={handleCaptchaChange}
-                        textColor="purple"
+                        textColor="white"
+                        className = "captcha"
                       />
                     </div>
                     <div

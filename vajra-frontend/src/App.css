@@ -23,6 +23,9 @@
   cursor: pointer;
   letter-spacing: 1px;
 }
+.loginmodal img{
+  mix-blend-mode: normal;
+}
 .captchatext {
   border-radius: 50px;
 }
