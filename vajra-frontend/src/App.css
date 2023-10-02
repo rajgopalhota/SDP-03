@@ -1,22 +1,22 @@
-.loginmodal{
+.loginmodal {
   color: white;
   border: 2px solid whitesmoke;
 }
-.loginmodal h2{
+.loginmodal h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
-.loginmodal a{
+.loginmodal a {
   color: white;
   text-decoration: none;
 }
-.loginmodal a:hover{
+.loginmodal a:hover {
   transition: all ease-in 0.08s;
   cursor: pointer;
   letter-spacing: 1px;
 }
-.captchatext{
+.captchatext {
   border-radius: 50px;
 }
 /* Signup */
@@ -378,14 +378,20 @@
   height: 100%;
 }
 
-.paymentmodule{
-  background-image: url(./assets/images/paymentbg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+.paymentmodule {
   padding-bottom: 50px;
   border-radius: 11px;
+  text-shadow: 0 0 1px var(--a-color-1);
 }
-.paymentcards{
+.paymentmodule form label{
+  color: var(--main-color-1);
+  font-weight: 500;
+}
+.paymentmodule h3 {
+  color: var(--main-color-2);
+  font-weight: 800;
+}
+.paymentcards {
   background-image: url(./assets/images/paycard.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -393,14 +399,14 @@
   border-radius: 11px;
   max-height: fit-content;
 }
-.pay-glass-card{
+.pay-glass-card {
   background: rgba(255, 250, 250, 0.218);
   box-shadow: 0 8px 32px 0 rgba(0, 6, 84, 0.633);
   backdrop-filter: blur(22px);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.18);
 }
-.pay-glass-card:hover{
+.pay-glass-card:hover {
   cursor: pointer;
   transition: all ease-in-out 0.2s;
   transform: scale(1.06);
@@ -409,33 +415,28 @@
   border-radius: 14px;
 }
 
-.paycard{
+.paycard {
   font-weight: 600;
   letter-spacing: 1px;
 }
-.paycard span{
+.paycard span {
   color: rgb(224, 0, 0);
 }
 
-
 @media screen and (max-width: 600px) {
-  .glass-card-payment{
+  .glass-card-payment {
     min-width: 98%;
   }
 }
 /* Loan */
 .loansection {
-  background-image: url(./assets/images/loanbg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   padding: 5%;
 }
-
 
 .loan-container .form-container {
   background: rgba(255, 255, 255, 0.13);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 2px solid white;
+  border: 2px solid var(--a-color-1);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
@@ -443,11 +444,14 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  color: white;
-  box-shadow: rgb(50, 50, 93) 0px 50px 100px -20px, rgb(0, 0, 0) 0px 30px 60px -30px;
+  color: var(--main-color-1);
+  box-shadow: rgb(50, 50, 93) 0px 50px 100px -20px,
+    rgb(0, 0, 0) 0px 30px 60px -30px;
 }
 
 .loansection h2 {
+  color: var(--main-color-2);
+  text-shadow: 0 0 2px var(--p-color-1);
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
@@ -468,7 +472,11 @@
   border-radius: 8px;
   color: white;
   border: 2px solid transparent;
-  background-image: linear-gradient(45deg, rgb(69, 48, 139), rgb(148, 9, 85));
+  background-image: linear-gradient(
+    45deg,
+    var(--main-color-1),
+    var(--main-color-2)
+  );
   /* margin-right: 150px; */
 }
 .loan-container .filein:hover {
@@ -476,18 +484,27 @@
   cursor: pointer;
   border: 2px solid white;
   padding: 8px 17px;
-  background-image: linear-gradient(45deg, rgb(148, 9, 85), rgb(69, 48, 139));
+  background-image: linear-gradient(
+    45deg,
+    var(--main-color-2),
+    var(--main-color-1)
+  );
 }
 
 .loan-container .loanbtn button {
   padding: 10px 30px !important;
   background-size: 400% 400%;
   transition: all 0.4s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 /* Footer */
-footer{
-  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.834), rgba(0, 0, 63, 0.812));
+footer {
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.834),
+    rgba(0, 0, 63, 0.812)
+  );
   background-size: cover;
   color: white;
   min-height: 20px;
@@ -498,11 +515,11 @@ footer{
   user-select: none;
 }
 
-footer p{
+footer p {
   margin-top: 20px;
 }
 
-footer i{
+footer i {
   padding: 10px 26px;
   font-size: 30px;
   text-decoration: none;
@@ -510,7 +527,7 @@ footer i{
   border-radius: 50%;
   margin-bottom: 20px;
 }
-footer i:hover{
+footer i:hover {
   transition: all ease-in-out 0.1s;
   transform: scale(1.18);
 }

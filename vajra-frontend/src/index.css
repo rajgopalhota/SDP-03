@@ -2,6 +2,14 @@
 
 :root {
   --glow-color: hsl(240, 100%, 92%);
+  --main-color-1: #AD1047;
+  --main-color-2: #3C5A9A;
+  --btn-color-1: #007e8f;
+  --btn-color-2: #459a6b;
+  --p-color-1: #D87B2F;
+  --p-color-2: #F5E8E8;
+  --a-color-1: #FBE8EE;
+  --a-color-1: #3C5A9A;
 }
 
 * {
@@ -13,15 +21,17 @@
     45deg,
     #dad4ec 0%,
     #dad4ec 1%,
-    #f3e7e9 100%
+    #edd2d7 100%
   );
 }
-html,
 body {
   justify-content: center;
   text-align: center;
   height: 100%;
   font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(45deg, var(--glow-color), var(--p-color-2));
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html::-webkit-scrollbar{
@@ -36,7 +46,7 @@ img {
   mix-blend-mode: multiply;
 }
 .navbar-custom {
-  background-image: linear-gradient(45deg, #0a47a2d0, #d43f8d);
+  background-image: linear-gradient(125deg, var(--main-color-2), var(--main-color-1));
 }
 .navbar {
   box-shadow: rgba(29, 29, 53, 0.621) 0px 13px 27px -5px,
@@ -74,10 +84,10 @@ img {
 .loginbutton button {
   border-radius: 50px;
   padding: 3px 12px;
-  background-image: linear-gradient(45deg, #00afe0, #e80013);
+  background-image: linear-gradient(45deg, var(--btn-color-1), var(--btn-color-2));
   background-size: 400% 400%;
   transition: all 0.4s ease-in-out;
-  color: white;
+  color: var(--p-color-2);
   border: 2px solid white;
 }
 
