@@ -1,155 +1,123 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Login from "./Login";
 
 export default function Register() {
   return (
     <>
-      <div
-        className="modal fade signupmodal"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="myLargeModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-content">
-              <div className="form_wrapper">
-                <div className="form_container">
-                  <div className="title_container">
-                    <h2>Register yourself to Vajra Groups!</h2>
+      <div class="container col-md-8">
+        <div class="row justify-content-center">
+          <div class="col-md-12 glassmorphism-container">
+            <h2 class="text-center mb-4">Registration Form</h2>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="First Name"
+                    />
                   </div>
-                  <div className="row clearfix">
-                    <div className="">
-                      <form>
-                        <div className="row clearfix">
-                          <div className="col_half">
-                            <div className="input_field">
-                              <span>
-                                <i
-                                  aria-hidden="true"
-                                  className="fa fa-user"
-                                ></i>
-                              </span>
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder="First Name"
-                              />
-                            </div>
-                          </div>
-                          <div className="col_half">
-                            <div className="input_field">
-                              <span>
-                                <i
-                                  aria-hidden="true"
-                                  className="fa fa-user"
-                                ></i>
-                              </span>
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder="Last Name"
-                                required
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="input_field">
-                          <span>
-                            <i
-                              aria-hidden="true"
-                              className="fa fa-envelope"
-                            ></i>
-                          </span>
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            required
-                          />
-                        </div>
-                        <div className="input_field">
-                          <span>
-                            <i
-                              aria-hidden="true"
-                              className="fa-solid fa-phone"
-                            ></i>
-                          </span>
-                          <input
-                            type="number"
-                            name="number"
-                            placeholder="phone"
-                            required
-                          />
-                        </div>
-                        <div className="input_field">
-                          <span>
-                            <i aria-hidden="true" className="fa fa-lock"></i>
-                          </span>
-                          <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            required
-                          />
-                        </div>
-                        <div className="input_field">
-                          <span>
-                            <i aria-hidden="true" className="fa fa-lock"></i>
-                          </span>
-                          <input
-                            type="password"
-                            name="password"
-                            placeholder="Re-type Password"
-                            required
-                          />
-                        </div>
-                        <div className="input_field radio_option">
-                          <input type="radio" name="radiogroup1" id="rd1" />
-                          <label htmlFor="rd1">Male</label>
-                          <input type="radio" name="radiogroup1" id="rd2" />
-                          <label htmlFor="rd2">Female</label>
-                        </div>
-                        <div className="input_field select_option">
-                          <select>
-                            <option>Select a country</option>
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                          </select>
-                          <div className="select_arrow"></div>
-                        </div>
-                        <div className="input_field checkbox_option">
-                          <input type="checkbox" id="cb1" />
-                          <label htmlFor="cb1">
-                            I agree with terms and conditions
-                          </label>
-                        </div>
-                        <div className="input_field checkbox_option">
-                          <input type="checkbox" id="cb2" />
-                          <label htmlFor="cb2">
-                            I want to receive the newsletter
-                          </label>
-                        </div>
-                        <input
-                          className="button"
-                          type="submit"
-                          data-bs-dismiss="modal"
-                          value="Register"
-                        />
-                        <p>
-                      Already a User?
-                      <a type="button" data-dismiss="modal" data-bs-dismiss="modal">
-                        Login Here....
-                      </a>
-                    </p>
-                      </form>
-                    </div>
+                  <div class="col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder="Last Name"
+                    />
                   </div>
                 </div>
               </div>
-            </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="Phone"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="form-group">
+                <label for="reenterPassword">Reenter Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="reenterPassword"
+                  placeholder="Reenter Password"
+                />
+              </div>
+              <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    value="male"
+                  />
+                  <label class="form-check-label" for="male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                  />
+                  <label class="form-check-label" for="female">
+                    Female
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="aadharNumber">Aadhar Number</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="aadharNumber"
+                  placeholder="Aadhar Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="panNumber">PAN Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="panNumber"
+                  placeholder="PAN Number"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Register
+              </button>
+            </form>
+            <p class="mt-3 text-center">
+              Already a user? <a href="#">Login here</a>
+            </p>
           </div>
         </div>
       </div>

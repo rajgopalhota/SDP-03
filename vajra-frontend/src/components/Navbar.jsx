@@ -1,7 +1,6 @@
 import React from "react";
-import Login from "./Login";
-import Register from "./Register";
 import { NavLink } from "react-router-dom";
+import Login from "./Login";
 
 export default function Navbar() {
   return (
@@ -131,7 +130,6 @@ export default function Navbar() {
         </div>
       </nav>
       <Login />
-      <Register />
     </>
   );
 }

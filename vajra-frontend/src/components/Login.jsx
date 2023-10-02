@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import Captcha from "react-captcha-generator";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [captchaValue, setCaptchaValue] = useState("");
@@ -109,9 +110,9 @@ export default function Login() {
                   </div>
                   <p>
                     Newbie?
-                    <a data-toggle="modal" data-target=".signupmodal">
+                    <Link to="/register" data-dismiss="modal" data-bs-dismiss="modal">
                       SignUp here
-                    </a>
+                    </Link>
                   </p>
                   <div className="text-center loginbutton logbutton">
                     <button type="submit" className="btn btn-primary">
