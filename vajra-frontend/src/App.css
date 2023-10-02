@@ -2,6 +2,9 @@
   color: white;
   border: 2px solid whitesmoke;
 }
+.modal-content .container .loginmodal{
+  background-image: linear-gradient(45deg, var(--main-color-1), var(--main-color-2));
+}
 .loginmodal h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
