@@ -70,8 +70,8 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/branches">
-                <i className="fa-solid fa-code-branch"></i> Branches
+              <NavLink className="nav-link" to="/addcard">
+                <i className="fa-solid fa-code-branch"></i> Cards
               </NavLink>
             </li>
             <li className="nav-item">

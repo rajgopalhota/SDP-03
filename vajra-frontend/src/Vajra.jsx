@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Payment from "./components/Payment";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
+import AddCard from "./components/AddCard";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/transaction" element={<Transactions />} />
+            <Route path="/addcard" element={<AddCard />} />
             
           </Routes>
         </section>
