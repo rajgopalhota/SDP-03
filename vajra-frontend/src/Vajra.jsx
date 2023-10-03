@@ -12,6 +12,7 @@ import Payment from "./components/Payment";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
 import AddCard from "./components/AddCard";
+import Pagenotfound from "./components/Pagenotfound";
 
 function App() {
   useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/transaction" element={<Transactions />} />
             <Route path="/addcard" element={<AddCard />} />
-            
+            <Route path="*" element={<Pagenotfound />} />
           </Routes>
         </section>
         <Footer />
