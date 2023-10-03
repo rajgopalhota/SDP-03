@@ -1,11 +1,16 @@
 import React, { useState, useRef } from "react";
 import Captcha from "react-captcha-generator";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [captchaValue, setCaptchaValue] = useState("");
   const [userCaptchaValue, setUserCaptchaValue] = useState("");
   const [captchaRefresh, setCaptchaRefresh] = useState(false);
+
+  const navReg = () => {
+    navigate('/register');
+  };
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
@@ -108,11 +113,9 @@ export default function Login() {
                       />
                     </div>
                   </div>
-                  <p>
+                  <p data-dismiss="modal" data-bs-dismiss="modal" onClick={navReg}>
                     Newbie?
-                    <Link to="/register" data-dismiss="modal" data-bs-dismiss="modal">
                       SignUp here
-                    </Link>
                   </p>
                   <div className="text-center loginbutton logbutton">
                     <button type="submit" className="btn btn-primary">
