@@ -566,3 +566,7 @@ footer i:hover {
   transition: all ease-in-out 0.1s;
   transform: scale(1.18);
 }
+
+@media (max-width: 991px) {
+  
+}

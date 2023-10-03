@@ -219,6 +219,11 @@ img {
   display: none;
 }
 .mainbodysection{
-  min-height: 100dvh;
+  min-height: 95dvh;
 }
 
+@media (max-width: 991px) {
+  .homeinfo h2 {
+    font-size: 20px;
+  }
+}

@@ -28,8 +28,8 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (userCaptchaValue === captchaValue) {
-      // If the captcha is entered correctly, redirect to the home page
-      window.location.href = "/";
+      // // If the captcha is entered correctly, redirect to the home page
+      // window.location.href = "/";
     } else {
       // If the captcha is not entered correctly, display an error message
       alert("Incorrect captcha");
@@ -118,7 +118,7 @@ export default function Login() {
                       SignUp here
                   </p>
                   <div className="text-center loginbutton logbutton">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit">
                       <i className="fa fa-paper-plane"></i>&nbsp;Login
                     </button>
                   </div>

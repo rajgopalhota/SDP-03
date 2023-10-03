@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e87a90d.css",
-    "main.js": "/static/js/main.9c4322fc.js",
-    "static/media/paymentbg.jpg": "/static/media/paymentbg.30c1ada59f6f2a5b5fbf.jpg",
-    "static/media/bankhome.gif": "/static/media/bankhome.8313b5f99c8c3d682b92.gif",
+    "main.css": "/static/css/main.077b775d.css",
+    "main.js": "/static/js/main.cd3632c7.js",
+    "static/media/home.png": "/static/media/home.9623f9728d91be036c71.png",
+    "static/media/visacard.jpg": "/static/media/visacard.9b904c7b547c74328f5a.jpg",
     "static/media/paycard.jpg": "/static/media/paycard.a26bb807d14eb2ed8aa9.jpg",
-    "static/media/loanbg.jpg": "/static/media/loanbg.0256970a4a57bcc73bdd.jpg",
     "index.html": "/index.html",
-    "main.9e87a90d.css.map": "/static/css/main.9e87a90d.css.map",
-    "main.9c4322fc.js.map": "/static/js/main.9c4322fc.js.map"
+    "main.077b775d.css.map": "/static/css/main.077b775d.css.map",
+    "main.cd3632c7.js.map": "/static/js/main.cd3632c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e87a90d.css",
-    "static/js/main.9c4322fc.js"
+    "static/css/main.077b775d.css",
+    "static/js/main.cd3632c7.js"
   ]
 }

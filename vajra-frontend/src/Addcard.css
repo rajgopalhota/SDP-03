@@ -11,7 +11,7 @@
 }
 
 .card-form {
-  max-width: 570px;
+  max-width: 680px;
   margin: auto;
   width: 100%;
 }
@@ -21,10 +21,11 @@
   }
 }
 .card-form__inner {
-  background: #fff;
+  background: var(--p-color-2);
   box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
   border-radius: 10px;
   padding: 35px;
+  border: 1px solid var(--main-color-1);
   padding-top: 180px;
 }
 @media screen and (max-width: 480px) {
@@ -89,9 +90,9 @@
 .card-form__button {
   width: 100%;
   height: 55px;
-  background: #2364d2;
+  background-image: linear-gradient(45deg, var(--btn-color-1), var(--btn-color-2));
   border: none;
-  border-radius: 5px;
+  border-radius: 10px !important;
   font-size: 22px;
   font-weight: 500;
   font-family: "Source Sans Pro", sans-serif;
@@ -301,6 +302,9 @@
   position: relative;
   z-index: 4;
   height: 100%;
+  background-image: url(./assets/images/visacard.jpg);
+  background-size: cover;
+  background-position: center center;
   text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
   user-select: none;
 }
