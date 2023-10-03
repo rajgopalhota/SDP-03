@@ -6,8 +6,8 @@ const WordFlick = () => {
     "Finance",
     "Loans",
     "Insurances",
-    "Low Interests",
-    "Fast Processing",
+    "LowInterests",
+    "Processing",
   ]);
   const [part, setPart] = useState("");
   const [i, setI] = useState(0);

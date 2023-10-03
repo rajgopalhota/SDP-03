@@ -16,7 +16,7 @@ export default function Home() {
             data-aos-duration="300"
           >
             <h2>
-              Welcome Vajra <TextAni />
+              Welcome to Vajra <TextAni />
             </h2>
             <img src={BankImg} alt="" className="img-fluid mb-3 floating" />
             <p>
