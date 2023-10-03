@@ -1,1 +1,0 @@
-https://github.com/CarlosBalladares/spring-boot-react-setup/tree/master
