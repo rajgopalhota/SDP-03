@@ -13,10 +13,24 @@ import Register from "./components/Register";
 import Transactions from "./components/Transactions";
 import AddCard from "./components/AddCard";
 import Pagenotfound from "./components/Pagenotfound";
+import UrlHelper from "./UrlHelper";
 
 function App() {
+
+  // function callCheck() {
+  //   UrlHelper.get("/posts")
+  //     .then(function (response) {
+  //       // Handle the successful response here
+  //       console.log("Response:", response.data);
+  //     })
+  //     .catch(function (error) {
+  //       // Handle any errors that occurred during the request
+  //       console.error("Error:", error);
+  //     });
+  // }
+
   useEffect(() => {
-    AOS.init(); //You can add options as per your need inside an object
+    AOS.init();
   }, []);
 
   return (
