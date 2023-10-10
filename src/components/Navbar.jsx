@@ -38,7 +38,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-light navbar-custom">
         <NavLink className="navbar-brand" to="/">
           VAJRA GROUPS&nbsp;&nbsp;
-          <i className="fa-solid fa-sack-dollar fa-beat"></i>
+          <i class="fa-brands fa-pagelines fa-bounce"></i>
         </NavLink>
         <button
           className="navbar-toggler"

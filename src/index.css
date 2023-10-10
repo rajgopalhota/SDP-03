@@ -12,6 +12,10 @@
   --a-color-2: #3C5A9A;
 }
 
+html, body{
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
