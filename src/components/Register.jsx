@@ -1,10 +1,11 @@
 import React from "react";
-import axios from "axios";
+import UrlHelper from "./../UrlHelper";
+
 export default function Register() {
 
   function submitRegistration(data) {
-    axios
-      .post("http://localhost:9987/reg", data) // Replace with your API endpoint URL
+    UrlHelper
+      .post("/reg", data) // Replace with your API endpoint URL
       .then((response) => {
         // Handle success, e.g., show a success message
         console.log('User registered:', response.data);
