@@ -1,6 +1,41 @@
 import React from "react";
-
+import axios from "axios";
 export default function Register() {
+
+  function submitRegistration(data) {
+    axios
+      .post("http://localhost:9987/reg", data) // Replace with your API endpoint URL
+      .then((response) => {
+        // Handle success, e.g., show a success message
+        console.log('User registered:', response.data);
+      })
+      .catch((error) => {
+        // Handle errors, e.g., show validation errors or an error message
+        console.error('Registration failed:', error);
+      });
+  }
+
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Gather user data from the form fields
+    const userData = {
+      firstName: event.target.firstName.value,
+      lastName: event.target.lastName.value,
+      email:event.target.email.value,
+      phone: event.target.phone.value,
+      password: event.target.password.value,
+      reenterPassword: event.target.reenterPassword.value,
+      gender: event.target.gender.value,
+      aadharNumber: event.target.aadharNumber.value,
+      panNumber: event.target.panNumber.value,
+
+      // Include other form fields as needed
+    };
+  
+    // Call the registration function
+    submitRegistration(userData);
+  }
   return (
     <>
       <section className="loansection">
@@ -18,7 +53,7 @@ export default function Register() {
                     Registration Form
                   </h3>
                   <hr />
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="form-row">
                       <div className="form-group col-md-6">
                         <label htmlFor="firstName">First Name</label>

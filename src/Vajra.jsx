@@ -28,8 +28,19 @@ function App() {
   //       console.error("Error:", error);
   //     });
   // }
+    function callCheck() {
+    UrlHelper.post("/")
+      .then(function (response) {
+        console.log("Response:", response.data);
+      })
+      .catch(function (error) {
+        // Handle any errors that occurred during the request
+        console.error("Error:", error);
+      });
+  }
 
   useEffect(() => {
+    callCheck();
     AOS.init();
   }, []);
 
