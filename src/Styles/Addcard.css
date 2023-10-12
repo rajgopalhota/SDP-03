@@ -302,7 +302,7 @@
   position: relative;
   z-index: 4;
   height: 100%;
-  background-image: url(./assets/images/visacard.jpg);
+  background-image: url(./../assets/images/visacard.jpg);
   background-size: cover;
   background-position: center center;
   text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);

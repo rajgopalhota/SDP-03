@@ -7,8 +7,6 @@ export default function Payment() {
         <div className="col-lg-9 col-sm-12  paymentmodule">
           <div
             className="container"
-            data-aos="zoom-in-down"
-            data-aos-duration="500"
           >
             <div className="glass-card-payment mt-5 p-4 m-2 flex-fill mx-auto">
               <h3>Bank Transfer Form</h3>
@@ -114,7 +112,6 @@ export default function Payment() {
         <div className="col-lg-3 col-sm-12 flex-wrap p-4 right-panel paymentcards">
           <div
             className="pay-glass-card p-4 m-2 flex-fill"
-            data-aos="zoom-in-up"
           >
             <h5 className="card-title">
               <i className="fa-solid fa-user-lock"></i> RAJGOPAL

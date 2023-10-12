@@ -12,8 +12,6 @@ export default function Home() {
         >
           <div
             className="homeinfo text-center"
-            data-aos="zoom-in"
-            data-aos-duration="300"
           >
             <h2>
               Welcome to Vajra <TextAni />
@@ -30,20 +28,20 @@ export default function Home() {
           className="col-lg-6 col-sm-12 homeright"
           style={{ backgroundColor: "lavenderblush" }}
         >
-          <div className="glass-card p-4 m-2" data-aos="flip-down">
+          <div className="glass-card p-4 m-2">
             <h3>#1</h3>
             <p>Instant Personal Loans at your demand!</p>
           </div>
-          <div className="glass-card p-4 m-2" data-aos="flip-down">
+          <div className="glass-card p-4 m-2">
             <h3>#2</h3>
             <p>Home loans according to RBI guidlines.</p>
           </div>
 
-          <div className="glass-card p-4 m-2" data-aos="flip-down">
+          <div className="glass-card p-4 m-2">
             <h3>#3</h3>
             <p>Health insurances at lower prices.</p>
           </div>
-          <div className="glass-card p-4 m-2" data-aos="flip-down">
+          <div className="glass-card p-4 m-2">
             <h3>#4</h3>
             <p>Car loans at cheaper interests!.</p>
           </div>

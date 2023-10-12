@@ -1,9 +1,7 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "./App.css";
+import "./Styles/App.css";
 import AddCard from "./components/AddCard";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
@@ -18,7 +16,6 @@ import Transactions from "./components/Transactions";
 
 function App() {
   useEffect(() => {
-    AOS.init();
   }, []);
 
   return (

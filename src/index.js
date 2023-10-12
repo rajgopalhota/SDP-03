@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './Styles/index.css';
+import './Styles/Animations.css';
 import App from './Vajra';
 import {BrowserRouter} from 'react-router-dom'
 

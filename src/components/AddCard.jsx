@@ -1,5 +1,5 @@
 import { React, useEffect, useRef, useState } from "react";
-import "./../Addcard.css";
+import "./../Styles/Addcard.css";
 
 export default function AddCard() {
   const [currentCardBackground, setCurrentCardBackground] = useState(1);

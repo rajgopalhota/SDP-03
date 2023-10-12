@@ -47,11 +47,10 @@ export default function Login() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content tilt-in-fwd-br">
             <div className="container">
               <div
                 className="glass-card p-4 m-2 flex-fill loginmodal"
-                data-aos="flip-down"
               >
                 <h2>
                   Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>

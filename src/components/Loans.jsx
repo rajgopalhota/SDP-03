@@ -4,7 +4,7 @@ export default function Loans() {
   return (
     <>
        <section className="loansection">
-      <div className="loan-container" data-aos="zoom-in" data-aos-duration="500">
+      <div className="loan-container">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12">

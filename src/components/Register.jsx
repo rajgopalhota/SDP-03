@@ -36,8 +36,6 @@ export default function Register() {
       <section className="loansection">
         <div
           className="loan-container"
-          data-aos="zoom-in"
-          data-aos-duration="500"
         >
           <div className="container">
             <div className="row justify-content-center">
