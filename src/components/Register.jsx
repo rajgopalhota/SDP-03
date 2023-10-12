@@ -3,34 +3,48 @@ import UrlHelper from "./../UrlHelper";
 import { toast } from "react-toastify";
 
 export default function Register() {
+
   function submitRegistration(data, e) {
-    UrlHelper.post("/reg", data)
+    console.log(data)
+    UrlHelper.post("/reg", data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    },)
       .then((response) => {
-        toast("Registration success", response.data);
-        e.target.reset();
+        console.log("Backend", response.data)
+        toast("Registration success");
+        // e.target.reset();
       })
       .catch((error) => {
         toast("An error occured during regitration!");
       });
   }
 
+
   function handleSubmit(e) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const userData = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      phone: data.get("phone"),
-      password: data.get("password"),
-      reenterPassword: data.get("reenterPassword"),
-      gender: data.get("gender"),
-      aadharNumber: data.get("aadharNumber"),
-      panNumber: data.get("panNumber"),
-    };
-    console.log(data)
-    submitRegistration(userData, e);
+    const formData = new FormData();
+
+    // Append the user data fields
+    formData.append("firstName", e.target.elements.firstName.value);
+    formData.append("lastName", e.target.elements.lastName.value);
+    formData.append("email", e.target.elements.email.value);
+    formData.append("phone", e.target.elements.phone.value);
+    formData.append("password", e.target.elements.password.value);
+    formData.append("reenterPassword", e.target.elements.reenterPassword.value);
+    formData.append("gender", e.target.elements.gender.value);
+    formData.append("aadharNumber", e.target.elements.aadharNumber.value);
+    formData.append("panNumber", e.target.elements.panNumber.value);
+
+    // Append the image and signature files
+    formData.append("imagePath", e.target.elements.imageUpload.files[0]);
+    formData.append("signaturePath", e.target.elements.signatureUpload.files[0]);
+
+    // Send the formData to the server
+    submitRegistration(formData, e);
   }
+
   return (
     <>
       <section className="loansection">
@@ -46,7 +60,7 @@ export default function Register() {
                     Registration Form
                   </h3>
                   <hr />
-                  <form onSubmit={handleSubmit}>
+                  <form encType="multipart/form-data" onSubmit={handleSubmit}>
                     <div className="form-row">
                       <div className="form-group col-md-6">
                         <label htmlFor="firstName">First Name</label>
