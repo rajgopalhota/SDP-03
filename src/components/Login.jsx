@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import Captcha from "react-captcha-generator";
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -31,8 +33,7 @@ export default function Login() {
       // // If the captcha is entered correctly, redirect to the home page
       // window.location.href = "/";
     } else {
-      // If the captcha is not entered correctly, display an error message
-      alert("Incorrect captcha");
+      toast("Incorrect captcha");
     }
   };
 

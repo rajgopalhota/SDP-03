@@ -2,50 +2,39 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
+import AddCard from "./components/AddCard";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Loans from "./components/Loans";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
+import Pagenotfound from "./components/Pagenotfound";
 import Payment from "./components/Payment";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
-import AddCard from "./components/AddCard";
-import Pagenotfound from "./components/Pagenotfound";
-import UrlHelper from "./UrlHelper";
 
 function App() {
-
-  // function callCheck() {
-  //   UrlHelper.get("/posts")
-  //     .then(function (response) {
-  //       // Handle the successful response here
-  //       console.log("Response:", response.data);
-  //     })
-  //     .catch(function (error) {
-  //       // Handle any errors that occurred during the request
-  //       console.error("Error:", error);
-  //     });
-  // }
-    function callCheck() {
-    UrlHelper.post("/")
-      .then(function (response) {
-        console.log("Response:", response.data);
-      })
-      .catch(function (error) {
-        // Handle any errors that occurred during the request
-        console.error("Error:", error);
-      });
-  }
-
   useEffect(() => {
-    callCheck();
     AOS.init();
   }, []);
 
   return (
     <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="App">
         <Navbar />
         <section className="mainbodysection">

@@ -1,41 +1,35 @@
 import React from "react";
 import UrlHelper from "./../UrlHelper";
+import { toast } from "react-toastify";
 
 export default function Register() {
-
-  function submitRegistration(data) {
-    UrlHelper
-      .post("/reg", data) // Replace with your API endpoint URL
+  function submitRegistration(data, e) {
+    UrlHelper.post("/reg", data)
       .then((response) => {
-        // Handle success, e.g., show a success message
-        console.log('User registered:', response.data);
+        toast("Registration success", response.data);
+        e.target.reset();
       })
       .catch((error) => {
-        // Handle errors, e.g., show validation errors or an error message
-        console.error('Registration failed:', error);
+        toast("An error occured during regitration!");
       });
   }
 
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    // Gather user data from the form fields
+  function handleSubmit(e) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     const userData = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      email:event.target.email.value,
-      phone: event.target.phone.value,
-      password: event.target.password.value,
-      reenterPassword: event.target.reenterPassword.value,
-      gender: event.target.gender.value,
-      aadharNumber: event.target.aadharNumber.value,
-      panNumber: event.target.panNumber.value,
-
-      // Include other form fields as needed
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      phone: data.get("phone"),
+      password: data.get("password"),
+      reenterPassword: data.get("reenterPassword"),
+      gender: data.get("gender"),
+      aadharNumber: data.get("aadharNumber"),
+      panNumber: data.get("panNumber"),
     };
-  
-    // Call the registration function
-    submitRegistration(userData);
+    console.log(data)
+    submitRegistration(userData, e);
   }
   return (
     <>
@@ -68,6 +62,7 @@ export default function Register() {
                             type="text"
                             className="form-control"
                             id="firstName"
+                            name="firstName"
                             placeholder="First Name"
                           />
                         </div>
@@ -84,6 +79,7 @@ export default function Register() {
                             type="text"
                             className="form-control"
                             id="lastName"
+                            name="lastName"
                             placeholder="Last Name"
                           />
                         </div>
@@ -100,6 +96,7 @@ export default function Register() {
                             type="email"
                             className="form-control"
                             id="email"
+                            name="email"
                             placeholder="Email"
                           />
                         </div>
@@ -117,6 +114,7 @@ export default function Register() {
                             type="tel"
                             className="form-control"
                             id="phone"
+                            name="phone"
                             placeholder="Phone"
                           />
                         </div>
@@ -133,6 +131,7 @@ export default function Register() {
                             type="password"
                             className="form-control"
                             id="password"
+                            name="password"
                             placeholder="Password"
                           />
                         </div>
@@ -151,6 +150,7 @@ export default function Register() {
                             type="password"
                             className="form-control"
                             id="reenterPassword"
+                            name="reenterPassword"
                             placeholder="Re-enter Password"
                           />
                         </div>
@@ -202,6 +202,7 @@ export default function Register() {
                           type="file"
                           className="form-control-file"
                           id="imageUpload"
+                          name="imageUpload"
                         />
                       </div>
                       <div className="form-group col-md-6">
@@ -213,6 +214,7 @@ export default function Register() {
                           type="file"
                           className="form-control-file"
                           id="signatureUpload"
+                          name="signatureUpload"
                         />
                       </div>
 
@@ -228,6 +230,7 @@ export default function Register() {
                             type="number"
                             className="form-control"
                             id="aadharNumber"
+                            name="aadharNumber"
                             placeholder="Aadhar Number"
                           />
                         </div>
@@ -244,6 +247,7 @@ export default function Register() {
                             type="text"
                             className="form-control"
                             id="panNumber"
+                            name="panNumber"
                             placeholder="PAN Number"
                           />
                         </div>
