@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.1e1b08a9.css",
-    "main.js": "/static/js/main.63521ab6.js",
+    "main.css": "/static/css/main.f4e34cfa.css",
+    "main.js": "/static/js/main.fa32bb07.js",
     "static/media/home.png": "/static/media/home.9623f9728d91be036c71.png",
     "static/media/visacard.jpg": "/static/media/visacard.9b904c7b547c74328f5a.jpg",
     "static/media/paycard.jpg": "/static/media/paycard.a26bb807d14eb2ed8aa9.jpg",
+    "static/media/loginbg.jpg": "/static/media/loginbg.12f85ee8c388de2a1c9f.jpg",
     "index.html": "/index.html",
-    "main.1e1b08a9.css.map": "/static/css/main.1e1b08a9.css.map",
-    "main.63521ab6.js.map": "/static/js/main.63521ab6.js.map"
+    "main.f4e34cfa.css.map": "/static/css/main.f4e34cfa.css.map",
+    "main.fa32bb07.js.map": "/static/js/main.fa32bb07.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e1b08a9.css",
-    "static/js/main.63521ab6.js"
+    "static/css/main.f4e34cfa.css",
+    "static/js/main.fa32bb07.js"
   ]
 }
