@@ -37,12 +37,15 @@ export default function Register() {
     formData.append("aadharNumber", e.target.elements.aadharNumber.value);
     formData.append("panNumber", e.target.elements.panNumber.value);
 
-    // Append the image and signature files
     formData.append("imagePath", e.target.elements.imageUpload.files[0]);
     formData.append("signaturePath", e.target.elements.signatureUpload.files[0]);
 
-    // Send the formData to the server
-    submitRegistration(formData, e);
+    if(e.target.elements.password.value===e.target.elements.reenterPassword.value){
+      submitRegistration(formData, e);
+    }
+    else{
+      toast.error("Password mismatch!")
+    }
   }
 
   return (
@@ -76,6 +79,9 @@ export default function Register() {
                             id="firstName"
                             name="firstName"
                             placeholder="First Name"
+                            required
+                            pattern="[A-Za-z]+"
+                            title="Name should only contain characters (A-Z, a-z)."
                           />
                         </div>
                       </div>
@@ -93,6 +99,9 @@ export default function Register() {
                             id="lastName"
                             name="lastName"
                             placeholder="Last Name"
+                            required
+                            pattern="[A-Za-z]+"
+                            title="Name should only contain characters (A-Z, a-z)."
                           />
                         </div>
                       </div>
@@ -110,6 +119,7 @@ export default function Register() {
                             id="email"
                             name="email"
                             placeholder="Email"
+                            required
                           />
                         </div>
                       </div>
@@ -128,6 +138,9 @@ export default function Register() {
                             id="phone"
                             name="phone"
                             placeholder="Phone"
+                            required
+                            pattern="\d{10}"
+                            title="Valid phone number without country code"
                           />
                         </div>
                       </div>
@@ -145,6 +158,9 @@ export default function Register() {
                             id="password"
                             name="password"
                             placeholder="Password"
+                            required
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$"
+                            title="Password must be at least 8 characters long and contain a combination of letters, digits, and special characters."
                           />
                         </div>
                       </div>
@@ -164,6 +180,9 @@ export default function Register() {
                             id="reenterPassword"
                             name="reenterPassword"
                             placeholder="Re-enter Password"
+                            required
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$"
+                            title="Password must be at least 8 characters long and contain a combination of letters, digits, and special characters."
                           />
                         </div>
                       </div>
@@ -177,6 +196,8 @@ export default function Register() {
                               name="gender"
                               className="custom-control-input"
                               value="male"
+                              required
+                              title="Select any one"
                             />
                             <label
                               className="custom-control-label"
@@ -215,6 +236,9 @@ export default function Register() {
                           className="form-control-file"
                           id="imageUpload"
                           name="imageUpload"
+                          accept="image/*"
+                          size="1048576"
+                          required
                         />
                       </div>
                       <div className="form-group col-md-6">
@@ -227,6 +251,9 @@ export default function Register() {
                           className="form-control-file"
                           id="signatureUpload"
                           name="signatureUpload"
+                          accept="image/*"
+                          size="1048576"
+                          required
                         />
                       </div>
 
@@ -244,6 +271,9 @@ export default function Register() {
                             id="aadharNumber"
                             name="aadharNumber"
                             placeholder="Aadhar Number"
+                            required
+                            pattern="\d{10}"
+                            title="Enter valid Aadhaar"
                           />
                         </div>
                       </div>
@@ -261,6 +291,10 @@ export default function Register() {
                             id="panNumber"
                             name="panNumber"
                             placeholder="PAN Number"
+                            maxLength={10}
+                            minLength={10}
+                            required
+                            title="Enter Valid Pan Number"
                           />
                         </div>
                       </div>
