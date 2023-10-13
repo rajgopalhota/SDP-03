@@ -1,6 +1,7 @@
 import React from "react";
 import UrlHelper from "./../UrlHelper";
 import { toast } from "react-toastify";
+import Tc from "./Tc";
 
 export default function Register() {
 
@@ -40,10 +41,10 @@ export default function Register() {
     formData.append("imagePath", e.target.elements.imageUpload.files[0]);
     formData.append("signaturePath", e.target.elements.signatureUpload.files[0]);
 
-    if(e.target.elements.password.value===e.target.elements.reenterPassword.value){
+    if (e.target.elements.password.value === e.target.elements.reenterPassword.value) {
       submitRegistration(formData, e);
     }
-    else{
+    else {
       toast.error("Password mismatch!")
     }
   }
@@ -299,7 +300,22 @@ export default function Register() {
                         </div>
                       </div>
                     </div>
-                    <div className="text-center loginbutton bodybtn">
+
+                    <div className="form-group col-md-12 text-center my-2">
+                      <div className="custom-control custom-checkbox">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          id="termsCheckbox"
+                          required
+                        />
+                        <label className="custom-control-label" htmlFor="termsCheckbox">
+                          I agree to the <a data-bs-toggle="offcanvas" href="#tcoffcanvas" role="button" aria-controls="offcanvasExample">Terms and Conditions</a>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div className="text-center loginbutton bodybtn my-4">
                       <button type="submit">
                         <i class="fa-solid fa-right-to-bracket"></i>&nbsp;
                         Register
@@ -318,6 +334,7 @@ export default function Register() {
             </div>
           </div>
         </div>
+        <Tc/>
       </section>
     </>
   );

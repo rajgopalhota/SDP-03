@@ -426,6 +426,12 @@ form label {
   color: var(--main-color-1);
   font-weight: 500;
 }
+form label a{
+  text-decoration: none;
+}
+form label a:hover{
+  text-decoration: none;
+}
 h3 {
   color: var(--main-color-2);
   font-weight: 800;
