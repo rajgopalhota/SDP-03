@@ -18,7 +18,7 @@ export default function Register() {
         console.log("Backend", response.data)
         toast("Registration success");
         e.target.reset();
-        navigate('/home');
+        navigate('/');
       })
       .catch((error) => {
         toast("An error occured during regitration!");

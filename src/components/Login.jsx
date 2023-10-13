@@ -68,7 +68,7 @@ export default function Login() {
         };
         auth.login(userData);
         e.target.reset();
-        navigate('/home')
+        navigate('/')
       }
     } catch (error) {
       console.error(error);

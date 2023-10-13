@@ -329,3 +329,7 @@ img {
   text-align: right;
   margin-top: 25px;
 }
+.bankLoad{
+  mix-blend-mode: color-burn;
+  filter: none !important;
+}
