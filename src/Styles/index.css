@@ -144,7 +144,7 @@ html::-webkit-scrollbar{
   backdrop-filter: blur(12px);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.647);
-  animation: glow 1.5s ease-in-out infinite alternate;
+  animation: glow 3s ease-in-out infinite alternate;
 }
 .floating {
   animation-name: floating;
@@ -174,7 +174,6 @@ html::-webkit-scrollbar{
       0 0 80px #ff000000;
   }
 }
-
 
 .homeinfo h2 {
   font-weight: bold;
@@ -331,5 +330,11 @@ img {
 }
 .bankLoad{
   mix-blend-mode: color-burn;
+  filter: none !important;
+}
+.homedicards{
+  width: 150px;
+  height: 150px;
+  border-radius: 10px !important;
   filter: none !important;
 }
