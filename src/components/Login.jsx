@@ -67,6 +67,8 @@ export default function Login() {
           gender,
         };
         auth.login(userData);
+        e.target.reset();
+        navigate('/home')
       }
     } catch (error) {
       console.error(error);

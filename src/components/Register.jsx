@@ -2,8 +2,10 @@ import React from "react";
 import UrlHelper from "./../UrlHelper";
 import { toast } from "react-toastify";
 import Tc from "./Tc";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+  const navigate = useNavigate();
 
   function submitRegistration(data, e) {
     console.log(data)
@@ -15,7 +17,8 @@ export default function Register() {
       .then((response) => {
         console.log("Backend", response.data)
         toast("Registration success");
-        // e.target.reset();
+        e.target.reset();
+        navigate('/home');
       })
       .catch((error) => {
         toast("An error occured during regitration!");
@@ -334,7 +337,7 @@ export default function Register() {
             </div>
           </div>
         </div>
-        <Tc/>
+        <Tc />
       </section>
     </>
   );
