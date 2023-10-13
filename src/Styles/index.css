@@ -57,7 +57,7 @@ html::-webkit-scrollbar{
 }
 .headerPic{
   width: 40px;
-  border-radius: 50%;
+  border-radius: 50px;
   cursor: pointer;
   padding: 0 !important;
   position: relative;
