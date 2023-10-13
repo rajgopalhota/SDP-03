@@ -8,6 +8,7 @@ import UrlHelper from "./../UrlHelper";
 
 export default function Login() {
   const [imageURL, setImageURL] = useState('');
+  const [signURL, setSignURL] = useState('');
 
   const navigate = useNavigate();
   const [captchaValue, setCaptchaValue] = useState("");
@@ -47,18 +48,25 @@ export default function Login() {
     console.log(data)
     try {
       const response = await UrlHelper.post("/login", data);
-      const imgUrl = response.data.imagePath;
-      console.log(imgUrl)
-
-      // Fetch the image data from the URL
-      const imageResponse = await fetch(imgUrl, { credentials: 'omit' });
-      const imageData = await imageResponse.arrayBuffer();
-      const blob = new Blob([imageData], { type: 'image/png' });
-      const imageURL = URL.createObjectURL(blob);
-      setImageURL(imageURL);
       toast("Login success");
+      console.log(response.data.phone);
+      const phonedat = response.data.phone;
+      console.log(response.data.imagePath); 
+      const imgresponse = await UrlHelper.get(`/images/${phonedat}/${"photo"}`, { responseType: 'arraybuffer' });
+      const signresponse = await UrlHelper.get(`/images/${phonedat}/${"signature"}`, { responseType: 'arraybuffer' });
+      const responseimagedata = imgresponse.data;
+      const responsesignaturegedata = signresponse.data;
+
+      const blob = new Blob([responseimagedata], { type: 'image/png' });
+      const imageURL = URL.createObjectURL(blob);
+        setImageURL(imageURL);
+
+      const signblob = new Blob([responsesignaturegedata], { type: 'image/png' });
+      const signURL = URL.createObjectURL(signblob);
+        setSignURL(signURL);
       // e.target.reset();
     } catch (error) {
+
       toast("An error occured during registration!");
     }
   }
@@ -82,7 +90,6 @@ export default function Login() {
                 <h2>
                   Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
                 </h2>
-                <img src={imageURL} alt="wewew" />
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <br />
