@@ -1,10 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Captcha from "react-captcha-generator";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import UrlHelper from "./../UrlHelper";
+
 
 
 export default function Login() {
+  const [imageURL, setImageURL] = useState('');
+
   const navigate = useNavigate();
   const [captchaValue, setCaptchaValue] = useState("");
   const [userCaptchaValue, setUserCaptchaValue] = useState("");
@@ -23,19 +27,42 @@ export default function Login() {
   };
 
   const handleCaptchaClick = () => {
-    // Toggle the captchaRefresh state to generate a new captcha
     setCaptchaRefresh(!captchaRefresh);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (userCaptchaValue === captchaValue) {
-      // // If the captcha is entered correctly, redirect to the home page
-      // window.location.href = "/";
+      const formData = new FormData();
+      formData.append("phone", e.target.elements.phone.value);
+      formData.append("password", e.target.elements.password.value);
+      submitLogin(formData, e);
+
     } else {
       toast("Incorrect captcha");
     }
   };
+
+  async function submitLogin(data, e) {
+    console.log(data)
+    try {
+      const response = await UrlHelper.post("/login", data);
+      const imgUrl = response.data.imagePath;
+      console.log(imgUrl)
+
+      // Fetch the image data from the URL
+      const imageResponse = await fetch(imgUrl, { credentials: 'omit' });
+      const imageData = await imageResponse.arrayBuffer();
+      const blob = new Blob([imageData], { type: 'image/png' });
+      const imageURL = URL.createObjectURL(blob);
+      setImageURL(imageURL);
+      toast("Login success");
+      // e.target.reset();
+    } catch (error) {
+      toast("An error occured during registration!");
+    }
+  }
+
 
   return (
     <>
@@ -55,6 +82,7 @@ export default function Login() {
                 <h2>
                   Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
                 </h2>
+                <img src={imageURL} alt="wewew" />
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <br />
@@ -98,7 +126,7 @@ export default function Login() {
                         key={captchaRefresh ? "refresh" : "normal"} // Force re-render on refresh
                         result={handleCaptchaChange}
                         textColor="white"
-                        className = "captcha"
+                        className="captcha"
                       />
                     </div>
                     <div
@@ -115,7 +143,7 @@ export default function Login() {
                   </div>
                   <p data-dismiss="modal" data-bs-dismiss="modal" onClick={navReg}>
                     Newbie?
-                      SignUp here
+                    SignUp here
                   </p>
                   <div className="text-center loginbutton logbutton">
                     <button type="submit">

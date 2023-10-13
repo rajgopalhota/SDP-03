@@ -7,13 +7,14 @@ export default function ImageDisplay() {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const imageId = 2;
+        const imageId = "7569363276";
         const response = await UrlHelper.get(`/images/${imageId}`, { responseType: 'arraybuffer' });
         const imageData = response.data;
-        const blob = new Blob([response.data], { type: response.headers['content-type'] });
+        console.log(imageData)
+        const blob = new Blob([imageData], { type: 'image/png' });
         const imageURL = URL.createObjectURL(blob);
         setImageURL(imageURL);
-        console.log("check", imageData)
+        // console.log("check", imageURL)
       } catch (error) {
         console.error("Error fetching image:", error);
       }
