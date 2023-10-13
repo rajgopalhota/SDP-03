@@ -1,8 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Login from "./Login";
+import { useAuth } from "../AuthContext";
 
 export default function Navbar() {
+  const auth = useAuth();
+  const handleLogout = () => {
+    if (window.confirm("💜 Are you sure, you want to logout! 😓")) {
+      auth.logout();
+    }
+  };
+
   return (
     <>
       <div className="mainhead marquee">
@@ -81,16 +89,15 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/transaction">
-              <i class="fa-solid fa-hand-holding-dollar"></i> Transactions
+                <i class="fa-solid fa-hand-holding-dollar"></i> Transactions
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/payments">
-                <i className="fa-solid fa-earth-americas"></i>{" "}
-                Online Banking
+                <i className="fa-solid fa-earth-americas"></i> Online Banking
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <div
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
@@ -119,14 +126,26 @@ export default function Navbar() {
                   Investor relations
                 </NavLink>
               </div>
-            </li>
+              
+            </li> */}
           </ul>
-
-          <div className="loginbutton">
-            <button data-toggle="modal" data-target=".loginmodal">
-              <i className="fa-solid fa-lock fa-flip"></i> Login
-            </button>
-          </div>
+          {!auth.user && (
+            <div className="loginbutton">
+              <button data-toggle="modal" data-target=".loginmodal">
+                <i className="fa-solid fa-lock fa-flip"></i> Login
+              </button>
+            </div>
+          )}
+          {auth.user && (
+            <>
+              <img
+                className="headerPic"
+                src={auth.imageURL}
+                alt="user"
+                onClick={handleLogout}
+              />
+            </>
+          )}
         </div>
       </nav>
       <Login />

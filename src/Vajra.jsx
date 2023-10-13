@@ -13,11 +13,40 @@ import Pagenotfound from "./components/Pagenotfound";
 import Payment from "./components/Payment";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
-import ImageDisplay from "./components/ImageDisplay";
+import { useAuth } from "./AuthContext";
+import UrlHelper from "./UrlHelper"
 
 function App() {
+  const auth = useAuth();
+
   useEffect(() => {
-  }, []);
+    async function getImages() {
+      const phonedat = auth.user.phone;
+      const imgresponse = await UrlHelper.get(
+        `/images/${phonedat}/${"photo"}`,
+        { responseType: "arraybuffer" }
+      );
+      const signresponse = await UrlHelper.get(
+        `/images/${phonedat}/${"signature"}`,
+        { responseType: "arraybuffer" }
+      );
+
+      const responseimagedata = imgresponse.data;
+      const responsesignaturegedata = signresponse.data;
+
+      const blob = new Blob([responseimagedata], { type: "image/png" });
+      const imageURL = URL.createObjectURL(blob);
+
+      const signblob = new Blob([responsesignaturegedata], {
+        type: "image/png",
+      });
+      const signURL = URL.createObjectURL(signblob);
+      auth.userImages(imageURL, signURL);
+    }
+    if (auth.user) {
+      getImages();
+    }
+  }, [auth.user]);
 
   return (
     <>
@@ -44,7 +73,6 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/transaction" element={<Transactions />} />
             <Route path="/addcard" element={<AddCard />} />
-            <Route path="/img" element={<ImageDisplay />} />
             <Route path="*" element={<Pagenotfound />} />
           </Routes>
         </section>

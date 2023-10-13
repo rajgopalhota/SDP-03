@@ -55,6 +55,29 @@ html::-webkit-scrollbar{
   border-radius: 6px;
   /* margin-bottom: 1.5%; */
 }
+.headerPic{
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0 !important;
+  position: relative;
+}
+
+.confirmlogout {
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+
+
+.navbar ul, li{
+  list-style: none;
+}
 .navbar-custom .navbar-nav .nav-link {
   letter-spacing: 1px;
   color: #ffffff;
