@@ -73,8 +73,8 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/services">
-                <i className="fa-solid fa-satellite-dish"></i> Services
+              <NavLink className="nav-link" to="/agreement">
+                <i className="fa-solid fa-satellite-dish"></i> Agreement
               </NavLink>
             </li>
             <li className="nav-item">

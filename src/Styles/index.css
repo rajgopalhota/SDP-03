@@ -57,10 +57,13 @@ html::-webkit-scrollbar{
 }
 .headerPic{
   width: 40px;
+  height: 40px;
   border-radius: 50px;
   cursor: pointer;
   padding: 0 !important;
+  box-shadow: rgba(35, 35, 66, 0.61) 0px 50px 100px -20px, rgba(0, 0, 0, 0.752) 0px 30px 60px -30px;
   position: relative;
+  border: 1px solid rgb(255, 245, 232);
 }
 
 .confirmlogout {
@@ -276,4 +279,53 @@ img {
 .offcanvas-body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.neumorphic {
+  border-radius: 1rem;
+  background: #e0e0e0;
+  box-shadow:  -20px -20px 60px #bebebe,
+               20px 20px 60px #ffffff;
+}
+.agreementImg{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 6px solid var(--main-color-1);
+  padding: 6px;
+  transition: padding ease-in-out 0.2s;
+}
+.agreementImg:hover{
+  cursor: pointer;
+  padding: 0;
+}
+.agrrementpoints{
+  margin: 0 20px;
+}
+.usersign{
+  width: 200px;
+}
+.agrrementpoints li{
+  padding: 6px;
+  background-color: rgba(215, 215, 215, 0.121);
+  border: 1px solid var(--main-color-2);
+  margin: 8px;
+  border-radius: 8px;
+  transition: all ease-out 0.2s;
+}
+.agrrementpoints li:hover{
+  cursor: pointer;
+  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.845);
+}
+.signatures{
+  margin-left: auto;
+  margin-right: 40px;
+}
+.signatures img{
+  mix-blend-mode: hard-light;
+}
+.signatures p{
+  text-align: right;
+  margin-top: 25px;
 }
