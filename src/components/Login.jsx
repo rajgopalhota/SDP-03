@@ -44,7 +44,8 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await UrlHelper.post("/login", formData);
-      if (response.status === 401) {
+      console.log(response.data)
+      if (response.status === 204) {
         toast("Login failed. Check your credentials.");
       } else if (response.status === 200) {
         toast("Login success");
@@ -79,9 +80,10 @@ export default function Login() {
   return (
     <>
       <div
-        className="modal fade loginmodal"
+        className="modal fade"
         tabIndex="-5"
         role="dialog"
+        id="loginmodal"
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
       >
@@ -89,80 +91,89 @@ export default function Login() {
           <div className="modal-content tilt-in-fwd-br">
             <div className="container">
               <div className="glass-card p-4 m-2 flex-fill loginmodal">
-                <h2>
-                  Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
-                </h2>
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <br />
-                    <div className="input-group">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text">
-                          <i className="fa fa-phone"></i>
-                        </span>
-                      </div>
-                      <input
-                        type="tel"
-                        className="form-control"
-                        id="phone"
-                        placeholder="Enter phone number"
-                      />
-                    </div>
+                {auth.user &&
+                  <div className="afterLogin puff-in-center">
+                    Welcome to vajra {auth.user.gender==="male"?"Mr.":"Ms."} {auth.user.firstName}, You are good to go!
                   </div>
-                  <div className="form-group">
-                    <br />
-                    <div className="input-group">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text">
-                          <i className="fa fa-lock"></i>
-                        </span>
+                }
+                {!auth.user &&
+                  <>
+                    <h2>
+                      Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
+                    </h2>
+                    <form onSubmit={handleSubmit}>
+                      <div className="form-group">
+                        <br />
+                        <div className="input-group">
+                          <div className="input-group-prepend">
+                            <span className="input-group-text">
+                              <i className="fa fa-phone"></i>
+                            </span>
+                          </div>
+                          <input
+                            type="tel"
+                            className="form-control"
+                            id="phone"
+                            placeholder="Enter phone number"
+                          />
+                        </div>
                       </div>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Password"
-                      />
-                    </div>
-                  </div>
+                      <div className="form-group">
+                        <br />
+                        <div className="input-group">
+                          <div className="input-group-prepend">
+                            <span className="input-group-text">
+                              <i className="fa fa-lock"></i>
+                            </span>
+                          </div>
+                          <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            placeholder="Password"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="form-row">
-                    <div
-                      className="form-group col-md-5"
-                      onClick={handleCaptchaClick}
-                    >
-                      <Captcha
-                        key={captchaRefresh ? "refresh" : "normal"} // Force re-render on refresh
-                        result={handleCaptchaChange}
-                        textColor="white"
-                        className="captcha"
-                      />
-                    </div>
-                    <div
-                      className="form-group col-md-5"
-                      style={{ marginTop: "30px" }}
-                    >
-                      <input
-                        type="text"
-                        onChange={handleUserCaptchaChange}
-                        placeholder="Enter captcha"
-                        className="form-control captchatext"
-                      />
-                    </div>
-                  </div>
-                  <p
-                    data-dismiss="modal"
-                    data-bs-dismiss="modal"
-                    onClick={navReg}
-                  >
-                    Newbie? SignUp here
-                  </p>
-                  <div className="text-center loginbutton logbutton">
-                    <button type="submit">
-                      <i className="fa fa-paper-plane"></i>&nbsp;Login
-                    </button>
-                  </div>
-                </form>
+                      <div className="form-row">
+                        <div
+                          className="form-group col-md-5"
+                          onClick={handleCaptchaClick}
+                        >
+                          <Captcha
+                            key={captchaRefresh ? "refresh" : "normal"} // Force re-render on refresh
+                            result={handleCaptchaChange}
+                            textColor="white"
+                            className="captcha"
+                          />
+                        </div>
+                        <div
+                          className="form-group col-md-5"
+                          style={{ marginTop: "30px" }}
+                        >
+                          <input
+                            type="text"
+                            onChange={handleUserCaptchaChange}
+                            placeholder="Enter captcha"
+                            className="form-control captchatext"
+                          />
+                        </div>
+                      </div>
+                      <p
+                        data-dismiss="modal"
+                        data-bs-dismiss="modal"
+                        onClick={navReg}
+                      >
+                        Newbie? SignUp here
+                      </p>
+                      <div className="text-center loginbutton logbutton">
+                        <button type="submit">
+                          <i className="fa fa-paper-plane"></i>&nbsp;Login
+                        </button>
+                      </div>
+                    </form>
+                  </>
+                }
               </div>
             </div>
           </div>

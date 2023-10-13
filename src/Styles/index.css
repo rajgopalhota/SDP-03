@@ -338,3 +338,8 @@ img {
   border-radius: 10px !important;
   filter: none !important;
 }
+
+.afterLogin{
+  font-size: 1.4vw;
+}
+

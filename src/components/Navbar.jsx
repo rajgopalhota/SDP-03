@@ -131,7 +131,7 @@ export default function Navbar() {
           </ul>
           {!auth.user && (
             <div className="loginbutton">
-              <button data-toggle="modal" data-target=".loginmodal">
+              <button data-toggle="modal" data-target="#loginmodal">
                 <i className="fa-solid fa-lock fa-flip"></i> Login
               </button>
             </div>
