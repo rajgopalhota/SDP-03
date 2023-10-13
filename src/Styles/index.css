@@ -46,9 +46,6 @@ html::-webkit-scrollbar{
   height: 100vh; /* vh stands for viewport height */
 }
 
-img {
-  mix-blend-mode: multiply;
-}
 .navbar-custom {
   background-image: linear-gradient(125deg, var(--main-color-2), var(--main-color-1));
 }
@@ -192,7 +189,6 @@ img {
   transition: all 0.3s ease;
   filter: drop-shadow(0 40px 50px rgba(111, 65, 160, 0.555));
   border-radius: 12px;
-  mix-blend-mode: multiply;
 }
 .marquee {
   width: 100%;
@@ -231,8 +227,4 @@ img {
   .homeinfo h2 {
     font-size: 17px;
   }
-}
-
-.retIng{
-  z-index: 999;
 }
