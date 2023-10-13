@@ -98,13 +98,15 @@ export default function Agreement() {
                                 }
                                 </p>
                             </div>
+                            <div className="text-left loginbutton bodybtn">
+                                <button type="submit" onClick={handleDownloadPDF}>
+                                <i class="fa-solid fa-download"></i>&nbsp; Download
+                                </button>
+                            </div>
                         </div>
+
                     </div>
-                </div>
-                <div className="text-center">
-                    <button onClick={handleDownloadPDF} className="btn btn-primary">
-                        Download PDF
-                    </button>
+
                 </div>
             </section>
         </>
