@@ -13,6 +13,7 @@ import Pagenotfound from "./components/Pagenotfound";
 import Payment from "./components/Payment";
 import Register from "./components/Register";
 import Transactions from "./components/Transactions";
+import ImageDisplay from "./components/ImageDisplay";
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/transaction" element={<Transactions />} />
             <Route path="/addcard" element={<AddCard />} />
+            <Route path="/img" element={<ImageDisplay />} />
             <Route path="*" element={<Pagenotfound />} />
           </Routes>
         </section>
