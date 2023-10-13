@@ -3,7 +3,7 @@ import React from 'react'
 export default function Loans() {
   return (
     <>
-    <section className="loansection">
+    <section className="loansection tilt-in-fwd-br">
       <div className="loan-container">
         <div className="container">
           <div className="row justify-content-center">

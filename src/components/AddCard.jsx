@@ -117,7 +117,7 @@ export default function AddCard() {
 
   return (
     <>
-      <div className="wrapper" id="app">
+      <div className="wrapper tilt-in-fwd-br" id="app">
         <div className="card-form">
           <div className="card-list">
             <div className={`card-item ${isCardFlipped ? "-active" : ""}`}>

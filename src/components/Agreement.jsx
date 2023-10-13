@@ -22,12 +22,12 @@ export default function Agreement() {
             <section className='loansection'>
                 {!auth.user &&
                     <div class="text-center">
-                        <h2>You need to Login to see your Agreement!</h2>
+                        <h2 className='puff-in-center'>You need to Login to see your Agreement!</h2>
                         <img className='img-fluid bankLoad' src={bankLoad} alt='bank load' />
                     </div>
                 }
                 {auth.user &&
-                    <div className="loan-container">
+                    <div className="loan-container tilt-in-fwd-br">
                         <div className='container '>
                             <div class="form-container">
                                 <div class="text-left">

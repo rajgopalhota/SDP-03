@@ -12,11 +12,11 @@ export default function Home() {
     <>
       <div className="row h-100">
         <div
-          className="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
+          className="col-lg-6 col-sm-12 d-flex justify-content-center"
           style={{ backgroundColor: "lavender" }}
         >
           <div
-            className="homeinfo text-center"
+            className="homeinfo text-center bounce-top"
           >
             <h2>
               Welcome to Vajra <TextAni />

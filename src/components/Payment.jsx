@@ -4,7 +4,7 @@ export default function Payment() {
   return (
     <>
       <div className="row h-100">
-        <div className="col-lg-9 col-sm-12  paymentmodule">
+        <div className="col-lg-9 col-sm-12  paymentmodule tilt-in-fwd-br">
           <div
             className="container"
           >
@@ -111,7 +111,7 @@ export default function Payment() {
         </div>
         <div className="col-lg-3 col-sm-12 flex-wrap p-4 right-panel paymentcards">
           <div
-            className="pay-glass-card p-4 m-2 flex-fill"
+            className="pay-glass-card p-4 m-2 flex-fill tilt-in-fwd-tr"
           >
             <h5 className="card-title">
               <i className="fa-solid fa-user-lock"></i> RAJGOPAL
@@ -127,7 +127,7 @@ export default function Payment() {
             </p>
           </div>
 
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -145,7 +145,7 @@ export default function Payment() {
 
           {/* <!-- populated cards --> */}
 
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -159,7 +159,7 @@ export default function Payment() {
               />
             </div>
           </div>
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -173,7 +173,7 @@ export default function Payment() {
               />
             </div>
           </div>
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -187,7 +187,7 @@ export default function Payment() {
               />
             </div>
           </div>
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -201,7 +201,7 @@ export default function Payment() {
               />
             </div>
           </div>
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
@@ -215,7 +215,7 @@ export default function Payment() {
               />
             </div>
           </div>
-          <div className="pay-glass-card p-3 m-2 flex-fill">
+          <div className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr">
             <div className="d-flex justify-content-between align-items-center paycard">
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>

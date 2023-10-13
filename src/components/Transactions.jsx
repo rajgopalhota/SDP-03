@@ -3,7 +3,7 @@ import React from "react";
 export default function Transactions() {
   return (
     <>
-      <div className="transactionsection">
+      <div className="transactionsection tilt-in-fwd-br">
         <div className="d-flex justify-content-center">
           <div className="transaction-container col-md-8">
             <h3>Bank Statement</h3>

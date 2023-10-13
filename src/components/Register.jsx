@@ -54,7 +54,7 @@ export default function Register() {
 
   return (
     <>
-      <section className="loansection">
+      <section className="loansection tilt-in-fwd-br">
         <div
           className="loan-container"
         >

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Pagenotfound() {
   return (
-    <section class="wrapper">
+    <section class="wrapper tilt-in-fwd-br">
       <div class="container">
         <div id="scene" class="scene" data-hover-only="false">
           <div class="circle" data-depth="1.2"></div>
