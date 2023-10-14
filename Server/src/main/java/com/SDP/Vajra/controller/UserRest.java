@@ -53,7 +53,7 @@ public class UserRest {
 				register.setImagePath(decodedImagePath);
 				register.setSignaturePath(decodedSignaturePath);
 				User registeredUser = rss.registerUser(register);
-				return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+				return new ResponseEntity<>(registeredUser, HttpStatus.OK);
 			}
 
 		} catch (Exception e) {
