@@ -5,9 +5,7 @@ export default function Payment() {
     <>
       <div className="row h-100">
         <div className="col-lg-9 col-sm-12  paymentmodule tilt-in-fwd-br">
-          <div
-            className="container"
-          >
+          <div className="container">
             <div className="glass-card-payment mt-5 p-4 m-2 flex-fill mx-auto">
               <h3>Bank Transfer Form</h3>
               <form>
@@ -110,9 +108,7 @@ export default function Payment() {
           </div>
         </div>
         <div className="col-lg-3 col-sm-12 flex-wrap p-4 right-panel paymentcards">
-          <div
-            className="pay-glass-card p-4 m-2 flex-fill tilt-in-fwd-tr"
-          >
+          <div className="pay-glass-card p-4 m-2 flex-fill tilt-in-fwd-tr">
             <h5 className="card-title">
               <i className="fa-solid fa-user-lock"></i> RAJGOPAL
             </h5>

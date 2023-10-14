@@ -1,5 +1,6 @@
 import { React, useEffect, useRef, useState } from "react";
 import "./../Styles/Addcard.css";
+import AtmCards from "./AtmCards";
 
 export default function AddCard() {
   const [currentCardBackground, setCurrentCardBackground] = useState(1);
@@ -117,272 +118,279 @@ export default function AddCard() {
 
   return (
     <>
-      <div className="wrapper tilt-in-fwd-br" id="app">
-        <div className="card-form">
-          <div className="card-list">
-            <div className={`card-item ${isCardFlipped ? "-active" : ""}`}>
-              <div className="card-item__side -front">
-                <div
-                  className={`card-item__focus ${
-                    isInputFocused ? "-active" : ""
-                  }`}
-                  style={focusElementStyle}
-                ></div>
-                <div className="card-item__cover">
-                  <img
-                    src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${currentCardBackground}.jpeg`}
-                    className="card-item__bg"
-                    alt="Card Background"
-                  />
-                </div>
-
-                <div className="card-item__wrapper">
-                  <div className="card-item__top">
-                    <img
-                      src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
-                      className="card-item__chip"
-                      alt="Card Chip"
-                    />
-                    <div className="card-item__type">
+      <div className="row h-100">
+        <div className="col-lg-9 col-sm-12 tilt-in-fwd-tr">
+          <div className="wrapper tilt-in-fwd-br" id="app">
+            <div className="card-form">
+              <div className="card-list">
+                <div className={`card-item ${isCardFlipped ? "-active" : ""}`}>
+                  <div className="card-item__side -front">
+                    <div
+                      className={`card-item__focus ${
+                        isInputFocused ? "-active" : ""
+                      }`}
+                      style={focusElementStyle}
+                    ></div>
+                    <div className="card-item__cover">
                       <img
-                        src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType()}.png`}
-                        alt="Card Type"
-                        className="card-item__typeImg"
+                        src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${currentCardBackground}.jpeg`}
+                        className="card-item__bg"
+                        alt="Card Background"
                       />
                     </div>
-                  </div>
-                  <label
-                    htmlFor="cardNumber"
-                    className="card-item__number"
-                    ref={cardNumberRef}
-                  >
-                    {getCardType() === "amex"
-                      ? amexCardMask.split("").map((n, $index) => (
-                          <div
-                            className="card-item__numberItem"
-                            key={`item-${$index}`}
-                          >
-                            {cardNumber.length > $index
-                              ? cardNumber[$index]
-                              : n.trim()}
-                          </div>
-                        ))
-                      : otherCardMask.split("").map((n, $index) => (
-                          <div
-                            className="card-item__numberItem"
-                            key={`item-${$index}`}
-                          >
-                            {cardNumber.length > $index
-                              ? cardNumber[$index]
-                              : n.trim()}
-                          </div>
-                        ))}
-                  </label>
 
-                  <div className="card-item__content">
-                    <label
-                      htmlFor="cardName"
-                      className="card-item__info"
-                      ref={cardNameRef}
-                    >
-                      <div className="card-item__holder">Card Holder</div>
-                      <div className="card-item__name">
-                        {cardName.length ? (
-                          cardName.split("").map((n, $index) => (
-                            <span
-                              className="card-item__nameItem"
-                              key={`nameItem-${$index + 1}`}
-                            >
-                              {n}
-                            </span>
-                          ))
-                        ) : (
-                          <div className="card-item__name" key="2">
-                            Full Name
-                          </div>
-                        )}
+                    <div className="card-item__wrapper">
+                      <div className="card-item__top">
+                        <img
+                          src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+                          className="card-item__chip"
+                          alt="Card Chip"
+                        />
+                        <div className="card-item__type">
+                          <img
+                            src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType()}.png`}
+                            alt="Card Type"
+                            className="card-item__typeImg"
+                          />
+                        </div>
                       </div>
-                    </label>
+                      <label
+                        htmlFor="cardNumber"
+                        className="card-item__number"
+                        ref={cardNumberRef}
+                      >
+                        {getCardType() === "amex"
+                          ? amexCardMask.split("").map((n, $index) => (
+                              <div
+                                className="card-item__numberItem"
+                                key={`item-${$index}`}
+                              >
+                                {cardNumber.length > $index
+                                  ? cardNumber[$index]
+                                  : n.trim()}
+                              </div>
+                            ))
+                          : otherCardMask.split("").map((n, $index) => (
+                              <div
+                                className="card-item__numberItem"
+                                key={`item-${$index}`}
+                              >
+                                {cardNumber.length > $index
+                                  ? cardNumber[$index]
+                                  : n.trim()}
+                              </div>
+                            ))}
+                      </label>
 
-                    <div className="card-item__date" ref={cardMonthRef}>
-                      <label
-                        htmlFor="cardMonth"
-                        className="card-item__dateTitle"
-                      >
-                        Expires
-                      </label>
-                      <label
-                        htmlFor="cardMonth"
-                        className="card-item__dateItem"
-                      >
-                        {cardMonth ? (
-                          <span key={cardMonth}>{cardMonth}</span>
-                        ) : (
-                          <span key="2">MM</span>
-                        )}
-                      </label>
-                      /
-                      <label
-                        htmlFor="cardYear"
-                        className="card-item__dateItem"
-                        ref={cardYearRef}
-                      >
-                        {cardYear ? (
-                          <span key={cardYear}>
-                            {String(cardYear).slice(2, 4)}
-                          </span>
-                        ) : (
-                          <span key="2">YY</span>
-                        )}
-                      </label>
+                      <div className="card-item__content">
+                        <label
+                          htmlFor="cardName"
+                          className="card-item__info"
+                          ref={cardNameRef}
+                        >
+                          <div className="card-item__holder">Card Holder</div>
+                          <div className="card-item__name">
+                            {cardName.length ? (
+                              cardName.split("").map((n, $index) => (
+                                <span
+                                  className="card-item__nameItem"
+                                  key={`nameItem-${$index + 1}`}
+                                >
+                                  {n}
+                                </span>
+                              ))
+                            ) : (
+                              <div className="card-item__name" key="2">
+                                Full Name
+                              </div>
+                            )}
+                          </div>
+                        </label>
+
+                        <div className="card-item__date" ref={cardMonthRef}>
+                          <label
+                            htmlFor="cardMonth"
+                            className="card-item__dateTitle"
+                          >
+                            Expires
+                          </label>
+                          <label
+                            htmlFor="cardMonth"
+                            className="card-item__dateItem"
+                          >
+                            {cardMonth ? (
+                              <span key={cardMonth}>{cardMonth}</span>
+                            ) : (
+                              <span key="2">MM</span>
+                            )}
+                          </label>
+                          /
+                          <label
+                            htmlFor="cardYear"
+                            className="card-item__dateItem"
+                            ref={cardYearRef}
+                          >
+                            {cardYear ? (
+                              <span key={cardYear}>
+                                {String(cardYear).slice(2, 4)}
+                              </span>
+                            ) : (
+                              <span key="2">YY</span>
+                            )}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-item__side -back">
+                    <div className="card-item__cover">
+                      <img
+                        src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${currentCardBackground}.jpeg`}
+                        className="card-item__bg"
+                        alt="Card Background"
+                      />
+                    </div>
+                    <div className="card-item__band"></div>
+                    <div className="card-item__cvv">
+                      <div className="card-item__cvvTitle">CVV</div>
+                      <div className="card-item__cvvBand">
+                        {cardCvv.split("").map((n, index) => (
+                          <span key={index}>*</span>
+                        ))}
+                      </div>
+                      <div className="card-item__type">
+                        <img
+                          src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType()}.png`}
+                          className="card-item__typeImg"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="card-item__side -back">
-                <div className="card-item__cover">
-                  <img
-                    src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${currentCardBackground}.jpeg`}
-                    className="card-item__bg"
-                    alt="Card Background"
-                  />
-                </div>
-                <div className="card-item__band"></div>
-                <div className="card-item__cvv">
-                  <div className="card-item__cvvTitle">CVV</div>
-                  <div className="card-item__cvvBand">
-                    {cardCvv.split("").map((n, index) => (
-                      <span key={index}>*</span>
-                    ))}
-                  </div>
-                  <div className="card-item__type">
-                    <img
-                      src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType()}.png`}
-                      className="card-item__typeImg"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card-form__inner">
-            <div className="card-input">
-              <label htmlFor="cardNumber" className="card-input__label">
-                Card Number
-              </label>
-              <input
-                type="text"
-                id="cardNumber"
-                className="card-input__input"
-                value={cardNumber}
-                onChange={handleCardNumberChange}
-                onFocus={focusInput}
-                onBlur={blurInput}
-                data-ref="cardNumber"
-                autoComplete="off"
-                ref={cardNumberRef}
-              />
-            </div>
-            <div className="card-input">
-              <label htmlFor="cardName" className="card-input__label">
-                Card Holder
-              </label>
-              <input
-                type="text"
-                id="cardName"
-                className="card-input__input"
-                value={cardName}
-                onChange={handleCardHolderNameChange}
-                onFocus={focusInput}
-                onBlur={blurInput}
-                data-ref="cardName"
-                autoComplete="off"
-                ref={cardNameRef}
-              />
-            </div>
-            <div className="card-form__row">
-              <div className="card-form__col">
-                <div className="card-form__group">
-                  <label htmlFor="cardMonth" className="card-input__label">
-                    Expiration Date
-                  </label>
-                  <select
-                    className="card-input__input "
-                    id="cardMonth"
-                    value={cardMonth}
-                    onChange={(e) => setCardMonth(e.target.value)}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    data-ref="cardDate"
-                  >
-                    <option value="" disabled>
-                      Month
-                    </option>
-                    {Array.from({ length: 12 }, (_, index) => {
-                      const monthValue = index + 1;
-                      const formattedMonth =
-                        monthValue < 10 ? `0${monthValue}` : monthValue;
-                      return (
-                        <option
-                          key={formattedMonth}
-                          value={formattedMonth}
-                          disabled={monthValue < minCardMonth()}
-                        >
-                          {formattedMonth}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  <select
-                    className="card-input__input "
-                    id="cardYear"
-                    value={cardYear}
-                    onChange={(e) => setCardYear(e.target.value)}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    data-ref="cardDate"
-                  >
-                    <option value="" disabled>
-                      Year
-                    </option>
-                    {Array.from({ length: 12 }, (_, index) => {
-                      const yearValue = index + minCardYear;
-                      return (
-                        <option key={yearValue} value={yearValue}>
-                          {yearValue}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div className="card-form__col -cvv">
+              <div className="card-form__inner">
                 <div className="card-input">
-                  <label htmlFor="cardCvv" className="card-input__label">
-                    CVV
+                  <label htmlFor="cardNumber" className="card-input__label">
+                    Card Number
                   </label>
                   <input
                     type="text"
+                    id="cardNumber"
                     className="card-input__input"
-                    id="cardCvv"
-                    maxLength="4"
-                    value={cardCvv}
-                    onChange={(e) => {
-                      const inputText = e.target.value
-                        .replace(/\D/g, "")
-                        .slice(0, 3);
-                      setCardCvv(inputText);
-                    }}
-                    onFocus={() => flipCard(true)}
-                    onBlur={() => flipCard(false)}
+                    value={cardNumber}
+                    onChange={handleCardNumberChange}
+                    onFocus={focusInput}
+                    onBlur={blurInput}
+                    data-ref="cardNumber"
                     autoComplete="off"
+                    ref={cardNumberRef}
                   />
                 </div>
+                <div className="card-input">
+                  <label htmlFor="cardName" className="card-input__label">
+                    Card Holder
+                  </label>
+                  <input
+                    type="text"
+                    id="cardName"
+                    className="card-input__input"
+                    value={cardName}
+                    onChange={handleCardHolderNameChange}
+                    onFocus={focusInput}
+                    onBlur={blurInput}
+                    data-ref="cardName"
+                    autoComplete="off"
+                    ref={cardNameRef}
+                  />
+                </div>
+                <div className="card-form__row">
+                  <div className="card-form__col">
+                    <div className="card-form__group">
+                      <label htmlFor="cardMonth" className="card-input__label">
+                        Expiration Date
+                      </label>
+                      <select
+                        className="card-input__input "
+                        id="cardMonth"
+                        value={cardMonth}
+                        onChange={(e) => setCardMonth(e.target.value)}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                        data-ref="cardDate"
+                      >
+                        <option value="" disabled>
+                          Month
+                        </option>
+                        {Array.from({ length: 12 }, (_, index) => {
+                          const monthValue = index + 1;
+                          const formattedMonth =
+                            monthValue < 10 ? `0${monthValue}` : monthValue;
+                          return (
+                            <option
+                              key={formattedMonth}
+                              value={formattedMonth}
+                              disabled={monthValue < minCardMonth()}
+                            >
+                              {formattedMonth}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <select
+                        className="card-input__input "
+                        id="cardYear"
+                        value={cardYear}
+                        onChange={(e) => setCardYear(e.target.value)}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                        data-ref="cardDate"
+                      >
+                        <option value="" disabled>
+                          Year
+                        </option>
+                        {Array.from({ length: 12 }, (_, index) => {
+                          const yearValue = index + minCardYear;
+                          return (
+                            <option key={yearValue} value={yearValue}>
+                              {yearValue}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="card-form__col -cvv">
+                    <div className="card-input">
+                      <label htmlFor="cardCvv" className="card-input__label">
+                        CVV
+                      </label>
+                      <input
+                        type="text"
+                        className="card-input__input"
+                        id="cardCvv"
+                        maxLength="4"
+                        value={cardCvv}
+                        onChange={(e) => {
+                          const inputText = e.target.value
+                            .replace(/\D/g, "")
+                            .slice(0, 3);
+                          setCardCvv(inputText);
+                        }}
+                        onFocus={() => flipCard(true)}
+                        onBlur={() => flipCard(false)}
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button className="card-form__button">Submit</button>
               </div>
             </div>
-
-            <button className="card-form__button">Submit</button>
           </div>
+        </div>
+        <div className="col-lg-3 col-sm-12 flex-wrap p-4">
+          <AtmCards />
         </div>
       </div>
     </>
