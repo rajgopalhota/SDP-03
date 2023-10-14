@@ -1,69 +1,74 @@
 package com.SDP.Vajra.model;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicLong;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "register")
 public class User {
-	
-	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
-    @Column(name = "email")
-    private String email;
-    @Id
-    @Column(name = "phone",unique = true)
-    private String phone;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "gender")
-    private String gender;
-    @Column(name = "aadharNumber")
-    private String aadharNumber;
-    @Column(name = "panNumber")
-    private String panNumber;
+	private static AtomicLong counter = new AtomicLong(0);
 
-    @Lob
-    @Column(name = "imagePath", columnDefinition = "MEDIUMBLOB")
-    private byte[] imagePath;
+	private Long id;
 
-    @Lob
-    @Column(name = "signaturePath",columnDefinition = "MEDIUMBLOB")
-    private byte[] signaturePath;
-    
-    @Column(name = "role")
-    private String role = "customer";
+	@Column(name = "firstName")
+	private String firstName;
+	@Column(name = "lastName")
+	private String lastName;
+	@Column(name = "email")
+	private String email;
+	@Id
+	@Column(name = "phone", unique = true)
+	private String phone;
+	@Column(name = "password")
+	private String password;
+	@Column(name = "gender")
+	private String gender;
+	@Column(name = "aadharNumber")
+	private String aadharNumber;
+	@Column(name = "panNumber")
+	private String panNumber;
 
-    @Column(name = "isVerified")
-    private boolean isVerified = false;
+	@Lob
+	@Column(name = "imagePath", columnDefinition = "MEDIUMBLOB")
+	private byte[] imagePath;
 
+	@Lob
+	@Column(name = "signaturePath", columnDefinition = "MEDIUMBLOB")
+	private byte[] signaturePath;
 
-    public User() { 
-    }
+	@Column(name = "role")
+	private String role = "customer";
 
-    public User(Long id, String firstName, String lastName, String email, String phone, String password,
-                    String gender, String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.gender = gender;
-        this.aadharNumber = aadharNumber;
-        this.panNumber = panNumber;
-        this.imagePath = imagePath;
-        this.signaturePath = signaturePath;
-    }
+	@Column(name = "isVerified")
+	private boolean isVerified = false;
 
+	public User() {
+		this.id = generateUniqueId();
+	}
 
-    public Long getId() {
+	private Long generateUniqueId() {
+		return counter.incrementAndGet();
+	}
+
+	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
+			String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+		this.gender = gender;
+		this.aadharNumber = aadharNumber;
+		this.panNumber = panNumber;
+		this.imagePath = imagePath;
+		this.signaturePath = signaturePath;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
@@ -150,38 +155,29 @@ public class User {
 	public void setSignaturePath(byte[] signaturePath) {
 		this.signaturePath = signaturePath;
 	}
-	
+
 	public String getRole() {
-	    return role;
+		return role;
 	}
 
 	public void setRole(String role) {
-	    this.role = role;
+		this.role = role;
 	}
 
 	public boolean getIsVerified() {
-	    return isVerified;
+		return isVerified;
 	}
 
 	public void setIsVerified(boolean isVerified) {
-	    this.isVerified = isVerified;
+		this.isVerified = isVerified;
 	}
 
-
 	@Override
-    public String toString() {
-        return "Register{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", aadharNumber='" + aadharNumber + '\'' +
-                ", panNumber='" + panNumber + '\'' +
-                ", imagePath=" + Arrays.toString(imagePath) +
-                ", signaturePath=" + Arrays.toString(signaturePath) +
-                '}';
-    }
+	public String toString() {
+		return "Register{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+				+ ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", password='" + password + '\''
+				+ ", gender='" + gender + '\'' + ", aadharNumber='" + aadharNumber + '\'' + ", panNumber='" + panNumber
+				+ '\'' + ", imagePath=" + Arrays.toString(imagePath) + ", signaturePath="
+				+ Arrays.toString(signaturePath) + '}';
+	}
 }
