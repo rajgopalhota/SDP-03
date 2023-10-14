@@ -1,16 +1,13 @@
 package com.SDP.Vajra.model;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicLong;
-
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "register")
 public class User {
 
-	private static AtomicLong counter = new AtomicLong(0);
-
+	
 	private Long id;
 
 	@Column(name = "firstName")
@@ -46,11 +43,6 @@ public class User {
 	private boolean isVerified = false;
 
 	public User() {
-		this.id = generateUniqueId();
-	}
-
-	private Long generateUniqueId() {
-		return counter.incrementAndGet();
 	}
 
 	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
