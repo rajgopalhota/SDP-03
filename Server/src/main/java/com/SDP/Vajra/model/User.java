@@ -1,6 +1,9 @@
 package com.SDP.Vajra.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -9,6 +12,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
     private Long id;
 
     @Column(name = "firstName")
@@ -41,28 +45,53 @@ public class User {
 
     @Column(name = "isVerified")
     private boolean isVerified = false;
+    
+   
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Card> cards = new ArrayList<>();
+    
+    
+    
 
+	public List<Card> getCards() {
+		return cards;
+	}
 
-    public User() { 
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
+	}
+
+	public User() { 
     }
 
-    public User(Long id, String firstName, String lastName, String email, String phone, String password,
-                    String gender, String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.gender = gender;
-        this.aadharNumber = aadharNumber;
-        this.panNumber = panNumber;
-        this.imagePath = imagePath;
-        this.signaturePath = signaturePath;
-    }
+   
+	
 
+    public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
+			String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath, String role,
+			boolean isVerified, List<Card> cards) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+		this.gender = gender;
+		this.aadharNumber = aadharNumber;
+		this.panNumber = panNumber;
+		this.imagePath = imagePath;
+		this.signaturePath = signaturePath;
+		this.role = role;
+		this.isVerified = isVerified;
+		this.cards = cards;
+	}
 
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 

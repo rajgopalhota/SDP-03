@@ -1,6 +1,10 @@
 import { React, useEffect, useRef, useState } from "react";
 import "./../Styles/Addcard.css";
 import AtmCards from "./AtmCards";
+import { useAuth } from "./../AuthContext"
+
+import UrlHelper from "./../UrlHelper";
+
 
 export default function AddCard() {
   const [currentCardBackground, setCurrentCardBackground] = useState(1);
@@ -60,7 +64,13 @@ export default function AddCard() {
   useEffect(() => {
     setCurrentCardBackground(Math.floor(Math.random() * 25 + 1));
     setCardNumber(otherCardMask);
-    cardNumberRef.current.focus();
+    // Do not focus on the cardNumber element here
+  }, []);
+
+  useEffect(() => {
+    if (cardNumberRef.current) {
+      cardNumberRef.current.focus();
+    }
   }, []);
 
   const getCardType = () => {
@@ -116,8 +126,35 @@ export default function AddCard() {
     setIsInputFocused(false);
   };
 
+  const auth = useAuth();
+
+  const handleCardSubmit = () => {
+    const cardData = {
+      cardNumber: cardNumber,
+      cardName: cardName,
+      cardMonth: cardMonth,
+      cardYear: cardYear,
+      cardCvv: cardCvv,
+    };
+
+    const phone = auth.user.phone;
+
+    // Send a POST request to the server to save the card data
+    UrlHelper.post(`/cards/${phone}`, cardData)
+      .then((response) => {
+        // Handle success
+        console.log("Card added successfully.");
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error("Error adding card:", error);
+      });
+  };
+
   return (
     <>
+     <form onSubmit={handleCardSubmit}>
+     {auth.user &&
       <div className="row h-100">
         <div className="col-lg-9 col-sm-12 tilt-in-fwd-tr">
           <div className="wrapper tilt-in-fwd-br" id="app">
@@ -390,9 +427,11 @@ export default function AddCard() {
           </div>
         </div>
         <div className="col-lg-3 col-sm-12 flex-wrap p-4">
-          <AtmCards />
+          {/* <AtmCards /> */}
         </div>
       </div>
+}
+</form>
     </>
   );
 }
