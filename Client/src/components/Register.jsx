@@ -2,29 +2,32 @@ import React from "react";
 import UrlHelper from "./../UrlHelper";
 import { toast } from "react-toastify";
 import Tc from "./Tc";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
 
   function submitRegistration(data, e) {
-    console.log(data)
+    console.log(data);
     UrlHelper.post("/reg", data, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    },)
+        "Content-Type": "multipart/form-data",
+      },
+    })
       .then((response) => {
-        console.log("Backend", response.data)
-        toast("Registration success");
-        e.target.reset();
-        navigate('/');
+        if (response.status === 204) {
+          toast("Number already in Use!");
+        } else if (response.status === 200) {
+          console.log("Backend", response.data);
+          toast("Registration success");
+          e.target.reset();
+          navigate("/");
+        }
       })
       .catch((error) => {
         toast("An error occured during regitration!");
       });
   }
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -42,22 +45,25 @@ export default function Register() {
     formData.append("panNumber", e.target.elements.panNumber.value);
 
     formData.append("imagePath", e.target.elements.imageUpload.files[0]);
-    formData.append("signaturePath", e.target.elements.signatureUpload.files[0]);
+    formData.append(
+      "signaturePath",
+      e.target.elements.signatureUpload.files[0]
+    );
 
-    if (e.target.elements.password.value === e.target.elements.reenterPassword.value) {
+    if (
+      e.target.elements.password.value ===
+      e.target.elements.reenterPassword.value
+    ) {
       submitRegistration(formData, e);
-    }
-    else {
-      toast.error("Password mismatch!")
+    } else {
+      toast.error("Password mismatch!");
     }
   }
 
   return (
     <>
       <section className="loansection tilt-in-fwd-br">
-        <div
-          className="loan-container"
-        >
+        <div className="loan-container">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-11">
@@ -312,8 +318,19 @@ export default function Register() {
                           id="termsCheckbox"
                           required
                         />
-                        <label className="custom-control-label" htmlFor="termsCheckbox">
-                          I agree to the <a data-bs-toggle="offcanvas" href="#tcoffcanvas" role="button" aria-controls="offcanvasExample">Terms and Conditions</a>
+                        <label
+                          className="custom-control-label"
+                          htmlFor="termsCheckbox"
+                        >
+                          I agree to the{" "}
+                          <a
+                            data-bs-toggle="offcanvas"
+                            href="#tcoffcanvas"
+                            role="button"
+                            aria-controls="offcanvasExample"
+                          >
+                            Terms and Conditions
+                          </a>
                         </label>
                       </div>
                     </div>

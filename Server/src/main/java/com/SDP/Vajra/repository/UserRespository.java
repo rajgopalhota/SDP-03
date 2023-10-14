@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.SDP.Vajra.model.User;
 
 @Repository
-public interface UserRespository extends JpaRepository<User, String> {
+public interface UserRespository extends JpaRepository<User, Long> {
+	User findByPhone(String phone);
 	
 }

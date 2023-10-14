@@ -23,7 +23,7 @@ public class UserServiceClass implements UserService{
 		return rs.save(r);
 	}
 	@Override
-	public User findById(String imageId) {
+	public User findById(Long imageId) {
 		 try {
 		        // Use the RegisterRepository to retrieve the Register entity by its ID
 		        Optional<User> optionalRegister = rs.findById(imageId);
@@ -39,6 +39,22 @@ public class UserServiceClass implements UserService{
 		        e.printStackTrace();
 		        return null; // Return null in case of an exception
 		    }
+	}
+	
+	
+	@Override
+	public User findByPhone(String phone) {
+		try {
+			User user = rs.findByPhone(phone);
+			if (user != null) {
+				return user;
+			} else {
+				return null; // For this example, we return null if not found
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null; // Return null in case of an exception
+		}
 	}
 	
 }

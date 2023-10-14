@@ -29,73 +29,82 @@ public class UserRest {
 			@RequestPart("gender") String gender, @RequestPart("aadharNumber") String aadharNumber,
 			@RequestPart("panNumber") String panNumber) {
 		try {
-			User register = new User();
-			register.setFirstName(firstName);
-			register.setLastName(lastName);
-			register.setEmail(email);
-			register.setPhone(phone);
-			register.setPassword(password);
-			register.setGender(gender);
-			register.setAadharNumber(aadharNumber);
-			register.setPanNumber(panNumber);
-			byte[] decodedImagePath = imagePath.getBytes();
-	        byte[] decodedSignaturePath = signaturePath.getBytes();
-			register.setImagePath(decodedImagePath);
-			register.setSignaturePath(decodedSignaturePath);
-			User registeredUser = rss.registerUser(register);
-			return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+
+			User user = rss.findByPhone(phone);
+
+			if (user != null) {
+				if (user.getPassword().equals(password)) {
+					return new ResponseEntity<>(null, HttpStatusCode.valueOf(204));
+				} else {
+					return new ResponseEntity<>(user, HttpStatus.OK);
+				}
+			} else {
+				User register = new User();
+				register.setFirstName(firstName);
+				register.setLastName(lastName);
+				register.setEmail(email);
+				register.setPhone(phone);
+				register.setPassword(password);
+				register.setGender(gender);
+				register.setAadharNumber(aadharNumber);
+				register.setPanNumber(panNumber);
+				byte[] decodedImagePath = imagePath.getBytes();
+				byte[] decodedSignaturePath = signaturePath.getBytes();
+				register.setImagePath(decodedImagePath);
+				register.setSignaturePath(decodedSignaturePath);
+				User registeredUser = rss.registerUser(register);
+				return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-
 	@PostMapping("/login")
-	public ResponseEntity<User> loginUser(@RequestPart("phone") String phone, @RequestPart("password") String password) {
-	    try {
-	        User user = rss.findById(phone);
-	        
-	        if (user != null) {
-	            if (user.getPassword().equals(password)) {
-	                return new ResponseEntity<>(user, HttpStatus.OK);
-	            } else {
-	                return new ResponseEntity<>(null,HttpStatusCode.valueOf(204));
-	            }
-	        } else {
-	            return new ResponseEntity<>(null, HttpStatusCode.valueOf(204));
-	        }
-	    }catch (Exception e) {
-	        e.printStackTrace();
-	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
+	public ResponseEntity<User> loginUser(@RequestPart("phone") String phone,
+			@RequestPart("password") String password) {
+		try {
+			User user = rss.findByPhone(phone);
+
+			if (user != null) {
+				if (user.getPassword().equals(password)) {
+					return new ResponseEntity<>(user, HttpStatus.OK);
+				} else {
+					return new ResponseEntity<>(null, HttpStatusCode.valueOf(204));
+				}
+			} else {
+				return new ResponseEntity<>(null, HttpStatusCode.valueOf(204));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
-	
 	@GetMapping("/images/{phonenumber}/{imageType}")
-    public ResponseEntity<byte[]> getImage(@PathVariable String phonenumber,@PathVariable String imageType) {
-        try {
-            User user = (User) rss.findById(phonenumber);
+	public ResponseEntity<byte[]> getImage(@PathVariable String phonenumber, @PathVariable String imageType) {
+		try {
+			User user = (User) rss.findByPhone(phonenumber);
 
-            if (user != null) {
-                byte[] imageData = null;
-                if ("photo".equals(imageType) && user.getImagePath() != null) {
-                    imageData = user.getImagePath();
-                } else if ("signature".equals(imageType) && user.getSignaturePath() != null) {
-                    imageData = user.getSignaturePath();
-                }
+			if (user != null) {
+				byte[] imageData = null;
+				if ("photo".equals(imageType) && user.getImagePath() != null) {
+					imageData = user.getImagePath();
+				} else if ("signature".equals(imageType) && user.getSignaturePath() != null) {
+					imageData = user.getSignaturePath();
+				}
 
-                if (imageData != null) {
-                    return new ResponseEntity<>(imageData, HttpStatus.OK);
-                }
-            }
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-	
-	
-	
+				if (imageData != null) {
+					return new ResponseEntity<>(imageData, HttpStatus.OK);
+				}
+			}
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 }
