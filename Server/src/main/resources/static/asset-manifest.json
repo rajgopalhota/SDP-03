@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4cf61e54.css",
+    "main.js": "/static/js/main.6788a672.js",
+    "static/js/703.b1d81e1a.chunk.js": "/static/js/703.b1d81e1a.chunk.js",
+    "static/js/598.6e905283.chunk.js": "/static/js/598.6e905283.chunk.js",
+    "static/media/home.png": "/static/media/home.9623f9728d91be036c71.png",
+    "static/media/payment.gif": "/static/media/payment.d83f34106367ab16700c.gif",
+    "static/media/carloan.gif": "/static/media/carloan.d807455a19ddebfa315d.gif",
+    "static/media/homeloan.gif": "/static/media/homeloan.95daae38537bd1d0947f.gif",
+    "static/media/agreement.gif": "/static/media/agreement.df212cb9e5843a7d3a79.gif",
+    "static/media/visacard.jpg": "/static/media/visacard.9b904c7b547c74328f5a.jpg",
+    "static/media/loan.gif": "/static/media/loan.3f4f2377a9ddbff70f00.gif",
+    "static/media/paycard.jpg": "/static/media/paycard.a26bb807d14eb2ed8aa9.jpg",
+    "static/media/loginbg.jpg": "/static/media/loginbg.12f85ee8c388de2a1c9f.jpg",
+    "static/media/health.gif": "/static/media/health.d4e7a1657395155a785d.gif",
+    "index.html": "/index.html",
+    "main.4cf61e54.css.map": "/static/css/main.4cf61e54.css.map",
+    "main.6788a672.js.map": "/static/js/main.6788a672.js.map",
+    "703.b1d81e1a.chunk.js.map": "/static/js/703.b1d81e1a.chunk.js.map",
+    "598.6e905283.chunk.js.map": "/static/js/598.6e905283.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4cf61e54.css",
+    "static/js/main.6788a672.js"
+  ]
+}
