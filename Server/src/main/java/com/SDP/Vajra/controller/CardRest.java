@@ -23,36 +23,34 @@ import com.SDP.Vajra.service.UserService;
 @RestController
 public class CardRest {
 
-		CardService cs;
-		
-		@Autowired
-		UserService us;
-		
-		@Autowired
-		public CardRest(CardService cs) {
-			super();
-			this.cs = cs;
+	CardService cs;
+
+	@Autowired
+	UserService us;
+
+	@Autowired
+	public CardRest(CardService cs) {
+		super();
+		this.cs = cs;
+	}
+
+	@PostMapping("/addcard")
+	public ResponseEntity<Card> createCard(@RequestBody Card card) {
+		Card createdCard = cs.saveCard(card);
+		return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/allcards")
+	public ResponseEntity<List<Card>> getAllCards() {
+		try {
+			List<Card> cards = cs.getAllCards();
+			for (Card c : cards) {
+				System.out.println(c.getCardName());
+			}
+			return new ResponseEntity<>(cards, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-		
-		 @PostMapping("/cards/{phone}")
-		    public ResponseEntity<Card> createCard(@RequestBody Card card, @PathVariable String phone) {
-		        Card createdCard = cs.saveCard(card, phone);
-		        return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
-		    }
+	}
 
-		 @GetMapping("/retrieve/{phone}")
-		 public ResponseEntity<List<Card>> getUserCards(@PathVariable String phone) {
-		     List<Card> userCards = cs.getCardsByUserPhone(phone);
-
-		     if (userCards.isEmpty()) {
-		         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		     }
-
-		     return new ResponseEntity<>(userCards, HttpStatus.OK);
-		 }
-
-
-		
-		
 }

@@ -5,9 +5,10 @@ import java.util.List;
 import com.SDP.Vajra.model.Card;
 
 public interface CardService {
-	public Card saveCard(Card r,String phone);
-	
+	public Card saveCard(Card r);
+
 	public Card findByCardNumber(String cardNumber);
-	
-	 public List<Card> getCardsByUserPhone(String phone);
+
+	public List<Card> getAllCards();
+
 }

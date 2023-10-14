@@ -16,29 +16,28 @@ public class Card {
 	private String cardYear;
 	@Column(name = "cardCvv")
 	private String cardCvv;
-	@ManyToOne
-	@JoinColumn(name = "phone")
-	private User user;
+	@Column(name = "phone")
+	private String phone;
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public Card() {
 	}
 
-	public Card(String cardNumber, String cardName, String cardMonth, String cardYear, String cardCvv, User user) {
+	public Card(String cardNumber, String cardName, String cardMonth, String cardYear, String cardCvv, String phone) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cardName = cardName;
 		this.cardMonth = cardMonth;
 		this.cardYear = cardYear;
 		this.cardCvv = cardCvv;
-		this.user = user;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
+		this.phone = phone;
 	}
 
 	public String getCardNumber() {

@@ -9,71 +9,53 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "register")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-    private Long id;
+	@Column(name = "id")
+	private Long id;
 
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "phone",unique = true)
-    private String phone;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "gender")
-    private String gender;
-    @Column(name = "aadharNumber")
-    private String aadharNumber;
-    @Column(name = "panNumber")
-    private String panNumber;
+	@Column(name = "firstName")
+	private String firstName;
+	@Column(name = "lastName")
+	private String lastName;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "phone", unique = true)
+	private String phone;
+	@Column(name = "password")
+	private String password;
+	@Column(name = "gender")
+	private String gender;
+	@Column(name = "aadharNumber")
+	private String aadharNumber;
+	@Column(name = "panNumber")
+	private String panNumber;
 
-    @Lob
-    @Column(name = "imagePath", columnDefinition = "MEDIUMBLOB")
-    private byte[] imagePath;
+	@Lob
+	@Column(name = "imagePath", columnDefinition = "MEDIUMBLOB")
+	private byte[] imagePath;
 
-    @Lob
-    @Column(name = "signaturePath",columnDefinition = "MEDIUMBLOB")
-    private byte[] signaturePath;
-    
-    @Column(name = "role")
-    private String role = "customer";
+	@Lob
+	@Column(name = "signaturePath", columnDefinition = "MEDIUMBLOB")
+	private byte[] signaturePath;
 
-    @Column(name = "isVerified")
-    private boolean isVerified = false;
-    
-   
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Card> cards = new ArrayList<>();
-    
-    
-    
+	@Column(name = "role")
+	private String role = "customer";
 
-	public List<Card> getCards() {
-		return cards;
-	}
-
-	public void setCards(List<Card> cards) {
-		this.cards = cards;
-	}
+	@Column(name = "isVerified")
+	private boolean isVerified = false;
 
 	public void setVerified(boolean isVerified) {
 		this.isVerified = isVerified;
 	}
 
-	public User() { 
-    }
+	public User() {
+	}
 
-   
-	
-
-    public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
+	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
 			String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath, String role,
-			boolean isVerified, List<Card> cards) {
+			boolean isVerified) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -88,7 +70,7 @@ public class User {
 		this.signaturePath = signaturePath;
 		this.role = role;
 		this.isVerified = isVerified;
-		this.cards = cards;
+
 	}
 
 	public Long getId() {
@@ -178,38 +160,29 @@ public class User {
 	public void setSignaturePath(byte[] signaturePath) {
 		this.signaturePath = signaturePath;
 	}
-	
+
 	public String getRole() {
-	    return role;
+		return role;
 	}
 
 	public void setRole(String role) {
-	    this.role = role;
+		this.role = role;
 	}
 
 	public boolean getIsVerified() {
-	    return isVerified;
+		return isVerified;
 	}
 
 	public void setIsVerified(boolean isVerified) {
-	    this.isVerified = isVerified;
+		this.isVerified = isVerified;
 	}
 
-
 	@Override
-    public String toString() {
-        return "Register{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", aadharNumber='" + aadharNumber + '\'' +
-                ", panNumber='" + panNumber + '\'' +
-                ", imagePath=" + Arrays.toString(imagePath) +
-                ", signaturePath=" + Arrays.toString(signaturePath) +
-                '}';
-    }
+	public String toString() {
+		return "Register{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+				+ ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", password='" + password + '\''
+				+ ", gender='" + gender + '\'' + ", aadharNumber='" + aadharNumber + '\'' + ", panNumber='" + panNumber
+				+ '\'' + ", imagePath=" + Arrays.toString(imagePath) + ", signaturePath="
+				+ Arrays.toString(signaturePath) + '}';
+	}
 }

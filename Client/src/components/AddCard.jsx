@@ -151,6 +151,24 @@ export default function AddCard() {
       });
   };
 
+  const fetchUserCards = async (phone) => {
+    try {
+      const response = await UrlHelper.get(`/cards/${phone}`);
+      const cards = response.data;
+      // Do something with the fetched cards data, e.g., display them in your component.
+    } catch (error) {
+      console.error('Error fetching user cards:', error);
+    }
+  };
+
+  const [userCards, setUserCards] = useState([]);
+
+useEffect(() => {
+  if (auth.user) {
+    fetchUserCards(auth.user.phone);
+  }
+}, [auth.user]);
+
   return (
     <>
      <form onSubmit={handleCardSubmit}>
