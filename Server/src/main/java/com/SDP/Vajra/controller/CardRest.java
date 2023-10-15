@@ -44,9 +44,6 @@ public class CardRest {
 	public ResponseEntity<List<Card>> getAllCards() {
 		try {
 			List<Card> cards = cs.getAllCards();
-			for (Card c : cards) {
-				System.out.println(c.getCardName());
-			}
 			return new ResponseEntity<>(cards, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

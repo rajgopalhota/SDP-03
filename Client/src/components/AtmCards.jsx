@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function AtmCards() {
+export default function AtmCards(props) {
+
+  const groups = props.card.cardNumber.split(" ");
+ 
   return (
     <div className="allSavedCards">
       <div class="card">
@@ -76,10 +79,10 @@ export default function AtmCards() {
           </div>
           <div class="card__type">debit</div>
           <div class="card__number">
-            <span class="card__digit-group">0000</span>
-            <span class="card__digit-group">0021</span>
-            <span class="card__digit-group">4748</span>
-            <span class="card__digit-group">3647</span>
+            <span class="card__digit-group">{groups[0]}</span>
+            <span class="card__digit-group">{groups[1]}</span>
+            <span class="card__digit-group">{groups[2]}</span>
+            <span class="card__digit-group">{groups[3]}</span>
           </div>
           <div class="card__valid-thru" aria-label="Valid thru">
             Valid
@@ -87,10 +90,10 @@ export default function AtmCards() {
             thru
           </div>
           <div class="card__exp-date">
-            <time datetime="2038-01">01/38</time>
+            <time datetime="{props.card.cardYear}-{props.card.cardMonth}">{props.card.cardMonth}/{props.card.cardYear}</time>
           </div>
           <div class="card__name" aria-label="Dee Stroyer">
-            Dee Stroyer
+            {props.card.cardName}
           </div>
           <div class="card__vendor" role="img" aria-labelledby="card-vendor">
             <span id="card-vendor" class="card__vendor-sr">
@@ -100,104 +103,6 @@ export default function AtmCards() {
         </div>
         <div class="card__texture"></div>
       </div>
-      <form>
-        <div className="form-group">
-          <label htmlFor="card-number">Card Number</label>
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              id="card-number"
-              placeholder="Enter card number"
-              aria-label="Card number"
-              aria-describedby="card-number-copy"
-            //   defaultValue={cardNumber}
-              readOnly
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                id="card-number-copy"
-              >
-                <i className="fas fa-copy"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="card-holder-name">Card Holder Name</label>
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              id="card-holder-name"
-              placeholder="Enter card holder name"
-              aria-label="Card holder name"
-              aria-describedby="card-holder-name-copy"
-            //   defaultValue={cardHolderName}
-              readOnly
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                id="card-holder-name-copy"
-              >
-                <i className="fas fa-copy"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col-md-4 mb-3">
-            <label htmlFor="expiry-month">Expiry Month</label>
-            <select
-              className="custom-select d-block w-100"
-              id="expiry-month"
-              required
-            //   defaultValue={expiryMonth}
-              readOnly
-            >
-              <option value="">Choose...</option>
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-          </div>
-          <div className="col-md-4 mb-3">
-            <label htmlFor="expiry-year">Expiry Year</label>
-            <input
-              type="text"
-              className="form-control"
-              id="expiry-year"
-              placeholder="Enter expiry year"
-            //   defaultValue={expiryYear}
-              readOnly
-            />
-          </div>
-          <div className="col-md-4 mb-3">
-            <label htmlFor="cvv">CVV</label>
-            <input
-              type="text"
-              className="form-control"
-              id="cvv"
-              placeholder="Enter CVV"
-            //   defaultValue={cvv}
-              readOnly
-            />
-          </div>
-        </div>
-      </form>
     </div>
   );
 }

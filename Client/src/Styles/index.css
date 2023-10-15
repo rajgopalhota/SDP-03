@@ -12,6 +12,14 @@
   --a-color-2: #3C5A9A;
 }
 
+h2{
+  margin-top: 30px;
+  color: var(--main-color-1);
+  text-shadow: 0 0 1px var(--a-color-2);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 html, body{
   overflow-x: hidden;
 }

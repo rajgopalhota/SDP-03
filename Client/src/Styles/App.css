@@ -422,7 +422,7 @@
   margin-top: 30px;
   text-shadow: 0 0 1px var(--a-color-1);
 }
-form label {
+.paymentmodule form label {
   color: var(--main-color-1);
   font-weight: 500;
 }
@@ -574,3 +574,4 @@ footer i:hover {
 @media (max-width: 991px) {
   
 }
+
