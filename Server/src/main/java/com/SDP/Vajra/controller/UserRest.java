@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +16,10 @@ import com.SDP.Vajra.service.UserService;
 @RestController
 public class UserRest {
 	UserService rss;
+	
+	@Autowired
+	JavaMailSender mail;
+	
 
 	@Autowired
 	public UserRest(UserService rss) {
@@ -39,6 +45,13 @@ public class UserRest {
 					return new ResponseEntity<>(user, HttpStatus.OK);
 				}
 			} else {
+				SimpleMailMessage smm=new SimpleMailMessage();
+				smm.setFrom("rajgopalhotanrg@gmail.com");
+				smm.setTo(email);
+				smm.setSubject("hello");
+				smm.setText("hello 2");
+				mail.send(smm);
+				
 				User register = new User();
 				register.setFirstName(firstName);
 				register.setLastName(lastName);

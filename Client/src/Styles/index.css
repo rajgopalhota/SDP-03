@@ -2,17 +2,17 @@
 
 :root {
   --glow-color: hsl(240, 100%, 92%);
-  --main-color-1: #AD1047;
-  --main-color-2: #3C5A9A;
+  --main-color-1: #ad1047;
+  --main-color-2: #3c5a9a;
   --btn-color-1: #007e8f;
   --btn-color-2: #459a6b;
-  --p-color-1: #D87B2F;
-  --p-color-2: #F5E8E8;
-  --a-color-1: #FBE8EE;
-  --a-color-2: #3C5A9A;
+  --p-color-1: #d87b2f;
+  --p-color-2: #f5e8e8;
+  --a-color-1: #fbe8ee;
+  --a-color-2: #3c5a9a;
 }
 
-h2{
+h2 {
   margin-top: 30px;
   color: var(--main-color-1);
   text-shadow: 0 0 1px var(--a-color-2);
@@ -20,7 +20,8 @@ h2{
   font-weight: 700;
 }
 
-html, body{
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -46,7 +47,7 @@ body {
   background-size: cover;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
   display: none;
 }
 
@@ -55,21 +56,26 @@ html::-webkit-scrollbar{
 }
 
 .navbar-custom {
-  background-image: linear-gradient(125deg, var(--main-color-2), var(--main-color-1));
+  background-image: linear-gradient(
+    125deg,
+    var(--main-color-2),
+    var(--main-color-1)
+  );
 }
 .navbar {
   box-shadow: rgba(29, 29, 53, 0.621) 0px 13px 27px -5px,
     rgba(131, 3, 3, 0.566) 0px 8px 16px -8px;
   border-radius: 6px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
-.headerPic{
+.headerPic {
   width: 40px;
   height: 40px;
   border-radius: 50px;
   cursor: pointer;
   padding: 0 !important;
-  box-shadow: rgba(35, 35, 66, 0.61) 0px 50px 100px -20px, rgba(0, 0, 0, 0.752) 0px 30px 60px -30px;
+  box-shadow: rgba(35, 35, 66, 0.61) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.752) 0px 30px 60px -30px;
   position: relative;
   border: 1px solid rgb(255, 245, 232);
 }
@@ -81,10 +87,8 @@ html::-webkit-scrollbar{
   background-color: #f9f9f9;
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
-
 
 .navbar-custom .navbar-nav .nav-link {
   letter-spacing: 1px;
@@ -99,7 +103,7 @@ html::-webkit-scrollbar{
   transition: all ease-in 0.1s;
   color: rgb(179, 255, 251);
 }
-.navbar-custom .nav-item .active{
+.navbar-custom .nav-item .active {
   color: rgb(255, 217, 179) !important;
 }
 .navbar-nav.navbar-center {
@@ -110,13 +114,17 @@ html::-webkit-scrollbar{
   margin: 0 10px;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
   cursor: pointer;
 }
 .loginbutton button {
   border-radius: 50px;
   padding: 3px 12px;
-  background-image: linear-gradient(45deg, var(--btn-color-1), var(--btn-color-2));
+  background-image: linear-gradient(
+    45deg,
+    var(--btn-color-1),
+    var(--btn-color-2)
+  );
   background-size: 400% 400%;
   transition: all 0.4s ease-in-out;
   color: var(--p-color-2);
@@ -127,7 +135,6 @@ html::-webkit-scrollbar{
   background-position: right center;
   animation: gradientShift 1s ease infinite;
 }
-
 
 @keyframes gradientShift {
   0% {
@@ -231,7 +238,7 @@ img {
   padding-left: 100%;
   animation: marquee 38s linear infinite;
 }
-.marquee span:hover{
+.marquee span:hover {
   animation-play-state: paused;
 }
 @keyframes marquee {
@@ -243,13 +250,13 @@ img {
   }
 }
 
-.right-panel{
+.right-panel {
   overflow-x: hidden;
 }
-.right-panel::-webkit-scrollbar{
+.right-panel::-webkit-scrollbar {
   display: none;
 }
-.mainbodysection{
+.mainbodysection {
   min-height: 95dvh;
 }
 
@@ -258,10 +265,9 @@ img {
     font-size: 17px;
   }
 }
-.offcanvas{
+.offcanvas {
   background-image: linear-gradient(45deg, var(--p-color-2), var(--a-color-1));
 }
-
 
 .styled-list {
   padding: 10px;
@@ -278,23 +284,21 @@ img {
   border-bottom: none;
 }
 
-
 .offcanvas-body::-webkit-scrollbar {
   display: none;
 }
 
 .offcanvas-body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .neumorphic {
   border-radius: 1rem;
   background: #e0e0e0;
-  box-shadow:  -20px -20px 60px #bebebe,
-               20px 20px 60px #ffffff;
+  box-shadow: -20px -20px 60px #bebebe, 20px 20px 60px #ffffff;
 }
-.agreementImg{
+.agreementImg {
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -302,17 +306,17 @@ img {
   padding: 6px;
   transition: padding ease-in-out 0.2s;
 }
-.agreementImg:hover{
+.agreementImg:hover {
   cursor: pointer;
   padding: 0;
 }
-.agrrementpoints{
+.agrrementpoints {
   margin: 0 20px;
 }
-.usersign{
+.usersign {
   width: 200px;
 }
-.agrrementpoints li{
+.agrrementpoints li {
   padding: 6px;
   background-color: rgba(215, 215, 215, 0.121);
   border: 1px solid var(--main-color-2);
@@ -320,34 +324,56 @@ img {
   border-radius: 8px;
   transition: all ease-out 0.2s;
 }
-.agrrementpoints li:hover{
+.agrrementpoints li:hover {
   cursor: pointer;
   transform: scale(1.02);
   background-color: rgba(255, 255, 255, 0.845);
 }
-.signatures{
+.signatures {
   margin-left: auto;
   margin-right: 40px;
 }
-.signatures img{
+.signatures img {
   mix-blend-mode: hard-light;
 }
-.signatures p{
+.signatures p {
   text-align: right;
   margin-top: 25px;
 }
-.bankLoad{
+.bankLoad {
   mix-blend-mode: color-burn;
   filter: none !important;
 }
-.homedicards{
+.homedicards {
   width: 150px;
   height: 150px;
   border-radius: 10px !important;
   filter: none !important;
 }
 
-.afterLogin{
+.afterLogin {
   font-size: 1.4vw;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 50px;
+}
+
+.slider button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 4px solid var(--btn-color-1);
+  border-radius: 26px;
+  box-shadow: 16px 16px 32px var(--p-color), -16px -16px 32px #ffffff;
+}
+
+.slider button.active {
+  color: white;
+  background-image: linear-gradient(45deg, var(--main-color-1), var(--main-color-2));
 }
 
