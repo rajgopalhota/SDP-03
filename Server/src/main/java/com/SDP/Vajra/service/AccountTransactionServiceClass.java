@@ -24,4 +24,9 @@ public class AccountTransactionServiceClass implements AccountTransactionService
     public AccountTransaction getTransactionById(Long transactionId) {
         return transactionRepository.findById(transactionId).orElse(null);
     }
+    
+    @Override
+    public AccountTransaction saveTransaction(AccountTransaction transaction) {
+        return transactionRepository.save(transaction);
+    }
 }

@@ -24,4 +24,8 @@ public class BankAccountServiceClass implements BankAccountService {
     public BankAccount getBankAccountByPhoneNumber(String phoneNumber) {
         return bankAccountRepository.findByPhone(phoneNumber);
     }
+    @Override
+    public BankAccount updateBankAccount(BankAccount bankAccount) {
+        return bankAccountRepository.save(bankAccount);
+    }
 }

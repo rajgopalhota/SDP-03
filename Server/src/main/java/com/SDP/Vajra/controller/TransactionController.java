@@ -8,28 +8,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SDP.Vajra.model.AccountTransaction;
 import com.SDP.Vajra.model.BankAccount;
 import com.SDP.Vajra.service.BankAccountService;
-import com.SDP.Vajra.service.TransactionService;
+import com.SDP.Vajra.service.AccountTransactionService;
 
 @RestController
 public class TransactionController {
 
     private BankAccountService bankAccountService;
-    private TransactionService transactionService;
+    private AccountTransactionService transactionService;
 
     @Autowired
-    public TransactionController(BankAccountService bankAccountService, TransactionService transactionService) {
+    public TransactionController(BankAccountService bankAccountService, AccountTransactionService transactionService) {
         this.bankAccountService = bankAccountService;
         this.transactionService = transactionService;
     }
 
     @PostMapping("/makeTransaction")
-    public ResponseEntity<String> makeTransaction(@RequestBody TransactionRequest transactionRequest) {
+    public ResponseEntity<String> makeTransaction(@RequestBody AccountTransaction transactionRequest) {
         try {
-            // Get sender's and receiver's bank accounts
-            BankAccount senderAccount = bankAccountService.getBankAccountByPhoneNumber(transactionRequest.getSenderPhoneNumber());
-            BankAccount receiverAccount = bankAccountService.getBankAccountByPhoneNumber(transactionRequest.getReceiverPhoneNumber());
+            BankAccount senderAccount = bankAccountService.getBankAccountByPhoneNumber(transactionRequest.getSenderAccount());
+            BankAccount receiverAccount = bankAccountService.getBankAccountByPhoneNumber(transactionRequest.getReceiverAccount());
 
-            // Check if sender has sufficient balance for the transaction
             double transactionAmount = transactionRequest.getAmount();
             if (senderAccount.getBalance() < transactionAmount) {
                 return ResponseEntity.badRequest().body("Insufficient balance for the transaction.");
@@ -48,7 +46,7 @@ public class TransactionController {
             transaction.setFromAccount(senderAccount.getPhoneNumber());
             transaction.setToAccount(receiverAccount.getPhoneNumber());
             transaction.setAmount(transactionAmount);
-            transaction.setTransactionDateTime(transactionRequest.getTransactionDate());
+            transaction.setTransactionDateTime("NA");
             transaction.setMessage(transactionRequest.getMessage());
 
             // Save the transaction
