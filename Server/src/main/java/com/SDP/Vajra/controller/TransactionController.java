@@ -2,6 +2,7 @@ package com.SDP.Vajra.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import com.SDP.Vajra.model.BankAccount;
 import com.SDP.Vajra.service.BankAccountService;
 import com.SDP.Vajra.service.AccountTransactionService;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 public class TransactionController {
 

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import UrlHelper from "./../UrlHelper";
+import { toast } from "react-toastify";
+import { useAuth } from "../AuthContext";
 
-const PaymentForm = () => {
+const PaymentForm = ({ phoneNumber, amount, msg }) => {
+  const auth = useAuth();
   const [mpin, setMpin] = useState("");
 
   const handleMpinChange = (e) => {
@@ -9,8 +13,25 @@ const PaymentForm = () => {
     setMpin(newValue);
   };
 
-  const handleConfirm = () => {
-    console.log("MPIN:", mpin);
+  const handleConfirm = async () => {
+    if (auth.user.mpin === mpin) {
+      const requestData = {
+        senderAccount: auth.user.phone,
+        receiverAccount: phoneNumber,
+        amount: parseFloat(amount),
+        message: msg,
+      };
+
+      try {
+        const response = await UrlHelper.post("/makeTransaction", requestData);
+        window.location.reload();
+      } catch (error) {
+        console.error(error);
+        toast("Some error occured");
+      }
+    } else {
+      toast("Invalid MPIN");
+    }
   };
 
   return (
@@ -25,26 +46,30 @@ const PaymentForm = () => {
       >
         <div className="modal-dialog">
           <div className="modal-content paymentmodal">
-            <div className="modal-header">
-              <h5 className="modal-title">Enter MPIN</h5>
-              <button type="button" className="close">
-                <span>×</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <input
-                type="number"
-                className="form-control"
-                value={mpin}
-                onChange={handleMpinChange}
-                placeholder="Enter MPIN"
-              />
-            </div>
-            <div className="modal-footer loginbutton bodybtn">
-              <button type="button" onClick={handleConfirm}>
-                <i className="fas fa-check-circle"></i> Confirm
-              </button>
-            </div>
+
+                <div className="modal-header">
+                  <h5 className="modal-title">Enter MPIN</h5>
+                </div>
+                <div className="modal-body">
+                  <p>
+                    Are you sure to have transaction with {phoneNumber} of
+                    amount: {amount} for {msg}
+                  </p>
+                  <input
+                    type="number"
+                    className="form-control"
+                    value={mpin}
+                    onChange={handleMpinChange}
+                    placeholder="Enter MPIN"
+                  />
+                </div>
+                {auth.user && (
+                  <div className="modal-footer loginbutton bodybtn">
+                    <button type="button" onClick={handleConfirm}>
+                      <i className="fas fa-check-circle"></i> Confirm
+                    </button>
+                  </div>
+                )}
           </div>
         </div>
       </div>

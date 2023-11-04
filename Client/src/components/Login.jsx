@@ -44,7 +44,6 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await UrlHelper.post("/login", formData);
-      console.log(response.data)
       if (response.status === 204) {
         toast("Login failed. Check your credentials.");
       } else if (response.status === 200) {
@@ -57,6 +56,7 @@ export default function Login() {
           aadharNumber,
           panNumber,
           gender,
+          mpin,
         } = response.data;
         const userData = {
           firstName,
@@ -66,6 +66,7 @@ export default function Login() {
           aadharNumber,
           panNumber,
           gender,
+          mpin,
         };
         auth.login(userData);
         e.target.reset();
