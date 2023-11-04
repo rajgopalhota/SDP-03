@@ -20,7 +20,6 @@ export default function Transactions() {
 
       if (response.status === 200) {
         const data = await response.data;
-        console.log(data);
         const debited = data.filter(
           (transaction) => transaction.fromAccount === auth.user.phone
         );
@@ -60,154 +59,90 @@ export default function Transactions() {
         <>
           <div className="transactionsection tilt-in-fwd-br">
             <div className="d-flex justify-content-center">
-              <div className="transaction-container col-md-8">
+              <div className="transaction-container col-md-10">
                 <h3>Bank Statement</h3>
                 <hr />
-                <form>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="accountNo">Account No</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-credit-card"></i>
-                          </span>
-                        </div>
-                        <select id="accountNo" className="form-control">
-                          <option>{auth.user.phone}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <label htmlFor="formatType">Format Type</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-file-excel"></i>
-                          </span>
-                        </div>
-                        <select
-                          id="formatType"
-                          className="form-control"
+                <div>
+                  <h4>
+                    <i class="fa-solid fa-share"></i>&nbsp;Debited Transactions:
+                  </h4>
+                  <div className="d-flex flex-wrap justify-content-around">
+                    {debitedTransactions.map((transaction) => (
+                      <div
+                        key={transaction.transactionId}
+                        className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr transactioncard"
+                      >
+                        <div
+                          className="d-flex justify-content-between align-items-center paycard"
+                          style={{ color: "red" }}
                         >
-                          <option value="PDF">PDF</option>
-                          <option value="Excel">Excel</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="transactionFor">Transaction For</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-calendar"></i>
-                          </span>
+                          <div>
+                            <i class="fa-solid fa-circle-down fa-fade"></i>
+                            &nbsp;
+                            <span>
+                              Transaction: &#8377;{transaction.amount}
+                            </span>
+                            <br />
+                            <span className="timestamp">
+                              {transaction.transactionDateTime}
+                            </span>
+                            <br />
+                            <p>
+                              To: {transaction.toAccount}, Message:{" "}
+                              {transaction.message}
+                            </p>
+                          </div>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                            alt="Visa logo"
+                            style={{ width: "50px" }}
+                          />
                         </div>
-                        <select id="transactionFor" className="form-control">
-                          <option>specified period</option>
-                          <option>customized period</option>
-                        </select>
                       </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <label htmlFor="orderBy">Order By</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-sort-amount-up"></i>
-                          </span>
-                        </div>
-                        <select id="orderBy" className="form-control">
-                          <option>Ascending</option>
-                          <option>Descending</option>
-                        </select>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-12">
-                      <label htmlFor="dateRange">
-                        Select the transaction history which you want
-                      </label>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="fromDate">From Date</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-calendar"></i>
-                          </span>
-                        </div>
-                        <input
-                          type="date"
-                          className="form-control"
-                          id="fromDate"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <label htmlFor="toDate">To Date</label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text">
-                            <i className="fas fa-calendar"></i>
-                          </span>
-                        </div>
-                        <input
-                          type="date"
-                          className="form-control"
-                          id="toDate"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="radioOptions"
-                          id="leftRadio"
-                          value="left"
-                        />
-                        <label className="form-check-label" htmlFor="leftRadio">
-                          <i className="fas fa-file-alt"></i> Default Account
-                          Statement
-                        </label>
-                      </div>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="radioOptions"
-                          id="rightRadio"
-                          value="right"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="rightRadio"
+                </div>
+                <div>
+                  <h4 className="mt-4">
+                    <i class="fa-solid fa-share"></i>&nbsp;Credited
+                    Transactions:
+                  </h4>
+                  <div className="d-flex flex-wrap justify-content-around">
+                    {creditedTransactions.map((transaction) => (
+                      <div
+                        key={transaction.transactionId}
+                        className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr transactioncard"
+                      >
+                        <div
+                          className="d-flex justify-content-between align-items-center paycard"
+                          style={{ color: "#007032" }}
                         >
-                          <i className="fas fa-file-alt"></i> Use Customized
-                          Account Statement
-                        </label>
+                          <div>
+                            <i class="fa-solid fa-circle-up fa-fade"></i>
+                            &nbsp;
+                            <span>
+                              Transaction: &#8377;{transaction.amount}
+                            </span>
+                            <br />
+                            <span className="timestamp">
+                              {transaction.transactionDateTime}
+                            </span>
+                            <br />
+                            <p>
+                              From: {transaction.fromAccount}, Message:{" "}
+                              {transaction.message}
+                            </p>
+                          </div>
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
+                            alt="Visa logo"
+                            style={{ width: "50px" }}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-12 text-center loginbutton bodybtn">
-                      <button type="button">
-                        <i className="fas fa-magic"></i> Generate
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
