@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../AuthContext";
+import UrlHelper from "./../UrlHelper";
 
 export default function Transactions() {
+  const auth = useAuth();
+  const [debitedTransactions, setDebitedTransactions] = useState([]);
+  const [creditedTransactions, setCreditedTransactions] = useState([]);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
+
+  const fetchTransactions = async () => {
+    try {
+      const response = await UrlHelper.get("/allTransactions");
+
+      if (response.status === 200) {
+        const data = await response.data;
+        console.log(data);
+        const debited = data.filter(
+          (transaction) => transaction.fromAccount === auth.user.phone
+        );
+        const credited = data.filter(
+          (transaction) => transaction.toAccount === auth.user.phone
+        );
+
+        setDebitedTransactions(debited.reverse());
+        setCreditedTransactions(credited.reverse());
+      } else {
+        console.error(
+          "Failed to fetch transactions. Server responded with status code: " +
+            response.status
+        );
+        if (response.status === 404) {
+          setDebitedTransactions([]);
+          setCreditedTransactions([]);
+        }
+      }
+    } catch (error) {
+      console.error("Error while fetching transactions:", error);
+    }
+  };
+
   return (
     <>
       <div className="transactionsection tilt-in-fwd-br">
@@ -11,9 +52,7 @@ export default function Transactions() {
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="accountNo">
-                    Account No
-                  </label>
+                  <label htmlFor="accountNo">Account No</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -26,9 +65,7 @@ export default function Transactions() {
                   </div>
                 </div>
                 <div className="form-group col-md-6">
-                  <label htmlFor="formatType">
-                     Format Type
-                  </label>
+                  <label htmlFor="formatType">Format Type</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -44,9 +81,7 @@ export default function Transactions() {
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="transactionFor">
-                   Transaction For
-                  </label>
+                  <label htmlFor="transactionFor">Transaction For</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -60,9 +95,7 @@ export default function Transactions() {
                   </div>
                 </div>
                 <div className="form-group col-md-6">
-                  <label htmlFor="orderBy">
-                     Order By
-                  </label>
+                  <label htmlFor="orderBy">Order By</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -79,33 +112,24 @@ export default function Transactions() {
               <div className="form-row">
                 <div className="form-group col-md-12">
                   <label htmlFor="dateRange">
-                   Select the transaction
-                    history which you want
+                    Select the transaction history which you want
                   </label>
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="fromDate">
-                    From Date
-                  </label>
+                  <label htmlFor="fromDate">From Date</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                         <i className="fas fa-calendar"></i>
                       </span>
                     </div>
-                    <input
-                      type="date"
-                      className="form-control"
-                      id="fromDate"
-                    />
+                    <input type="date" className="form-control" id="fromDate" />
                   </div>
                 </div>
                 <div className="form-group col-md-6">
-                  <label htmlFor="toDate">
-                     To Date
-                  </label>
+                  <label htmlFor="toDate">To Date</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">

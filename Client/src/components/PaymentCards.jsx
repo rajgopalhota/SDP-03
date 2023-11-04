@@ -55,10 +55,10 @@ export default function PaymentCards() {
               <i className="fa-solid fa-wallet fa-flip"></i> Get Balance
             </button>
           </div>
-          <p className="card-text">
+          {/* <p className="card-text">
             Your current balance is:
             <br /> &#8377; 1,00,000.00
-          </p>
+          </p> */}
         </div>
 
         {/* Display debited transactions */}
