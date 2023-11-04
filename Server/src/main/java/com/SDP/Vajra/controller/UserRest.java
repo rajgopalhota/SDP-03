@@ -20,7 +20,6 @@ public class UserRest {
 	@Autowired
 	JavaMailSender mail;
 	
-
 	@Autowired
 	public UserRest(UserService rss) {
 		super();
@@ -45,12 +44,12 @@ public class UserRest {
 					return new ResponseEntity<>(user, HttpStatus.OK);
 				}
 			} else {
-				SimpleMailMessage smm=new SimpleMailMessage();
-				smm.setFrom("rajgopalhotanrg@gmail.com");
-				smm.setTo(email);
-				smm.setSubject("hello");
-				smm.setText("hello 2");
-				mail.send(smm);
+//				SimpleMailMessage smm=new SimpleMailMessage();
+//				smm.setFrom("rajgopalhotanrg@gmail.com");
+//				smm.setTo(email);
+//				smm.setSubject("hello");
+//				smm.setText("hello 2");
+//				mail.send(smm);
 				
 				User register = new User();
 				register.setFirstName(firstName);
