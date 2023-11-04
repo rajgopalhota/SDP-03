@@ -8,6 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import java.util.*;
 
 import com.SDP.Vajra.model.BankAccount;
 import com.SDP.Vajra.model.User;
@@ -30,7 +31,26 @@ public class UserRest {
 		super();
 		this.rss = rss;
 	}
+	
+	public static String generateRandomPin() {
+        int minDigit = 0;
+        int maxDigit = 9;
 
+        StringBuilder pinBuilder = new StringBuilder();
+
+        Random random = new Random();
+
+        for (int i = 0; i < 4; i++) {
+            // Generate a random digit in the specified range
+            int randomDigit = random.nextInt((maxDigit - minDigit) + 1) + minDigit;
+
+            // Append the digit to the PIN
+            pinBuilder.append(randomDigit);
+        }
+
+        return pinBuilder.toString();
+    }
+	
 	@PostMapping("/reg")
 	public ResponseEntity<User> registerUserVajra(@RequestPart("imagePath") MultipartFile imagePath,
 			@RequestPart("signaturePath") MultipartFile signaturePath, @RequestPart("firstName") String firstName,
@@ -54,6 +74,7 @@ public class UserRest {
 //				smm.setSubject("hello");
 //				smm.setText("hello 2");
 //				mail.send(smm);
+				String mpin = generateRandomPin();
 				User register = new User();
 				register.setFirstName(firstName);
 				register.setLastName(lastName);
@@ -63,6 +84,7 @@ public class UserRest {
 				register.setGender(gender);
 				register.setAadharNumber(aadharNumber);
 				register.setPanNumber(panNumber);
+				register.setMpin(mpin);
 				byte[] decodedImagePath = imagePath.getBytes();
 				byte[] decodedSignaturePath = signaturePath.getBytes();
 				register.setImagePath(decodedImagePath);

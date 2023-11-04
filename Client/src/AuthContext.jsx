@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     cookies.set("user", userData, {
       path: "/",
-      expires: new Date(Date.now() + 1000 * 60 * 70),
+      expires: new Date(Date.now() + 1000 * 60 * 0.5),
     }); //70 Minutes
     setUser(userData);
   };

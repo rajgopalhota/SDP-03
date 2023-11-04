@@ -29,6 +29,8 @@ public class User {
 	private String aadharNumber;
 	@Column(name = "panNumber")
 	private String panNumber;
+	@Column(name = "mpin")
+	private String mpin;
 
 	@Lob
 	@Column(name = "imagePath", columnDefinition = "MEDIUMBLOB")
@@ -53,7 +55,7 @@ public class User {
 
 	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
 			String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath, String role,
-			boolean isVerified) {
+			boolean isVerified, String mpin) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -68,7 +70,16 @@ public class User {
 		this.signaturePath = signaturePath;
 		this.role = role;
 		this.isVerified = isVerified;
+		this.mpin = mpin;
 
+	}
+	
+	public String getMpin() {
+		return mpin;
+	}
+
+	public void setMpin(String mpin) {
+		this.mpin = mpin;
 	}
 
 	public Long getId() {
