@@ -3,13 +3,14 @@ import { useAuth } from "../AuthContext";
 import UrlHelper from "./../UrlHelper";
 
 export default function PaymentCards() {
-
   const auth = useAuth();
   const [debitedTransactions, setDebitedTransactions] = useState([]);
   const [creditedTransactions, setCreditedTransactions] = useState([]);
 
   useEffect(() => {
-    fetchTransactions();
+    if (auth.user) {
+      fetchTransactions();
+    }
   }, []);
 
   const fetchTransactions = async () => {
@@ -18,7 +19,7 @@ export default function PaymentCards() {
 
       if (response.status === 200) {
         const data = await response.data;
-        console.log(data)
+        console.log(data);
         const debited = data.filter(
           (transaction) => transaction.fromAccount === auth.user.phone
         );
@@ -67,12 +68,18 @@ export default function PaymentCards() {
             key={transaction.transactionId}
             className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr"
           >
-            <div className="d-flex justify-content-between align-items-center paycard" style={{ color: 'red' }}>
+            <div
+              className="d-flex justify-content-between align-items-center paycard"
+              style={{ color: "red" }}
+            >
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
                 &nbsp;
-                <span>Transaction: &#8377;{transaction.amount}</span><br/>
-                <span className="timestamp">{transaction.transactionDateTime}</span>
+                <span>Transaction: &#8377;{transaction.amount}</span>
+                <br />
+                <span className="timestamp">
+                  {transaction.transactionDateTime}
+                </span>
               </div>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"
@@ -89,12 +96,18 @@ export default function PaymentCards() {
             key={transaction.transactionId}
             className="pay-glass-card p-3 m-2 flex-fill tilt-in-fwd-tr"
           >
-            <div className="d-flex justify-content-between align-items-center paycard" style={{ color: '#007032' }}>
+            <div
+              className="d-flex justify-content-between align-items-center paycard"
+              style={{ color: "#007032" }}
+            >
               <div>
                 <i className="fa-solid fa-arrow-right-arrow-left fa-fade"></i>
                 &nbsp;
-                <span>Transaction: &#8377;{transaction.amount}</span><br/>
-                <span className="timestamp">{transaction.transactionDateTime}</span>
+                <span>Transaction: &#8377;{transaction.amount}</span>
+                <br />
+                <span className="timestamp">
+                  {transaction.transactionDateTime}
+                </span>
               </div>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png"

@@ -16,8 +16,8 @@ export default function Payment() {
       {!auth.user && (
         <div class="text-center">
           <h2 className="puff-in-center">
-            You need to Login to work with cards!&nbsp;
-            <i class="fa-solid fa-credit-card fa-bounce" />
+            You need to Login to work with payments!&nbsp;
+            <i class="fa-solid fa-money-check-dollar fa-bounce"></i>
           </h2>
           <img className="img-fluid bankLoad" src={bankLoad} alt="bank load" />
         </div>
