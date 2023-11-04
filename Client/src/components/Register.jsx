@@ -7,6 +7,17 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
 
+  function getCurrentDateTimeString() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `${year}-${month}-${day}, ${hours}:${minutes}:${seconds}`;
+  }
+
   function submitRegistration(data, e) {
     console.log(data);
     UrlHelper.post("/reg", data, {
@@ -43,12 +54,12 @@ export default function Register() {
     formData.append("gender", e.target.elements.gender.value);
     formData.append("aadharNumber", e.target.elements.aadharNumber.value);
     formData.append("panNumber", e.target.elements.panNumber.value);
-
     formData.append("imagePath", e.target.elements.imageUpload.files[0]);
     formData.append(
       "signaturePath",
       e.target.elements.signatureUpload.files[0]
     );
+    formData.append("timeCreation", getCurrentDateTimeString())
 
     if (
       e.target.elements.password.value ===

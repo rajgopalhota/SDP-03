@@ -7,8 +7,18 @@ const PaymentForm = ({ phoneNumber, amount, msg }) => {
   const auth = useAuth();
   const [mpin, setMpin] = useState("");
 
+  function getCurrentDateTimeString() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `${year}-${month}-${day}, ${hours}:${minutes}:${seconds}`;
+  }
+
   const handleMpinChange = (e) => {
-    // Get the input value without spaces and limit it to 4 digits
     const newValue = e.target.value.replace(/\s/g, "").slice(0, 4);
     setMpin(newValue);
   };
@@ -20,6 +30,7 @@ const PaymentForm = ({ phoneNumber, amount, msg }) => {
         receiverAccount: phoneNumber,
         amount: parseFloat(amount),
         message: msg,
+        transactionDateTime: getCurrentDateTimeString()
       };
 
       try {
@@ -27,7 +38,7 @@ const PaymentForm = ({ phoneNumber, amount, msg }) => {
         window.location.reload();
       } catch (error) {
         console.error(error);
-        toast("Some error occured");
+        toast("Some error occured, Maybe check your balance!");
       }
     } else {
       toast("Invalid MPIN");

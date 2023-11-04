@@ -57,7 +57,7 @@ public class UserRest {
 			@RequestPart("lastName") String lastName, @RequestPart("email") String email,
 			@RequestPart("phone") String phone, @RequestPart("password") String password,
 			@RequestPart("gender") String gender, @RequestPart("aadharNumber") String aadharNumber,
-			@RequestPart("panNumber") String panNumber) {
+			@RequestPart("panNumber") String panNumber, @RequestPart("timeCreation") String timeCreation) {
 		try {
 			User user = rss.findByPhone(phone);
 
@@ -97,7 +97,7 @@ public class UserRest {
 				BankAccount bankAccount = new BankAccount();
 				bankAccount.setPhoneNumber(phone);
 				bankAccount.setBalance(5000.0); // Default balance of 5000
-				bankAccount.setCreationDate("NA"); // Default creation date
+				bankAccount.setCreationDate(timeCreation); // Default creation date
 
 				// Register the bank account
 				BankAccount registeredBankAccount = bankAccountService.createBankAccount(bankAccount);

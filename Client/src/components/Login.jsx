@@ -70,7 +70,7 @@ export default function Login() {
         };
         auth.login(userData);
         e.target.reset();
-        navigate('/')
+        navigate("/");
       }
     } catch (error) {
       console.error(error);
@@ -92,15 +92,18 @@ export default function Login() {
           <div className="modal-content tilt-in-fwd-br">
             <div className="container">
               <div className="glass-card p-4 m-2 flex-fill loginmodal">
-                {auth.user &&
+                {auth.user && (
                   <div className="afterLogin puff-in-center">
-                    Welcome to vajra {auth.user.gender==="male"?"Mr.":"Ms."} {auth.user.firstName}, You are good to go!
+                    Welcome to vajra{" "}
+                    {auth.user.gender === "male" ? "Mr." : "Ms."}{" "}
+                    {auth.user.firstName}, You are good to go!
                   </div>
-                }
-                {!auth.user &&
+                )}
+                {!auth.user && (
                   <>
                     <h2>
-                      Welcome to Vajra <i className="fa-solid fa-sack-dollar"></i>
+                      Welcome to Vajra{" "}
+                      <i className="fa-solid fa-sack-dollar"></i>
                     </h2>
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
@@ -174,7 +177,7 @@ export default function Login() {
                       </div>
                     </form>
                   </>
-                }
+                )}
               </div>
             </div>
           </div>
