@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "account_transaction")
 public class AccountTransaction {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "transaction_id")
@@ -104,11 +105,10 @@ public class AccountTransaction {
 	
 	public AccountTransaction() {}
 
-	public AccountTransaction(Long transactionId, String fromAccount, String toAccount, double amount,
+	public AccountTransaction(String fromAccount, String toAccount, double amount,
 			String creditDebit, String transactionDateTime, String senderAccount,
 			String receiverAccount, String message) {
 		super();
-		this.transactionId = transactionId;
 		this.fromAccount = fromAccount;
 		this.toAccount = toAccount;
 		this.amount = amount;
