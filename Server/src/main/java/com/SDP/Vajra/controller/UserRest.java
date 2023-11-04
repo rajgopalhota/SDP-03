@@ -9,17 +9,22 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.SDP.Vajra.model.BankAccount;
 import com.SDP.Vajra.model.User;
+import com.SDP.Vajra.service.BankAccountService;
 import com.SDP.Vajra.service.UserService;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
 public class UserRest {
 	UserService rss;
-	
+
 	@Autowired
 	JavaMailSender mail;
-	
+
+	@Autowired
+	private BankAccountService bankAccountService;
+
 	@Autowired
 	public UserRest(UserService rss) {
 		super();
@@ -27,19 +32,18 @@ public class UserRest {
 	}
 
 	@PostMapping("/reg")
-	public ResponseEntity<User> registerUservajra(@RequestPart("imagePath") MultipartFile imagePath,
+	public ResponseEntity<User> registerUserVajra(@RequestPart("imagePath") MultipartFile imagePath,
 			@RequestPart("signaturePath") MultipartFile signaturePath, @RequestPart("firstName") String firstName,
 			@RequestPart("lastName") String lastName, @RequestPart("email") String email,
 			@RequestPart("phone") String phone, @RequestPart("password") String password,
 			@RequestPart("gender") String gender, @RequestPart("aadharNumber") String aadharNumber,
 			@RequestPart("panNumber") String panNumber) {
 		try {
-
 			User user = rss.findByPhone(phone);
 
 			if (user != null) {
 				if (user.getPassword().equals(password)) {
-					return new ResponseEntity<>(null, HttpStatusCode.valueOf(204));
+					return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
 				} else {
 					return new ResponseEntity<>(user, HttpStatus.OK);
 				}
@@ -50,7 +54,6 @@ public class UserRest {
 //				smm.setSubject("hello");
 //				smm.setText("hello 2");
 //				mail.send(smm);
-				
 				User register = new User();
 				register.setFirstName(firstName);
 				register.setLastName(lastName);
@@ -64,10 +67,21 @@ public class UserRest {
 				byte[] decodedSignaturePath = signaturePath.getBytes();
 				register.setImagePath(decodedImagePath);
 				register.setSignaturePath(decodedSignaturePath);
+
+				// Register the user
 				User registeredUser = rss.registerUser(register);
+
+				// Create a new bank account for the user
+				BankAccount bankAccount = new BankAccount();
+				bankAccount.setPhoneNumber(phone);
+				bankAccount.setBalance(5000.0); // Default balance of 5000
+				bankAccount.setCreationDate("NA"); // Default creation date
+
+				// Register the bank account
+				BankAccount registeredBankAccount = bankAccountService.createBankAccount(bankAccount);
+
 				return new ResponseEntity<>(registeredUser, HttpStatus.OK);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

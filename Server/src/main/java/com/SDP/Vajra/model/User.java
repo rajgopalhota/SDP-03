@@ -1,13 +1,11 @@
 package com.SDP.Vajra.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "register")
+@Table(name = "users")
 public class User {
 
 	@Id
