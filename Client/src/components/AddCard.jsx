@@ -1,14 +1,12 @@
 import { React, useEffect, useRef, useState } from "react";
 import "./../Styles/Addcard.css";
 import AtmCards from "./AtmCards";
-import { useAuth } from "./../AuthContext"
-import bankLoad from "./../assets/gifs/agreement.gif"
+import { useAuth } from "./../AuthContext";
+import bankLoad from "./../assets/gifs/agreement.gif";
 import UrlHelper from "./../UrlHelper";
 import { toast } from "react-toastify";
 
-
 export default function AddCard() {
-
   const [cardData, setCardData] = useState([]);
 
   const [currentCardBackground, setCurrentCardBackground] = useState(1);
@@ -132,7 +130,6 @@ export default function AddCard() {
   const auth = useAuth();
 
   const handleCardSubmit = (e) => {
-
     e.preventDefault();
 
     const cardData = {
@@ -141,12 +138,12 @@ export default function AddCard() {
       cardMonth: cardMonth,
       cardYear: cardYear,
       cardCvv: cardCvv,
-      phone: auth.user.phone
+      phone: auth.user.phone,
     };
 
     UrlHelper.post("/addcard", cardData)
       .then((response) => {
-        toast("Card added")
+        toast("Card added");
         e.target.reset();
         console.log("Card added successfully.");
       })
@@ -158,7 +155,7 @@ export default function AddCard() {
 
   const fetchUserCards = async () => {
     try {
-      const response = await UrlHelper.get('/allcards');
+      const response = await UrlHelper.get("/allcards");
       const cards = response.data;
       const jsonData = JSON.stringify(cards);
       const parsedData = JSON.parse(jsonData);
@@ -167,10 +164,9 @@ export default function AddCard() {
       });
       setCardData(filteredData);
     } catch (error) {
-      console.error('Error fetching user cards:', error);
+      console.error("Error fetching user cards:", error);
     }
   };
-
 
   useEffect(() => {
     if (auth.user) {
@@ -180,18 +176,29 @@ export default function AddCard() {
 
   return (
     <>
-      {auth.user &&
+      {!auth.user && (
+        <div class="text-center">
+          <h2 className="puff-in-center">
+            You need to Login to work with cards!&nbsp;<i class="fa-solid fa-credit-card fa-bounce"/>
+          </h2>
+          <img className="img-fluid bankLoad" src={bankLoad} alt="bank load" />
+        </div>
+      )}
+      {auth.user && (
         <form onSubmit={handleCardSubmit}>
           <div className="homecardcont row h-100">
             <div className="col-lg-7 col-sm-12 tilt-in-fwd-tr">
               <div className="wrapper tilt-in-fwd-br" id="app">
                 <div className="card-form">
                   <div className="card-list">
-                    <div className={`card-item ${isCardFlipped ? "-active" : ""}`}>
+                    <div
+                      className={`card-item ${isCardFlipped ? "-active" : ""}`}
+                    >
                       <div className="card-item__side -front">
                         <div
-                          className={`card-item__focus ${isInputFocused ? "-active" : ""
-                            }`}
+                          className={`card-item__focus ${
+                            isInputFocused ? "-active" : ""
+                          }`}
                           style={focusElementStyle}
                         ></div>
                         <div className="card-item__cover">
@@ -224,25 +231,25 @@ export default function AddCard() {
                           >
                             {getCardType() === "amex"
                               ? amexCardMask.split("").map((n, $index) => (
-                                <div
-                                  className="card-item__numberItem"
-                                  key={`item-${$index}`}
-                                >
-                                  {cardNumber.length > $index
-                                    ? cardNumber[$index]
-                                    : n.trim()}
-                                </div>
-                              ))
+                                  <div
+                                    className="card-item__numberItem"
+                                    key={`item-${$index}`}
+                                  >
+                                    {cardNumber.length > $index
+                                      ? cardNumber[$index]
+                                      : n.trim()}
+                                  </div>
+                                ))
                               : otherCardMask.split("").map((n, $index) => (
-                                <div
-                                  className="card-item__numberItem"
-                                  key={`item-${$index}`}
-                                >
-                                  {cardNumber.length > $index
-                                    ? cardNumber[$index]
-                                    : n.trim()}
-                                </div>
-                              ))}
+                                  <div
+                                    className="card-item__numberItem"
+                                    key={`item-${$index}`}
+                                  >
+                                    {cardNumber.length > $index
+                                      ? cardNumber[$index]
+                                      : n.trim()}
+                                  </div>
+                                ))}
                           </label>
 
                           <div className="card-item__content">
@@ -251,7 +258,9 @@ export default function AddCard() {
                               className="card-item__info"
                               ref={cardNameRef}
                             >
-                              <div className="card-item__holder">Card Holder</div>
+                              <div className="card-item__holder">
+                                Card Holder
+                              </div>
                               <div className="card-item__name">
                                 {cardName.length ? (
                                   cardName.split("").map((n, $index) => (
@@ -369,7 +378,10 @@ export default function AddCard() {
                     <div className="card-form__row">
                       <div className="card-form__col">
                         <div className="card-form__group">
-                          <label htmlFor="cardMonth" className="card-input__label">
+                          <label
+                            htmlFor="cardMonth"
+                            className="card-input__label"
+                          >
                             Expiration Date
                           </label>
                           <select
@@ -424,7 +436,10 @@ export default function AddCard() {
                       </div>
                       <div className="card-form__col -cvv">
                         <div className="card-input">
-                          <label htmlFor="cardCvv" className="card-input__label">
+                          <label
+                            htmlFor="cardCvv"
+                            className="card-input__label"
+                          >
                             CVV
                           </label>
                           <input
@@ -453,14 +468,26 @@ export default function AddCard() {
               </div>
             </div>
             <div className="col-lg-5 col-sm-12 flex-wrap p-4">
-              {cardData.length === 0 && <> <h2 className='puff-in-center' >No saved cards, please add!</h2> <img className='img-fluid bankLoad' src={bankLoad} alt='bank load' /></>}
+              {cardData.length === 0 && (
+                <>
+                  {" "}
+                  <h2 className="puff-in-center">
+                    No saved cards, please add!
+                  </h2>{" "}
+                  <img
+                    className="img-fluid bankLoad"
+                    src={bankLoad}
+                    alt="bank load"
+                  />
+                </>
+              )}
               {cardData.map((card, index) => (
                 <AtmCards key={index} card={card} />
               ))}
             </div>
           </div>
         </form>
-      }
+      )}
     </>
   );
 }

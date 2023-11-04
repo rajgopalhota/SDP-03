@@ -22,7 +22,7 @@ export default function Agreement() {
             <section className='loansection'>
                 {!auth.user &&
                     <div class="text-center">
-                        <h2 className='puff-in-center'>You need to Login to see your Agreement!</h2>
+                        <h2 className='puff-in-center'>You need to Login to see your Agreement!&nbsp;<i class="fa-solid fa-handshake fa-bounce"/></h2>
                         <img className='img-fluid bankLoad' src={bankLoad} alt='bank load' />
                     </div>
                 }
