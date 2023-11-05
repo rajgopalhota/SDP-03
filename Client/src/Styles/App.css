@@ -584,7 +584,6 @@ footer i:hover {
   background-image: linear-gradient(45deg, var(--a-color-1), var(--a-color-2));
 }
 .transactioncard{
-  min-width: 300px;
   font-size: 20px;
 }
 .transactioncard p{
@@ -592,4 +591,21 @@ footer i:hover {
 }
 .transactioncard .timestamp{
   font-size: 16px !important;
+}
+.aboutcards{
+  min-width: 500px;
+}
+.aboutcards img{
+  width: 200px;
+}
+.aboutcards span{
+  font-size: 22px;
+}
+.aboutcards p{
+  color: var(--main-color-2);
+  font-size: 16px;
+}
+.google-map-iframe {
+  width: 100%;
+  border-radius: 12px;
 }

@@ -16,6 +16,7 @@ import Transactions from "./components/Transactions";
 import { useAuth } from "./AuthContext";
 import UrlHelper from "./UrlHelper"
 import Agreement from "./components/Agreement";
+import About from "./components/About";
 
 function App() {
   const auth = useAuth();
@@ -75,6 +76,7 @@ function App() {
             <Route path="/transaction" element={<Transactions />} />
             <Route path="/addcard" element={<AddCard />} />
             <Route path="/agreement" element={<Agreement />} />
+            <Route path="/aboutus" element={<About />} />
             <Route path="*" element={<Pagenotfound />} />
           </Routes>
         </section>

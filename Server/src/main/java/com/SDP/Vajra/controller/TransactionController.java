@@ -14,7 +14,7 @@ import com.SDP.Vajra.model.BankAccount;
 import com.SDP.Vajra.service.BankAccountService;
 import com.SDP.Vajra.service.AccountTransactionService;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 @RestController
 public class TransactionController {
 

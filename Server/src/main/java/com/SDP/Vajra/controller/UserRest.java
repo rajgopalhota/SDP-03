@@ -15,7 +15,7 @@ import com.SDP.Vajra.model.User;
 import com.SDP.Vajra.service.BankAccountService;
 import com.SDP.Vajra.service.UserService;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 @RestController
 public class UserRest {
 	UserService rss;
