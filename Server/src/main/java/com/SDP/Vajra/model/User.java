@@ -1,6 +1,7 @@
 package com.SDP.Vajra.model;
 
 import java.util.Arrays;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -46,16 +47,25 @@ public class User {
 	@Column(name = "isVerified")
 	private boolean isVerified = false;
 
+		
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BankAccount> bankAccounts;
+	
 	public void setVerified(boolean isVerified) {
 		this.isVerified = isVerified;
 	}
+	
+	
+	
 
 	public User() {
 	}
 
+	
+	
 	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
-			String aadharNumber, String panNumber, byte[] imagePath, byte[] signaturePath, String role,
-			boolean isVerified, String mpin) {
+			String aadharNumber, String panNumber, String mpin, byte[] imagePath, byte[] signaturePath, String role,
+			boolean isVerified, List<BankAccount> bankAccounts) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -66,14 +76,31 @@ public class User {
 		this.gender = gender;
 		this.aadharNumber = aadharNumber;
 		this.panNumber = panNumber;
+		this.mpin = mpin;
 		this.imagePath = imagePath;
 		this.signaturePath = signaturePath;
 		this.role = role;
 		this.isVerified = isVerified;
-		this.mpin = mpin;
-
+		this.bankAccounts = bankAccounts;
 	}
-	
+
+
+
+
+	public List<BankAccount> getBankAccounts() {
+		return bankAccounts;
+	}
+
+
+
+
+	public void setBankAccounts(List<BankAccount> bankAccounts) {
+		this.bankAccounts = bankAccounts;
+	}
+
+
+
+
 	public String getMpin() {
 		return mpin;
 	}

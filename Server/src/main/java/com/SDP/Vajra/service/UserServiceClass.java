@@ -1,4 +1,6 @@
 package com.SDP.Vajra.service;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +56,14 @@ public class UserServiceClass implements UserService{
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null; // Return null in case of an exception
+		}
+	}
+	@Override
+	public List<User> finadAll() {
+		try {
+			return rs.findAll();
+		} catch (Exception e) {
+			return new ArrayList<>();
 		}
 	}
 	

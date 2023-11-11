@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.*;
 
 import com.SDP.Vajra.model.BankAccount;
+import com.SDP.Vajra.model.Card;
 import com.SDP.Vajra.model.User;
 import com.SDP.Vajra.service.BankAccountService;
 import com.SDP.Vajra.service.UserService;
@@ -151,6 +152,16 @@ public class UserRest {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping("/getallusers")
+	public ResponseEntity<List<User>> getAllUsers() {
+		try {
+			List<User> users = rss.finadAll();
+			return new ResponseEntity<>(users, HttpStatus.OK);
+		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

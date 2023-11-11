@@ -1,5 +1,7 @@
 package com.SDP.Vajra.service;
 
+import java.util.List;
+
 import com.SDP.Vajra.model.User;
 
 public interface UserService {
@@ -8,5 +10,7 @@ public interface UserService {
 	public User findById(Long id);
 	
 	public User findByPhone(String phone);
+	
+	public List<User> finadAll();
 
 }

@@ -57,6 +57,7 @@ export default function Login() {
           panNumber,
           gender,
           mpin,
+          role,
         } = response.data;
         const userData = {
           firstName,
@@ -67,10 +68,12 @@ export default function Login() {
           panNumber,
           gender,
           mpin,
+          role,
         };
         auth.login(userData);
         e.target.reset();
         navigate("/");
+        console.log(userData);
       }
     } catch (error) {
       console.error(error);
