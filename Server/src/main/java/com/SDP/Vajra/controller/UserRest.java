@@ -165,5 +165,27 @@ public class UserRest {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	 @PostMapping("/acceptUser/{phone}")
+	    public ResponseEntity<User> acceptUser(@PathVariable String phone) {
+	        try {
+	            User acceptedUser = rss.acceptUser(phone);
+	            return new ResponseEntity<>(acceptedUser, HttpStatus.OK);
+	        } catch (Exception e) {
+	            // Handle the case where the user is not found	
+	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	        }
+	    }
+	 
+	 @PostMapping("/rejectUser/{phone}")
+	 public ResponseEntity<User> rejectUser(@PathVariable String phone) {
+	     try {
+	         User rejectedUser = rss.rejectUser(phone);
+	         return new ResponseEntity<>(rejectedUser, HttpStatus.OK);
+	     } catch (Exception e) {
+	         // Handle the case where the user is not found	
+	         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	     }
+	 }
 
 }

@@ -31,18 +31,42 @@ export default function Manager() {
       }
     };
 
+    const handleAccept = async (phone) => {
+      try {
+        await UrlHelper.post(`/acceptUser/${phone}`); // Replace with your actual backend endpoint
+        // Refresh the list of unverified users after accepting
+        fetchUsers();
+      } catch (error) {
+        console.error('Error accepting user:', error);
+      }
+    };
+
+    const handleReject = async (phone) => {
+      try {
+        await UrlHelper.post(`/rejectUser/${phone}`); // Replace with your actual backend endpoint
+        // Refresh the list of unverified users after rejecting
+        fetchUsers();
+      } catch (error) {
+        console.error('Error rejecting user:', error);
+      }
+    };
+
     const unverifiedUsers = users.filter((user) => !user.isVerified);
+
+    const customerUsers = users.filter((user) => user.role === 'customer');
 
   return (
     <>
        <h1>Unverified Users</h1>
-      {unverifiedUsers.length === 0 ? (
+      {unverifiedUsers.length && customerUsers.length === 0 ? (
         <p>No unverified users found.</p>
       ) : (
         <ul>
           {unverifiedUsers.map((user) => (
             <li key={user.id}>
               {user.firstName} {user.lastName} - Email: {user.email}
+              <button onClick={() => handleAccept(user.phone)}>Accept</button>
+              <button onClick={() => handleReject(user.phone)}>Reject</button>
             </li>
           ))}
         </ul>

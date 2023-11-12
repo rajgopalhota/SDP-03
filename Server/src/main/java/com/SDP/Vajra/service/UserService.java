@@ -12,5 +12,9 @@ public interface UserService {
 	public User findByPhone(String phone);
 	
 	public List<User> finadAll();
+	
+	public User acceptUser(String phone);
+	
+	public User rejectUser(String phone);
 
 }
