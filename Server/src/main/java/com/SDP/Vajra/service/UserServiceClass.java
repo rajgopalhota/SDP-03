@@ -75,7 +75,7 @@ public class UserServiceClass implements UserService {
 	public User acceptUser(String phone) {
 		User user = rs.findByPhone(phone);
 		if (user != null) {
-			user.setVerified(true);
+			user.setIsVerified(true);
 			return rs.save(user);
 		} else {
 			// Handle the case where the user with the given phone is not found

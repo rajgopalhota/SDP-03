@@ -51,9 +51,9 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<BankAccount> bankAccounts;
 	
-	public void setVerified(boolean isVerified) {
-		this.isVerified = isVerified;
-	}
+//	public void setVerified(boolean isVerified) {
+//		this.isVerified = isVerified;
+//	}
 	
 	
 	
