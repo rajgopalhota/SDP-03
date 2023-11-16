@@ -101,7 +101,7 @@ public class UserRest {
 				bankAccount.setCreationDate(timeCreation); // Default creation date
 
 				// Register the bank account
-				BankAccount registeredBankAccount = bankAccountService.createBankAccount(bankAccount);
+				BankAccount registeredBankAccount = bankAccountService.createBankAccount(bankAccount,registeredUser.getId());
 
 				return new ResponseEntity<>(registeredUser, HttpStatus.OK);
 			}

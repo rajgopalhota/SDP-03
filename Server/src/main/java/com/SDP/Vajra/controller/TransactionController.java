@@ -35,6 +35,10 @@ public class TransactionController {
 			BankAccount receiverAccount = bankAccountService
 					.getBankAccountByPhoneNumber(transactionRequest.getReceiverAccount());
 
+			if (!senderAccount.getUser().getIsVerified() || !receiverAccount.getUser().getIsVerified()) {
+	            return ResponseEntity.badRequest().body("Transaction failed. Both sender and receiver must be verified.");
+	        }
+			
 			double transactionAmount = transactionRequest.getAmount();
 			if (senderAccount.getBalance() < transactionAmount) {
 				return ResponseEntity.badRequest().body("Insufficient balance for the transaction.");

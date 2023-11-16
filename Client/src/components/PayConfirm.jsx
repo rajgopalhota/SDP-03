@@ -35,10 +35,16 @@ const PaymentForm = ({ phoneNumber, amount, msg }) => {
 
       try {
         const response = await UrlHelper.post("/makeTransaction", requestData);
-        window.location.reload();
+        if (response.status === 200) {
+          window.location.reload();
+        } else if (response.status === 400) {
+          toast("Transaction failed. Both sender and receiver must be verified or there might be insufficient balance for the transaction.");
+        } else {
+          toast("Some error occurred. Please try again later.");
+        }
       } catch (error) {
         console.error(error);
-        toast("Some error occured, Maybe check your balance!");
+        toast("Some error occurred. Please try again later.");
       }
     } else {
       toast("Invalid MPIN");
@@ -58,29 +64,29 @@ const PaymentForm = ({ phoneNumber, amount, msg }) => {
         <div className="modal-dialog">
           <div className="modal-content paymentmodal">
 
-                <div className="modal-header">
-                  <h5 className="modal-title">Enter MPIN</h5>
-                </div>
-                <div className="modal-body">
-                  <p>
-                    Are you sure to have transaction with {phoneNumber} of
-                    amount: {amount} for {msg}
-                  </p>
-                  <input
-                    type="number"
-                    className="form-control"
-                    value={mpin}
-                    onChange={handleMpinChange}
-                    placeholder="Enter MPIN"
-                  />
-                </div>
-                {auth.user && (
-                  <div className="modal-footer loginbutton bodybtn">
-                    <button type="button" onClick={handleConfirm}>
-                      <i className="fas fa-check-circle"></i> Confirm
-                    </button>
-                  </div>
-                )}
+            <div className="modal-header">
+              <h5 className="modal-title">Enter MPIN</h5>
+            </div>
+            <div className="modal-body">
+              <p>
+                Are you sure to have transaction with {phoneNumber} of
+                amount: {amount} for {msg}
+              </p>
+              <input
+                type="number"
+                className="form-control"
+                value={mpin}
+                onChange={handleMpinChange}
+                placeholder="Enter MPIN"
+              />
+            </div>
+            {auth.user && (
+              <div className="modal-footer loginbutton bodybtn">
+                <button type="button" onClick={handleConfirm}>
+                  <i className="fas fa-check-circle"></i> Confirm
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

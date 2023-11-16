@@ -3,6 +3,8 @@ package com.SDP.Vajra.model;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -47,22 +49,17 @@ public class User {
 	@Column(name = "isVerified")
 	private boolean isVerified = false;
 
-		
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<BankAccount> bankAccounts;
-	
+	@JsonManagedReference
+	private List<BankAccount> bankAccounts;
+
 //	public void setVerified(boolean isVerified) {
 //		this.isVerified = isVerified;
 //	}
-	
-	
-	
 
 	public User() {
 	}
 
-	
-	
 	public User(Long id, String firstName, String lastName, String email, String phone, String password, String gender,
 			String aadharNumber, String panNumber, String mpin, byte[] imagePath, byte[] signaturePath, String role,
 			boolean isVerified, List<BankAccount> bankAccounts) {
@@ -84,22 +81,13 @@ public class User {
 		this.bankAccounts = bankAccounts;
 	}
 
-
-
-
 	public List<BankAccount> getBankAccounts() {
 		return bankAccounts;
 	}
 
-
-
-
 	public void setBankAccounts(List<BankAccount> bankAccounts) {
 		this.bankAccounts = bankAccounts;
 	}
-
-
-
 
 	public String getMpin() {
 		return mpin;

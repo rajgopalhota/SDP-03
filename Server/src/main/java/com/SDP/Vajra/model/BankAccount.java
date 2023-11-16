@@ -1,5 +1,7 @@
 package com.SDP.Vajra.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class BankAccount {
 	private String phone;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	@JoinColumn(name = "user_id")
 	private User user;
 
