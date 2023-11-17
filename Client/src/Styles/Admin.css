@@ -1,0 +1,45 @@
+.admin{
+    margin-top: 20px;
+    overflow-x: scroll;
+}
+.admin::-webkit-scrollbar{
+    display: none;
+}
+.admin table{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.admin table td,th{
+    border: 1PX solid black;
+    border-radius: 7px !important;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 4px rgba(0, 0, 91, 0.693);
+    padding: 10px;
+}
+.admin img{
+    width: 80px;
+    border-radius: 4px;
+    filter: none !important;
+    border: 1px solid black;
+}
+.admin th{
+    font-weight: normal !important;
+}
+.admin thead{
+    background-image: linear-gradient(-45deg, var(--main-color-1), var(--main-color-2));
+    color: white;
+    filter: brightness(1.4);
+}
+
+.admin .content:nth-child(even) {
+    background-color: #ece4d0;
+}
+
+.admin .content:nth-child(odd) {
+    background-color: var(--glow-color);
+}
+
+td:nth-child(odd) {
+    background-color: rgba(255, 240, 245, 0.379);
+}

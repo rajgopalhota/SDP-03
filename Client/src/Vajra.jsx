@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./Styles/App.css";
+import "./Styles/Admin.css"
 import AddCard from "./components/AddCard";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
@@ -18,6 +19,7 @@ import UrlHelper from "./UrlHelper"
 import Agreement from "./components/Agreement";
 import About from "./components/About";
 import Manager from "./components/Manager";
+import Users from "./components/Admin/Users";
 
 function App() {
   const auth = useAuth();
@@ -79,6 +81,10 @@ function App() {
             <Route path="/agreement" element={<Agreement />} />
             <Route path="/aboutus" element={<About />} />
             <Route path="/manager" element={<Manager/>} />
+
+
+
+            <Route path="/adminuser" element={<Users/>} />
             
             <Route path="*" element={<Pagenotfound />} />
           </Routes>
