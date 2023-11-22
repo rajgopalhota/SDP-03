@@ -95,4 +95,9 @@ public class UserServiceClass implements UserService {
 		}
 	}
 
+	@Override
+	public User save(User existingUser) {
+		return rs.save(existingUser);
+	}
+
 }

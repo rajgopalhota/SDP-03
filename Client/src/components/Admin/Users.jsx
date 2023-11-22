@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 import UrlHelper from "./../../UrlHelper";
+import UsersUpdate from './UsersUpdate';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
+    const [selectedUserId, setSelectedUserId] = useState(null);
 
     useEffect(() => {
         fetchUsers();
@@ -38,6 +40,25 @@ export default function Users() {
             console.error('Error while fetching users:', error);
         }
     };
+
+    const userDelete = async (phone) => {
+        try {
+            await UrlHelper.post(`/delete/${phone}`); // Replace with your actual backend endpoint
+            // Refresh the list of unverified users after rejecting
+            fetchUsers();
+        } catch (error) {
+            console.error('Error rejecting user:', error);
+        }
+    };
+
+    const handleUpdateClick = (userId) => {
+        setSelectedUserId(userId);
+    };
+
+    const handleUpdateClose = () => {
+        setSelectedUserId(null);
+        fetchUsers(); // Refresh the user list after closing the update form
+    };
     return (
         <div className='admin'>
             <h1>Admin Panel</h1>
@@ -53,11 +74,12 @@ export default function Users() {
                         <th>Gender</th>
                         <th>Aadhar Number</th>
                         <th>PAN Number</th>
-                        <th>MPIN</th>
                         <th>Image</th>
                         <th>SIGNATURE</th>
                         <th>Role</th>
                         <th>Is Verified</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                         {/* Add more columns as needed */}
                     </tr>
                 </thead>
@@ -69,11 +91,9 @@ export default function Users() {
                             <td>{user.lastName}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
-                            {/* <td>{user.password}</td> */}
                             <td>{user.gender}</td>
                             <td>{user.aadharNumber}</td>
                             <td>{user.panNumber}</td>
-                            <td>{user.mpin}</td>
                             <td>
                                 <img src={user.imageURL} alt="User"/>
                             </td>
@@ -82,11 +102,20 @@ export default function Users() {
                             </td>
                             <td>{user.role}</td>
                             <td>{user.isVerified ? 'Yes' : 'No'}</td>
+                            <td>
+                                <a onClick={() => handleUpdateClick(user.id)}><i class="fa-solid fa-pen"></i></a>
+                            </td>
+                            <td>
+                                <a onClick={() => userDelete(user.phone)}><i class="fa-solid fa-trash"></i></a>
+                            </td>
                             {/* Add more cells as needed */}
                         </tr>
                     ))}
                 </tbody>
             </table>
+            {selectedUserId && (
+                <UsersUpdate userId={selectedUserId} onClose={handleUpdateClose} />
+            )}
         </div>
     )
 }

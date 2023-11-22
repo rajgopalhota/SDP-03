@@ -43,3 +43,7 @@
 td:nth-child(odd) {
     background-color: rgba(255, 240, 245, 0.379);
 }
+
+.admin a{
+    cursor: pointer;
+}

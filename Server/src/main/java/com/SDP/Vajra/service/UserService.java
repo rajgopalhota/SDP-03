@@ -17,4 +17,6 @@ public interface UserService {
 	
 	public User rejectUser(String phone);
 
+	public User save(User existingUser);
+
 }

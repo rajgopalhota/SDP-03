@@ -445,6 +445,7 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
   border-radius: 11px;
   max-height: 100vh;
+  min-height: 100vh;
   overflow-y: scroll;
 }
 .pay-glass-card {
